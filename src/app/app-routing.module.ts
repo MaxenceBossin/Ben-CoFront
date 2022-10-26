@@ -1,10 +1,24 @@
-import { AuthComponent } from './modules/auth/auth.component';
-import { MentionsComponent } from './modules/mentions/mentions.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { MentionsComponent } from './components/mentions/mentions.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  {
+    path: 'utilisateur',
+    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: 'travailleur',
+    loadChildren: () => import('./modules/garbage-collector/garbage-collector.module').then(m => m.GarbageCollectorModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+
+
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'mention-legal', component: MentionsComponent },

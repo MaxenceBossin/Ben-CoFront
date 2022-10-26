@@ -1,9 +1,61 @@
-#header{
+/*NAVBAR ------------------------------------------------------*/
 
+#navbar_accueil{
+    background-color: #EDEAEA;
+    opacity: 84%;
+    width: 98%;
+    height: 80px;
+    z-index: 1;
+    position: fixed;
+    top: 2%;
+    right: 1%;
+    left: 1%;
+    border-radius: 17px;
     display: flex;
-    flex-flow: row nowrap;
-    background-color: burlywood;
     justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#logo{
+    height: 100%;
+    width: auto;
+    margin-left: 10px;
+}
 
-}   
+/* LES BOUTONS ----------------------------------------------- */
 
+.simple_button{
+    color: black;
+    border-radius: 50px;
+    height: 40%;
+    align-items: center;
+    display: flex;
+    cursor: pointer;;
+}
+.simple_button:hover{
+    color: #50b996;
+}
+.green_button{
+    background-color: #6FCEAE;
+    color: white;
+    border-radius: 50px;
+    height: 53%;
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.green_button:hover{
+    background-color: #EDEAEA;
+    color: #6FCEAE;
+    border: 2px solid #6FCEAE;
+    margin-left: 10px;
+}
+.bouton_align{
+    flex-direction:row;
+    width: auto;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}

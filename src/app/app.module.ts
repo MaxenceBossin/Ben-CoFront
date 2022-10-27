@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './partials/header/header.component';
-import { HomeComponent } from './components/home/home.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { MentionsComponent } from './components/mentions/mentions.component';
-import { MapComponent } from './components/map/map.component';
+import { HeaderComponent } from './components/PageAccueil/header/header.component';
+import { HomeComponent } from './components/PageAccueil/home/home.component';
+import { AuthComponent } from './components/PageAccueil/auth/auth.component';
+import { MentionsComponent } from './components/PageAccueil/mentionsLegales/mentions.component';
+import { MapComponent } from './partials/map/map.component';
+import { NavBarPleineComponent } from './partials/nav-bar-pleine/nav-bar-pleine.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MapComponent } from './components/map/map.component';
     HomeComponent,
     AuthComponent,
     MentionsComponent,
-    MapComponent
+    MapComponent,
+    NavBarPleineComponent
   ],
   imports: [
     BrowserModule,

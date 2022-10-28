@@ -1,2 +1,13 @@
-<app-header></app-header>
-<p>auth works!</p>
+<div class="div_auth">
+    <input type="hidden" [routerLink]="'inscription'" routerLinkActive #inscription="routerLinkActive" />
+    <section *ngIf="inscription.isActive">inscription</section>
+    <form method="">
+        <div class="formSection">
+            Adresse E-mail<br>
+            <input type='email' name='email' class='inputLogin_auth'><br><br>
+            Mot de passe<br>
+            <input type='password' name='password' class='inputLogin_auth'><br><br>
+        </div>
+        <button class='green_button_auth'>Connexion</button>
+    </form>
+</div>

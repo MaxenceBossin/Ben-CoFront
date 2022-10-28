@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { FiltersBennesComponent } from './filters-bennes.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('FiltersBennesComponent', () => {
+  let component: FiltersBennesComponent;
+  let fixture: ComponentFixture<FiltersBennesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [ FiltersBennesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(FiltersBennesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/PageAccueil/header/header.component';
-import { HomeComponent } from './components/PageAccueil/home/home.component';
-import { AuthComponent } from './components/PageAccueil/auth/auth.component';
-import { MentionsComponent } from './components/PageAccueil/mentionsLegales/mentions.component';
+import { HomeComponent } from './components/home/home.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { MentionsComponent } from './components/mentionsLegales/mentions.component';
 import { MapComponent } from './partials/map/map.component';
-import { NavBarPleineComponent } from './partials/nav-bar-pleine/nav-bar-pleine.component';
+import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
+import { SearchBarLocationComponent } from './partials/search-bar-location/search-bar-location.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NavBarPleineComponent } from './partials/nav-bar-pleine/nav-bar-pleine.
     AuthComponent,
     MentionsComponent,
     MapComponent,
-    NavBarPleineComponent
+    NavbarPleineComponent,
+    FiltersBennesComponent,
+    SearchBarLocationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavBarPleineComponent } from './nav-bar-pleine.component';
+import { FiltersBennesComponent } from './filters-bennes.component';
 
-describe('NavBarPleineComponent', () => {
-  let component: NavBarPleineComponent;
-  let fixture: ComponentFixture<NavBarPleineComponent>;
+describe('FiltersBennesComponent', () => {
+  let component: FiltersBennesComponent;
+  let fixture: ComponentFixture<FiltersBennesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavBarPleineComponent ]
+      declarations: [ FiltersBennesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavBarPleineComponent);
+    fixture = TestBed.createComponent(FiltersBennesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

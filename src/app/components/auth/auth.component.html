@@ -1,6 +1,5 @@
+<app-header></app-header>
 <div class="div_auth" style="padding: 130px 0 0 10px;">
-    <input type="hidden" [routerLink]="'inscription'" routerLinkActive #inscription="routerLinkActive" />
-    <section *ngIf="inscription.isActive">inscription</section>
     <form method="">
         <div class="formSection">
             Adresse E-mail<br>
@@ -9,7 +8,6 @@
             <input type='password' name='password' class='inputLogin_auth'><br><br>
         </div>
         <button class='green_button'>Connexion</button>
-        <a class='' routerLink="inscription">Je désire m'inscrire</a>
-
+        <a class='' routerLink="/inscription">Je désire m'inscrire</a>
     </form>
 </div>

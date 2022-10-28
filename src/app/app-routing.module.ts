@@ -1,3 +1,4 @@
+import { SigninComponent } from './components/auth/signin/signin.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { MentionsComponent } from './components/mentionsLegales/mentions.component';
 import { NgModule } from '@angular/core';
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'mention-legal', component: MentionsComponent },
   { path: 'connexion', component: AuthComponent },
-  { path: 'inscription', component: HomeComponent },
+  { path: 'inscription', component: SigninComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

@@ -12,6 +12,7 @@ import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
 import { SearchBarLocationComponent } from './partials/search-bar-location/search-bar-location.component';
+import { SigninComponent } from './components/auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchBarLocationComponent } from './partials/search-bar-location/searc
     MapComponent,
     NavbarPleineComponent,
     FiltersBennesComponent,
-    SearchBarLocationComponent
+    SearchBarLocationComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

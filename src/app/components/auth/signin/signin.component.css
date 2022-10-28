@@ -1,9 +1,9 @@
-.div_auth {
-    min-height: 100vh;
+.div_signin {
     background-color: #EDEDED;
+
 }
 
-.inputLogin_auth {
+.inputLogin_signin {
     background-color: white;
     border-radius: 8px;
     width: 250px;

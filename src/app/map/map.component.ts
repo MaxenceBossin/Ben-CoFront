@@ -1,5 +1,7 @@
+import { DumpsterService } from './../service/dumpster/dumpster.service';
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
+
 
 @Component({
   selector: 'app-map',
@@ -35,7 +37,13 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
   }
 
-  constructor() { }
+  constructor(private serviceDumpster: DumpsterService) { }
+
+  ngOnInit(): void { 
+    this.serviceDumpster.getAllDumpsters().subscribe(dumpster => {
+      console.log('dumpster' , dumpster)
+    })
+  }
 
   ngAfterViewInit(): void {
     this.initMap();

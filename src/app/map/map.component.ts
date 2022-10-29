@@ -1,7 +1,5 @@
-import { DumpsterService } from './../service/dumpster/dumpster.service';
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
-
 
 @Component({
   selector: 'app-map',
@@ -12,16 +10,17 @@ import * as L from 'leaflet';
 export class MapComponent implements AfterViewInit {
 
   private map: any;
-  private initMap(): void {
+  private initMap(lat: any, lon: any): void {
     this.map = L.map('map', {
-      center: [43.60899203730793, 1.4338861683142448],
+      // center: [43.60899203730793, 1.4338861683142448],
+      center: [lat, lon],
       zoom: 13
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>'
     });
 
     var greenIcon = L.icon({
@@ -32,20 +31,24 @@ export class MapComponent implements AfterViewInit {
       shadowAnchor: [4, 62],  // the same for the shadow
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-    L.marker([43.60899203730793, 1.4338861683142448], { icon: greenIcon }).addTo(this.map).bindPopup("Je suis une benne LaDen :D !!!");
-    
+    L.marker([43.60899203730793, 1.4338861683142448], { icon: greenIcon }).addTo(this.map).bindPopup("Je suis une benne LaDen 😄 !!!");
+
     tiles.addTo(this.map);
+
   }
 
-  constructor(private serviceDumpster: DumpsterService) { }
-
-  ngOnInit(): void { 
-    this.serviceDumpster.getAllDumpsters().subscribe(dumpster => {
-      console.log('dumpster' , dumpster)
-    })
+  placeSelected(event: any) {
+    console.log(event.properties.lat);
+    console.log(event.properties.lon);
+    var lat = event.properties.lat;
+    var lon = event.properties.lon;
+    this.map.remove();
+    this.initMap(lat, lon);
   }
+
+  constructor() { }
 
   ngAfterViewInit(): void {
-    this.initMap();
+    this.initMap(43.60899203730793, 1.4338861683142448);
   }
 }

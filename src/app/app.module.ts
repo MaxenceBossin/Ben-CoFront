@@ -13,7 +13,6 @@ import { MentionsComponent } from './components/mentionsLegales/mentions.compone
 import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
-import { SearchBarLocationComponent } from './partials/search-bar-location/search-bar-location.component';
 import { MapComponent } from './map/map.component';
 
 
@@ -26,7 +25,6 @@ import { MapComponent } from './map/map.component';
     MentionsComponent,
     NavbarPleineComponent,
     FiltersBennesComponent,
-    SearchBarLocationComponent,
     MapComponent
   ],
   imports: [

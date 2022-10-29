@@ -1,0 +1,27 @@
+#boite_filtres{
+background-color: rgba(255, 255, 255, 0.701);
+    position: fixed;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    top: 22%;
+    border-radius: 0px 15px 15px 0px;
+    padding: 0% 2% 1% 1%;
+}
+.bouton_filtres{
+    text-decoration: none;
+    color: rgb(2, 2, 2);
+    background-color:#b1b1b1d9;
+    padding: 4px;
+    margin: 4%;
+    width: 100%;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.bouton_filtres:hover{
+    background-color:rgba(255, 255, 255, 0);
+    color: black;
+}

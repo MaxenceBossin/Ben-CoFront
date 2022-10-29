@@ -5,4 +5,11 @@
   </div>
 </div>
 
-<geoapify-geocoder-autocomplete (placeSelect)="placeSelected($event)" ></geoapify-geocoder-autocomplete>
+<div id="search_bar_container">
+    <geoapify-geocoder-autocomplete placeholder="Entrez votre adresse ici" class="input_recherche" (placeSelect)="placeSelected($event)"></geoapify-geocoder-autocomplete>
+    <div class="bouton_location">
+        <i class="fi fi-rs-marker"></i>
+    </div>
+</div>
+
+

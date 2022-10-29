@@ -1,7 +1,9 @@
 /*IMPORTS ----------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import "~@geoapify/geocoder-autocomplete/styles/minimal.css";
+@import "./assets/geoapify.css";
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+
 
 /*INITIALISATION----------------------------------------------*/
 
@@ -10,3 +12,4 @@ body {
     font-family: 'Montserrat', sans-serif;
 
 }
+

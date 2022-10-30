@@ -1,16 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { AuthComponent } from './components/auth/auth.component';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { MentionsComponent } from './components/mentionsLegales/mentions.component';
+import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes.component';
+import { HeaderComponent } from './components/header/header.component';
+import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
+import { MapComponent } from './map/map.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    AuthComponent,
+    MentionsComponent,
+    NavbarPleineComponent,
+    FiltersBennesComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c')
   ],
   providers: [],
   bootstrap: [AppComponent]

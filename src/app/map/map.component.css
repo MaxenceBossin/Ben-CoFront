@@ -25,9 +25,12 @@
     top: 85%;
     right: 25%;
     left: 25%;
+<<<<<<< Updated upstream
     width: 50%;
+=======
+    width: 50%;  
+>>>>>>> Stashed changes
 }
-
 .input_recherche{
     background-color: white;
     border: none;
@@ -35,7 +38,7 @@
     width: 90%;
     padding-left: 5%;
 }
-#input_recherche:focus{
+.input_recherche:focus{
     outline: none;
     font-size: medium;
 }
@@ -58,3 +61,11 @@
     display: flex;
 }
 
+/*MEDIAQUERIES SEARCH BAR*/
+@media all and (max-device-width: 564px){
+  #search_bar_container{
+    right: 4%;
+    left: 4%;
+    width: 90%;
+  }
+}

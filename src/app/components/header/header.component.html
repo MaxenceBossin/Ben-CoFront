@@ -1,15 +1,19 @@
+<<<<<<< Updated upstream
 <header id="header">
     
     <div id="navbar_accueil">
         <img id="logo" src="../../../assets/images/logo.png">
+=======
+<nav class="flex-container">
+    <img id="logo" routerLink="/" src="../../../assets/images/logo.png">
+>>>>>>> Stashed changes
 
-        <div class="bouton_align">
-            <span class="simple_button" routerLink="/mention-legal">
-                Mentions Légales
-            </span>
-            <span class="green_button" routerLink="/connexion">
-                Connexion
-            </span>
-        </div>
-    </div>
-</header>
+    <label for="drop" class="toggle">☰</label>
+    <input type="checkbox" id="drop" />
+
+    <ul class="menu bouton_align">
+        <li><a class="simple_button" routerLink="/mention-legal">Mentions Légales</a></li>
+        <li><a class="green_button" routerLink="/connexion">Connexion</a></li>
+    </ul>
+
+</nav>

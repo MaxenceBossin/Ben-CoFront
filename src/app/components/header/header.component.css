@@ -57,6 +57,7 @@ p {
 .flex-container {
 	display: flex;
   justify-content: space-between;
+  position: fixed;
 }
 
 nav { 

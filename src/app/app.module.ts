@@ -14,6 +14,7 @@ import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
 import { MapComponent } from './map/map.component';
+import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MapComponent } from './map/map.component';
     MentionsComponent,
     NavbarPleineComponent,
     FiltersBennesComponent,
-    MapComponent
+    MapComponent,
+    EboueurMessagesComponent
   ],
   imports: [
     BrowserModule,

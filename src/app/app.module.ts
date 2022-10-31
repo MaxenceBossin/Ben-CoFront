@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
 import { MapComponent } from './map/map.component';
 import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
+import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-
     NavbarPleineComponent,
     FiltersBennesComponent,
     MapComponent,
-    EboueurMessagesComponent
+    EboueurMessagesComponent,
+    DeclarationMakerComponent
   ],
   imports: [
     BrowserModule,

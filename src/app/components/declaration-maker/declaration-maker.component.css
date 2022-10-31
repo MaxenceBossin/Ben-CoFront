@@ -1,0 +1,112 @@
+
+
+
+
+
+
+
+
+
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+body {
+  font-family: "lato";
+  font-weight: 300;
+  height: 100%;
+  background: #ffeb3b;
+}
+
+a {
+  text-decoration: none;
+  color: #ffe;
+}
+
+.text {
+  margin-bottom: 50px;
+}
+
+.btn {
+  background: #333;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.btn.closebtn {
+  padding: 5px 10px;
+}
+.btn.openbtn {
+  padding: 20px;
+}
+.btn.openbtn:hover {
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modal-content {
+    background: #E4E4E4;
+    width: 35%;
+    height: 50%;
+    position: absolute;
+    padding: 5px 20px 13px 20px;
+    border-radius: 5px;
+    top: 20%;
+    bottom: 20%;
+    left: 32.5%;
+    right: 32.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#close {
+  display: none;
+}
+
+
+.declaration_style{
+    border: none;
+    padding: 17px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+#img_decla{
+    margin-top: 3%;
+    text-align: center;
+}
+.lieu_declaration{
+    border: none;
+    padding: 0px 5px 0px 5px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+#explication_decla{
+    width: 70%;
+    border: none;
+    height: 150px;
+    border-radius: 8px;
+}
+.photo_description{
+    display: flex;
+    flex-direction: row;
+}

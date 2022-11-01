@@ -1,0 +1,24 @@
+
+<div class="modal" id="modal-one">
+    <div class="modal-content">
+
+        <div id="img_decla">
+            <img  width="35%" src="../../../assets/images/logo.png" alt="">
+        </div>
+      <p>Nouvelle déclaration</p>
+
+      <select name="declaration" class="declaration_style">
+        <option value="">-- Choisissez la raison de votre déclaration --</option>
+        <option value="degradation">Dégradation d'une benne</option>
+    </select>
+    <geoapify-geocoder-autocomplete class="lieu_declaration" placeholder="Lieu de la déclaration (adresse de la benne)"></geoapify-geocoder-autocomplete>
+
+    <div class="photo_description">
+        <input type="text" name="" id="explication_decla" placeholder="Expliquez votre problème en quelques lignes...">
+        <input type="file" id="photo_decla" name="declaration" accept="image/png, image/jpeg">
+    </div>
+
+      <a href="#close" class="btn closebtn">Fermer</a>
+    </div>
+
+  </div>

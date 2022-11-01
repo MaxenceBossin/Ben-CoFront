@@ -1,25 +1,3 @@
-/*NAVBAR ------------------------------------------------------*/
-
-#navbar_accueil{
-    background-color: #EDEAEA;
-    opacity: 84%;
-    width: 98%;
-    height: 80px;
-    z-index: 1;
-    position: fixed;
-    top: 2%;
-    right: 1%;
-    left: 1%;
-    border-radius: 17px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-#logo{
-    height: 100%;
-    width: auto;
-    margin-left: 10px;
-}
 
 /* LES BOUTONS ----------------------------------------------- */
 
@@ -61,3 +39,145 @@
     align-items: center;
     margin-right: 15px;
 }
+
+
+/*Burger menu*/
+
+
+p {
+	text-align: center;
+  padding: 20px;
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+.flex-container {
+	display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+
+nav { 
+    background-color: #edeaeaa9;
+    width: 98%;
+    height: 80px;
+    z-index: 1;
+    position: fixed;
+    top: 2%;
+    right: 1%;
+    left: 1%;
+    border-radius: 17px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
+}
+
+#logo{
+    height: 73%;
+    width: auto;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+nav ul {
+    padding: 0;
+    margin: 2%;
+    list-style: none;
+	}
+
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	
+	}
+
+
+nav a {
+	display:block;
+	padding:14px 20px;
+	font-size:17px;
+	text-decoration:none;
+}
+nav ul ul {
+	display: none  ;
+  position:relative;
+}
+
+nav ul li:hover > ul{
+	display: block  ;
+  position:absolute;
+}
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 768px) {
+	nav {
+		margin: 0;
+    position:relative;
+    
+	}
+  
+  .menu{
+    position:absolute;
+    width:100%;
+    top:60px;
+  }
+  
+  #drop::after {
+	content:"";
+	display:block;
+	clear:both;
+}
+
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+
+	.toggle {
+		display: block;
+		padding:14px 20px;	
+		color:rgb(0, 0, 0);
+		font-size:x-large;
+		text-decoration:none;
+		border:none;
+        float: right;
+        margin-top: auto;
+        margin-bottom: auto;
+	}
+  .toggle-left{
+    float: none;
+  }
+  
+  nav ul li:hover > ul{
+	display: none  ;
+  position: relative  ;
+    
+}
+/*  nav ul li:hover > ul{
+	
+}*/
+
+	[id^=drop]:checked + ul {
+		display: block;
+        margin-top: 5%;
+        font-weight: 600;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+	}
+
+	nav ul li {
+		display: block;
+		width: 100%;
+		}
+
+}
+
+

@@ -1,31 +1,11 @@
 
-
-
-
-
-
-
-
-
-@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
-body {
-  font-family: "lato";
-  font-weight: 300;
-  height: 100%;
-  background: #ffeb3b;
-}
-
-a {
-  text-decoration: none;
-  color: #ffe;
-}
-
 .text {
   margin-bottom: 50px;
 }
 
 .btn {
-  background: #333;
+  margin-top: 10px;
+  background: #6FCEAE;
   border-radius: 5px;
   text-transform: uppercase;
 }
@@ -57,7 +37,7 @@ a {
 .modal-content {
     background: #E4E4E4;
     width: 35%;
-    height: 50%;
+    height: auto;    
     position: absolute;
     padding: 5px 20px 13px 20px;
     border-radius: 5px;

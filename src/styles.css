@@ -1,16 +1,10 @@
 /*IMPORTS ----------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import "./assets/geoapify.css";
+@import "./assets/css/reset.css";
+@import "./assets/css/color.css";
+@import "./assets/css/geoapify.css";
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
-
-/*INITIALISATION----------------------------------------------*/
-
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-
-}
 

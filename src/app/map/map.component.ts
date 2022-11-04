@@ -20,8 +20,9 @@ export class MapComponent implements AfterViewInit {
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 9,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>'
-    });
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>',
+      className: 'map-tiles'
+    }).addTo(this.map);;
 
     var markerPlastique = L.icon({
       iconUrl: './assets/images/marker_plastique.png',
@@ -44,6 +45,7 @@ export class MapComponent implements AfterViewInit {
     tiles.addTo(this.map);
 
   }
+  
 
   placeSelected(event: any) {
     console.log(event.properties.lat);

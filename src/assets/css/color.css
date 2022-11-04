@@ -1,0 +1,113 @@
+:root {
+    /* Light Mode */
+    --light-background-color-main: #f4f4f4;
+    --light-background-color-main-transparent: #edeaeaa9;
+    --light-background-color-second: #ffffff;
+    --light-background-color-third: #6fceae84;
+
+
+
+    --light-color: black;
+    --light-second: #6FCEAE;
+
+    /* Dark Mode */
+    --dark-background-color-main:rgba(50, 50, 50);
+    --dark-background-color-second: #0d1b16ea;
+    --dark-background-color-third: #6fceae84;
+
+    --dark-color-main: white;
+    --dark-color-second: #f4f7f6;
+
+
+
+    --map-tiles-filter: brightness(0.67) invert(1) contrast(2.5) hue-rotate(200deg) saturate(0.3);
+    
+}
+
+
+/* Module Root */
+
+/* HEADER */
+
+.dark #mainHeader {
+    background-color: #000000a9;
+}
+
+.light  #mainHeader{    
+    background-color: var(--light-background-color-main-transparent);
+}
+
+/* Bar de recherche */
+
+.light .input_recherche, .light .bouton_location, .light .geoapify-autocomplete-input{
+    background-color: var(--light-background-color-main);
+}
+
+.dark .input_recherche, .dark .bouton_location, .dark .geoapify-autocomplete-input{
+    background-color: var(--dark-background-color-main);
+    color : var(--dark-color-main);
+}
+
+.light .geoapify-autocomplete-items{
+    background-color: var(--light-background-color-second);
+}
+.dark .geoapify-autocomplete-items{
+    background-color: var(--dark-background-color-second);
+}
+
+.light .geoapify-autocomplete-items div:hover {
+    background-color: var(--light-background-color-third);
+}
+
+.dark .geoapify-autocomplete-items div:hover {
+    background-color: var(--dark-background-color-third);
+}
+
+.light .geoapify-autocomplete-item .icon{
+    color: var(--light-color-second);
+}
+
+.dark .geoapify-autocomplete-item .icon{
+    color: var(--dark-color-second);
+}
+
+.light .geoapify-close-button {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.dark .geoapify-close-button {
+    color: rgba(251, 249, 249, 0.4);
+}
+
+.light .geoapify-close-button:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.dark .geoapify-close-button:hover {
+    color: rgba(235, 229, 229, 0.6);
+}
+
+.light .geoapify-autocomplete-items .secondary-part{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.dark .geoapify-autocomplete-items .secondary-part{
+    color: rgba(255, 254, 254, 0.6);
+}
+
+
+
+
+/* Bar de filter  */
+
+/* Map */
+
+.dark .map-tiles {
+    filter: var(--map-tiles-filter, none);
+}
+
+/* Module User */
+
+/* Module Garbage Collector */
+
+/* Module Admin */

@@ -25,9 +25,8 @@ export class AppComponent implements OnInit {
         this.colorMode = 'light'
         break;
         
-    } 
-
-
+    }
+  
   }
 
   getTheme(theme : string){

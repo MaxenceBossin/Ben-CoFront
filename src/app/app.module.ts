@@ -16,7 +16,9 @@ import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.co
 import { MapComponent } from './map/map.component';
 import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
 import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
-
+import { FormLoginComponent } from './components/auth/form-login/form-login.component';
+import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,16 @@ import { DeclarationMakerComponent } from './components/declaration-maker/declar
     FiltersBennesComponent,
     MapComponent,
     EboueurMessagesComponent,
-    DeclarationMakerComponent
+    DeclarationMakerComponent,
+    FormLoginComponent,
+    FormRegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c')
+    GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
+    FormsModule      
   ],
   providers: [],
   bootstrap: [AppComponent]

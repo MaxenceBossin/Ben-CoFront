@@ -1,6 +1,6 @@
 :root {
     /* Light Mode */
-    --light-background-color-main: #f4f4f4;
+    --light-background-color-main: #EDEDED;
     --light-background-color-main-transparent: #edeaeaa9;
     --light-background-color-second: #ffffff;
     --light-background-color-third: #6fceae84;
@@ -11,7 +11,7 @@
     --light-second: #6FCEAE;
 
     /* Dark Mode */
-    --dark-background-color-main:rgba(50, 50, 50);
+    --dark-background-color-main:#36393E;
     --dark-background-color-second: #0d1b16ea;
     --dark-background-color-third: #6fceae84;
 
@@ -26,16 +26,23 @@
 
 
 /* Module Root */
+#app.light {
+    background-color: var(--light-background-color-main);
+}
+#app.dark {
+    background-color: var(--dark-background-color-main);
+}
 
 /* HEADER */
+
+.light #mainHeader{    
+    background-color: var(--light-background-color-main-transparent);
+}
 
 .dark #mainHeader {
     background-color: #000000a9;
 }
 
-.light  #mainHeader{    
-    background-color: var(--light-background-color-main-transparent);
-}
 
 /* Bar de recherche */
 

@@ -1,3 +1,4 @@
+import { PlanningComponent } from './modules/admin/planning/planning.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { MentionsComponent } from './components/mentionsLegales/mentions.component';
 import { NgModule } from '@angular/core';
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'connexion', component: AuthComponent },
   { path: 'inscription', component: HomeComponent },
   { path: 'eboueur-messages', component: EboueurMessagesComponent },
-  { path: 'declaration-maker', component: DeclarationMakerComponent  },
+  { path: 'declaration-maker', component: DeclarationMakerComponent },
   { path: '**', redirectTo: 'home' },
 ];
 

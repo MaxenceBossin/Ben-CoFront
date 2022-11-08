@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
 import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
 
+
 const routes: Routes = [
   {
     path: 'utilisateur',
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'inscription', component: HomeComponent },
   { path: 'eboueur-messages', component: EboueurMessagesComponent },
   { path: 'declaration-maker', component: DeclarationMakerComponent },
-  { path: '**', redirectTo: 'home' },
+  // { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

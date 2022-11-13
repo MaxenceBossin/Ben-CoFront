@@ -1,7 +1,7 @@
 :root {
     /* Light Mode */
     --light-background-color-main: #EDEDED;
-    --light-background-color-main-transparent: #edeaeaa9;
+    --light-background-color-main-transparent: #edeaeae6;
     --light-background-color-second: #ffffff;
     --light-background-color-third: #6fceae84;
 
@@ -18,20 +18,13 @@
     --dark-color-main: white;
     --dark-color-second: #f4f7f6;
 
-
-
     --map-tiles-filter: brightness(0.67) invert(1) contrast(2.5) hue-rotate(200deg) saturate(0.3);
     
 }
 
 
 /* Module Root */
-#app.light {
-    background-color: var(--light-background-color-main);
-}
-#app.dark {
-    background-color: var(--dark-background-color-main);
-}
+
 
 /* HEADER */
 

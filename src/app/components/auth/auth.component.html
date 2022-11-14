@@ -1,15 +1,23 @@
-<div class="div_auth" style="padding: 130px 0 0 10px;">
-    <input type="hidden" [routerLink]="'inscription'" routerLinkActive #inscription="routerLinkActive" />
-    <section *ngIf="inscription.isActive">inscription</section>
-    <form method="">
-        <div class="formSection">
-            Adresse E-mail<br>
-            <input type='email' name='email' class='inputLogin_auth'><br><br>
-            Mot de passe<br>
-            <input type='password' name='password' class='inputLogin_auth'><br><br>
-        </div>
-        <button class='green_button'>Connexion</button>
-        <a class='' routerLink="inscription">Je désire m'inscrire</a>
+<section class="auth-container">
 
-    </form>
-</div>
+    <div [ngClass]="(isLogin==true) ? '' : 'register' " class="auth-container_block">
+        <h1 style="padding-bottom: 1rem">{{(isLogin==true) ? 'Connexion' : 'Inscription (TODO)'}}</h1>
+        
+        <ng-container *ngIf="isLogin">
+            <app-form-login style="width: 90%;"></app-form-login>
+        </ng-container>
+
+        <ng-container *ngIf="!isLogin">
+            <app-form-register style="width: 90%;"></app-form-register>
+        </ng-container>
+
+        <p (click)="toggleForm()" style="padding: 2rem 0 1rem 0; cursor: pointer;">
+            {{
+                (isLogin==true) 
+                ? 'Pas de compte ? Inscrivez-vous' 
+                : 'Déjà un compte ? Connectez-vous'
+            }}
+        </p>
+    </div>
+   
+</section>

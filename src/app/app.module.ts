@@ -18,6 +18,8 @@ import { EboueurMessagesComponent } from './modules/garbage-collector/components
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
 import { FormsModule }   from '@angular/forms';
+import { Declaration } from './modules/garbage-collector/model/declaration';
+import { DeclarationComponent } from './modules/garbage-collector/components/declaration/declaration.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { FormsModule }   from '@angular/forms';
     MapComponent,
     EboueurMessagesComponent,
     FormLoginComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
+    DeclarationComponent
   ],
   imports: [
     BrowserModule,

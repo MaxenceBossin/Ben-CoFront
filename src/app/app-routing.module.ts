@@ -3,7 +3,7 @@ import { MentionsComponent } from './components/mentionsLegales/mentions.compone
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
+import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
 import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
 
 const routes: Routes = [

@@ -13,8 +13,8 @@ import { MentionsComponent } from './components/mentionsLegales/mentions.compone
 import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
-import { MapComponent } from './map/map.component';
-import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
+import { MapComponent } from './components/map/map.component';
+import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
 import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
+import { MapService } from './map.service';
 
 @Component({
   selector: 'app-map',
@@ -9,8 +10,13 @@ import * as L from 'leaflet';
 
 export class MapComponent implements AfterViewInit {
 
-  private map: any;
-  private initMap(lat: any, lon: any): void {
+  public map: any;
+  public lat = 43.60899203730793;
+  public lon = 1.4338861683142448;
+
+  constructor(private mapS: MapService) { }
+
+  public initMap(lat: any, lon: any, filter: any): void {
     this.map = L.map('map', {
       // center: [43.60899203730793, 1.4338861683142448],
       center: [lat, lon],
@@ -37,28 +43,60 @@ export class MapComponent implements AfterViewInit {
       iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
-    L.marker([43.60899203730793, 1.4338861683142448], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: 20 rue de la liberté, Toulouse</h4> ");
-    L.marker([43.58427059082842, 1.4493199584962781], { icon: markerVerre }).addTo(this.map).bindPopup("Je suis une benne LaDen 😄 !!!");
-    L.marker([43.59819560098132, 1.4173909409965895], { icon: markerPlastique }).addTo(this.map).bindPopup("Je suis une benne LaDen 😄 !!!");
-    L.marker([43.57282977944497, 1.4476033446522087], { icon: markerPlastique }).addTo(this.map).bindPopup("Je suis une benne LaDen 😄 !!!");
 
+    this.mapS.getDumpster().subscribe((data: any) => {
+      data.forEach((value: any) => {
+        if (filter == -1) {
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+        }
+        else if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+        }
+      });
+    })
     tiles.addTo(this.map);
 
   }
   
 
   placeSelected(event: any) {
-    console.log(event.properties.lat);
-    console.log(event.properties.lon);
-    var lat = event.properties.lat;
-    var lon = event.properties.lon;
+    this.lat = event.properties.lat;
+    this.lon = event.properties.lon;
     this.map.remove();
-    this.initMap(lat, lon);
+    this.initMap(this.lat, this.lon, -1);
   }
 
-  constructor() { }
-
   ngAfterViewInit(): void {
-    this.initMap(43.60899203730793, 1.4338861683142448);
+    this.initMap(this.lat, this.lon, -1);
+    console.log(this.map);
+  }
+
+  // getFilter(filter: any) {
+  //   console.log(filter);
+  //   console.log(this.lat);
+  //   console.log(this.lon);
+  //   console.log(this.map);
+  // }
+
+  distance(lat1: any, lon1: any, lat2: any, lon2: any, unit: any) {
+    if ((lat1 == lat2) && (lon1 == lon2)) {
+      return 0;
+    }
+    else {
+      var radlat1 = Math.PI * lat1 / 180;
+      var radlat2 = Math.PI * lat2 / 180;
+      var theta = lon1 - lon2;
+      var radtheta = Math.PI * theta / 180;
+      var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = dist * 180 / Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit == "K") { dist = dist * 1.609344 }
+      if (unit == "N") { dist = dist * 0.8684 }
+      return dist;
+    }
   }
 }

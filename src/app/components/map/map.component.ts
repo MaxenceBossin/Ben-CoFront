@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import { MapService } from './map.service';
 
@@ -8,13 +8,24 @@ import { MapService } from './map.service';
   styleUrls: ['./map.component.css']
 })
 
-export class MapComponent implements AfterViewInit {
+export class MapComponent implements AfterViewInit, OnChanges {
+  @Input() filterParam = ''; // decorate the property with @Input()
 
   public map: any;
   public lat = 43.60899203730793;
   public lon = 1.4338861683142448;
-
+  public geolocationPosition: any;
   constructor(private mapS: MapService) { }
+
+  ngOnChanges() {
+    console.log("map", this.map);
+    // changes.prop contains the old and the new value...
+    if (this.map != undefined) {
+      console.log("fixMap", this.filterParam);
+      this.map.remove();
+      this.initMap(this.lat, this.lon, this.filterParam);
+    }
+  }
 
   public initMap(lat: any, lon: any, filter: any): void {
     this.map = L.map('map', {
@@ -43,7 +54,6 @@ export class MapComponent implements AfterViewInit {
       iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
-
     this.mapS.getDumpster().subscribe((data: any) => {
       data.forEach((value: any) => {
         if (filter == -1) {
@@ -54,10 +64,10 @@ export class MapComponent implements AfterViewInit {
         }
       });
     })
-    tiles.addTo(this.map);
 
+    tiles.addTo(this.map);
   }
-  
+
 
   placeSelected(event: any) {
     this.lat = event.properties.lat;
@@ -68,17 +78,36 @@ export class MapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1);
-    console.log(this.map);
   }
 
-  // getFilter(filter: any) {
-  //   console.log(filter);
-  //   console.log(this.lat);
-  //   console.log(this.lon);
-  //   console.log(this.map);
-  // }
+  getGeolocation() {
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        position => {
+          this.geolocationPosition = position,
+            this.lat = position.coords.latitude,
+            this.lon = position.coords.longitude,
+            this.map.remove(),
+            this.initMap(this.lat, this.lon, -1);
+        },
+        error => {
+          switch (error.code) {
+            case 1:
+              console.log('Permission Denied');
+              break;
+            case 2:
+              console.log('Position Unavailable');
+              break;
+            case 3:
+              console.log('Timeout');
+              break;
+          }
+        }
+      );
+    };
+  }
 
-  distance(lat1: any, lon1: any, lat2: any, lon2: any, unit: any) {
+  private distance(lat1: any, lon1: any, lat2: any, lon2: any, unit: any) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
       return 0;
     }

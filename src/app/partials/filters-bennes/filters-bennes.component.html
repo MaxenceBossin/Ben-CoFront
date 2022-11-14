@@ -13,14 +13,14 @@
                 <br>Electronique</a>
         </div>
         <div class="materiaux">
-            <a class="bouton_filtres" (click)="Filter(5)"><img src="./assets/images/marker_lieu.png"
-                    width="15px" alt=""> <br>-5km</a>
-            <a class="bouton_filtres" (click)="Filter(10)"><img src="./assets/images/marker_lieu.png"
-                    width="15px" alt=""> <br>- 10km</a>
-            <a class="bouton_filtres" (click)="Filter(15)"><img src="./assets/images/marker_lieu.png"
-                    width="15px" alt=""> <br>- 15km</a>
-            <a class="bouton_filtres" (click)="Filter(20)"><img src="./assets/images/marker_lieu.png"
-                    width="15px" alt=""> <br>- 20km</a>
+            <a class="bouton_filtres" (click)="filterMap(0.25)"><img src="./assets/images/marker_lieu.png" width="15px"
+                    alt=""> <br>- 250m</a>
+            <a class="bouton_filtres" (click)="filterMap(0.5)"><img src="./assets/images/marker_lieu.png" width="15px"
+                    alt=""> <br>-500m</a>
+            <a class="bouton_filtres" (click)="filterMap(0.75)"><img src="./assets/images/marker_lieu.png" width="15px"
+                    alt=""> <br>-750m</a>
+            <a class="bouton_filtres" (click)="filterMap(1)"><img src="./assets/images/marker_lieu.png" width="15px"
+                    alt=""> <br>-1km</a>
         </div>
     </nav>
 </div>

@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  currentFilter = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getFilter(param: any) {
+    console.log('fix home' , param);
+    this.currentFilter = param;
+    console.log('fix current', this.currentFilter);
+  }
 }

@@ -37,7 +37,9 @@ import { DeclarationMakerComponent } from './components/declaration-maker/declar
     HttpClientModule,
     GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c')
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

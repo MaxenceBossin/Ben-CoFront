@@ -26,10 +26,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   onSubmit(loginForm: NgForm) {
-    console.log(loginForm.value);  // { first: '', last: '' }
-    console.log(loginForm.value.email);  // { first: '', last: '' }
-    console.log(loginForm.valid);  // false
-
     this.form.email    = loginForm.value.email
     this.form.password = loginForm.value.password
 

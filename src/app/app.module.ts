@@ -15,7 +15,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
 import { MapComponent } from './components/map/map.component';
 import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
-import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
 import { FormsModule }   from '@angular/forms';
@@ -31,7 +30,6 @@ import { FormsModule }   from '@angular/forms';
     FiltersBennesComponent,
     MapComponent,
     EboueurMessagesComponent,
-    DeclarationMakerComponent,
     FormLoginComponent,
     FormRegisterComponent
   ],
@@ -43,7 +41,6 @@ import { FormsModule }   from '@angular/forms';
     FormsModule      
   ],
   providers: [
-    
   ],
   bootstrap: [AppComponent]
 })

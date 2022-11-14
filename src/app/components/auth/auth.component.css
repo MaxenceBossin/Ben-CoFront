@@ -1,34 +1,87 @@
-.div_auth {
-    min-height: 100vh;
-}
-
-.div_auth {
-    background-color: #EDEDED;
-
-}
-
-.inputLogin_auth {
-    background-color: white;
-    border-radius: 8px;
-    width: 250px;
-}
-
-.green_button {
-    background-color: #6FCEAE;
-    color: white;
-    border-radius: 50px;
-    height: 53%;
-    align-items: center;
+.auth-container {
     display: flex;
-    margin-left: 10px;
-    padding: 0 20px;
-    cursor: pointer;
-    border: 2px solid #6FCEAE;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
 }
 
-.green_button:hover {
-    background-color: #EDEAEA;
-    color: #6FCEAE;
-    border: 2px solid #6FCEAE;
-    margin-left: 10px;
+.auth-container_block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    border-radius: 1rem;
+    width: 500px;
+    box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
+    background-image: linear-gradient(37deg, #6fceae 0%, #e0c3fc 100%);
+    min-height: 300px;
+    color: black;  
+    
 }
+
+
+.auth-container_block.register{
+    
+    margin-top: 250px;
+    margin-bottom: 30px;
+}
+
+/* Input */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form_input-block {
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+input, button {
+    all: unset;
+}
+
+input {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #EDEDED;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+}
+
+input:focus {
+    border-color: black ;
+}
+
+input.error {
+    border: 2px solid rgb(213, 84, 84);
+}
+
+button {
+    width: 100px;
+    align-self: center;
+    text-align: center;
+    padding: .3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: #EDEDED;
+    box-shadow: rgba(7, 65, 210, 0.1) 0px 9px 30px
+}
+
+
+@media (max-width: 480px) { 
+    .auth-container_block {
+        background-image: linear-gradient(23deg, #6fceae 20%, #e0c3fc 100%);
+        width: 100%;
+        border-radius: 0rem;
+        height: 100%;
+        padding-top: 130px;
+
+    }
+    
+}
+
+
+

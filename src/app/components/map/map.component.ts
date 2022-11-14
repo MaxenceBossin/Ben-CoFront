@@ -1,0 +1,102 @@
+import { Component, AfterViewInit } from '@angular/core';
+import * as L from 'leaflet';
+import { MapService } from './map.service';
+
+@Component({
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css']
+})
+
+export class MapComponent implements AfterViewInit {
+
+  public map: any;
+  public lat = 43.60899203730793;
+  public lon = 1.4338861683142448;
+
+  constructor(private mapS: MapService) { }
+
+  public initMap(lat: any, lon: any, filter: any): void {
+    this.map = L.map('map', {
+      // center: [43.60899203730793, 1.4338861683142448],
+      center: [lat, lon],
+      zoom: 17
+    });
+
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 9,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>',
+      className: 'map-tiles'
+    }).addTo(this.map);;
+
+    var markerPlastique = L.icon({
+      iconUrl: './assets/images/marker_plastique.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var markerVerre = L.icon({
+      iconUrl: './assets/images/marker_verre.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+
+    this.mapS.getDumpster().subscribe((data: any) => {
+      data.forEach((value: any) => {
+        if (filter == -1) {
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+        }
+        else if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+        }
+      });
+    })
+    tiles.addTo(this.map);
+
+  }
+  
+
+  placeSelected(event: any) {
+    this.lat = event.properties.lat;
+    this.lon = event.properties.lon;
+    this.map.remove();
+    this.initMap(this.lat, this.lon, -1);
+  }
+
+  ngAfterViewInit(): void {
+    this.initMap(this.lat, this.lon, -1);
+    console.log(this.map);
+  }
+
+  // getFilter(filter: any) {
+  //   console.log(filter);
+  //   console.log(this.lat);
+  //   console.log(this.lon);
+  //   console.log(this.map);
+  // }
+
+  distance(lat1: any, lon1: any, lat2: any, lon2: any, unit: any) {
+    if ((lat1 == lat2) && (lon1 == lon2)) {
+      return 0;
+    }
+    else {
+      var radlat1 = Math.PI * lat1 / 180;
+      var radlat2 = Math.PI * lat2 / 180;
+      var theta = lon1 - lon2;
+      var radtheta = Math.PI * theta / 180;
+      var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = dist * 180 / Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit == "K") { dist = dist * 1.609344 }
+      if (unit == "N") { dist = dist * 0.8684 }
+      return dist;
+    }
+  }
+}

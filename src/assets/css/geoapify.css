@@ -10,11 +10,11 @@
     
 }
 
+
 .geoapify-autocomplete-items {
     position: absolute;
     border: none;
     border-top: none;
-    background-color: #fff;
     border-radius: 7px 7px 0px 0px;
     z-index: 99;
     bottom: 100%;
@@ -27,9 +27,7 @@
     cursor: pointer;
 }
 
-.geoapify-autocomplete-items div:hover {
-    background-color: #6fceae84;
-}
+
 
 .geoapify-autocomplete-items .active {
     background-color: rgba(0, 0, 0, 0.1);
@@ -45,7 +43,7 @@
     display: inline-block;
     width: 40px;
     height: 24px;
-    color: #6FCEAE;
+
 }
 
 .geoapify-autocomplete-item .icon.emoji {
@@ -69,16 +67,10 @@
 }
 
 .geoapify-close-button {
-    color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
-}
-
-.geoapify-close-button:hover {
-    color: rgba(0, 0, 0, 0.6);
 }
 
 .geoapify-autocomplete-items .secondary-part {
     margin-left: 10px;
-    font-size: small;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: small;    
 }

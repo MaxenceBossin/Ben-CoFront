@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filters-bennes',
@@ -6,15 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters-bennes.component.css']
 })
 export class FiltersBennesComponent implements OnInit {
+  @Output() getFilterBenne = new EventEmitter<string>();
 
   public filter = -1;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     // console.log(this.mapComponent.lat);
     // console.log(this.mapComponent.lon);
     // console.log(this.mapComponent.map);
+  }
+
+  filterMap(param: any) {
+    console.log('fix filter' , param);
+    this.getFilterBenne.emit(param);
   }
 
   Filter(filter: any) {

@@ -6,26 +6,21 @@
     </div>
     <p>Nouvelle déclaration</p>
 
-
-    <input id="email" name="email" ngModel #email="ngModel" type="text">
-    <input id="password" name="password" ngModel #password="ngModel" type="text">
-
-
     <form class="auth-form" id="declaration-form" #declarationForm="ngForm"
       (ngSubmit)="declarationForm.form.valid && onSubmit(declarationForm)">
 
-      <select id="" name="declaration" class="declaration_style">
+      <select id="dumpster_id_id" name="dumpster_id_id" ngModel #dumpster_id_id="ngModel" class="declaration_style">
         <option value="">-- Choisissez la raison de votre déclaration --</option>
         <option value="degradation">Dégradation d'une benne</option>
       </select>
 
       <!-- <geoapify-geocoder-autocomplete class="lieu_declaration" placeholder="Lieu de la déclaration (adresse de la benne)">
       </geoapify-geocoder-autocomplete> -->
-
+      <!-- 
       <div class="photo_description">
         <input type="text" name="" id="explication_decla" placeholder="Expliquez votre problème en quelques lignes...">
         <input type="file" id="photo_decla" name="declaration" accept="image/png, image/jpeg">
-      </div>
+      </div> -->
 
       <a href="#close" class="btn closebtn">Fermer</a>
 

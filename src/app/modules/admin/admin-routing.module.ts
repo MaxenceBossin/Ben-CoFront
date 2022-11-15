@@ -17,7 +17,7 @@ const routes: Routes = [
         component: DeclarationComponent
     },
     {
-        path: 'collecteur',
+        path: 'eboueurs',
         component: EboueurComponent
     },
     {

@@ -1,2 +1,28 @@
 <app-nav-bar-admin></app-nav-bar-admin>
-<p>planning works!</p>
+<div id="planningBg">
+    <div id="flexboxSemaine">
+        <p>SEMAINE 35</p>
+
+        <form>
+            <input name='name' type="text">
+            <img src="../../../assets/images/magnifying-glass-svgrepo-com.svg">
+            <input name='date' type="text">
+            <input id='formSubmit' type="submit" />
+        </form>
+
+    </div>
+    <script>
+        a
+    </script>
+    <ul id="dayFlexbox">
+        <div class="skipWeek">left</div>
+        <li *ngFor="let day of week; let index = index;">
+            <p>{{day.name}} {{day.int}}</p>
+            <div class="dayBackground" onDragStart="start(event)" onDragOver="return over(event)"
+                onDrop="return drop(event)">
+                <div class="nom" draggable="true"></div>
+            </div>
+        </li>
+        <div class="skipWeek">right</div>
+    </ul>
+</div>

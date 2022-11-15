@@ -1,0 +1,79 @@
+#planningBg {
+    background-color: #E3E3E3;
+    min-height: calc(100vh - 80px);
+}
+
+#flexboxSemaine {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+}
+
+#flexboxSemaine>* {
+    background-color: yellow;
+
+}
+
+
+.dayBackground {
+    height: 600px;
+    width: 260px;
+    background-color: white;
+}
+
+#flexboxSemaine>form {
+    width: 60%;
+
+    display: flex;
+    height: 35px;
+
+}
+
+#flexboxSemaine>form>input {
+
+    border: none;
+    height: 100%;
+    padding: 0;
+}
+
+#flexboxSemaine>form>img {
+    background-color: white;
+    height: 100%;
+
+}
+
+.skipWeek {
+    width: 5%;
+    background-color: red;
+}
+
+#dayFlexbox {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+
+    margin-block-end: 0;
+    margin-block-start: 50px;
+    padding-inline-start: 0;
+}
+
+.nom {
+    background-color: #6FCEAE;
+    width: 100px;
+    height: 50px;
+}
+
+
+#dayFlexbox>li>p {
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: #6FCEAE;
+    margin: 0;
+    font-size: 23px;
+    font-weight: 600;
+
+}

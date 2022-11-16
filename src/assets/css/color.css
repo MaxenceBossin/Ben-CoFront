@@ -11,9 +11,9 @@
     --light-second: #6FCEAE;
 
     /* Dark Mode */
-    --dark-background-color-main:#36393E;
-    --dark-background-color-second: #0d1b16ea;
-    --dark-background-color-third: #6fceae84;
+    --dark-background-color-main:#323232;
+    --dark-background-color-second: #eeff00ea;
+    --dark-background-color-third: #42c7f084;
 
     --dark-color-main: white;
     --dark-color-second: #f4f7f6;
@@ -33,7 +33,7 @@
 }
 
 .dark #mainHeader {
-    background-color: #000000a9;
+    background-color: #5b5b5b;
 }
 
 

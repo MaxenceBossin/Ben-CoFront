@@ -1,0 +1,17 @@
+
+.clear:before, .clear:after {content: ' ';display: table}
+.clear:after { clear : both }
+.clear {*zoom: 1;}
+
+*{
+    margin:0;padding: 0;
+    box-sizing: border-box ;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    max-height: 100vh;
+
+}

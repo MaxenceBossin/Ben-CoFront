@@ -1,0 +1,18 @@
+#declarationBg {
+    background-color: #E3E3E3;
+    min-height: calc(100vh - 80px - 3vh);
+    padding-top: 3vh;
+}
+
+#flexboxInput {
+    --input-height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: blue; */
+    color: #5E5E5E;
+}
+
+#flexboxInput>span>span {
+    font-size: 20px;
+}

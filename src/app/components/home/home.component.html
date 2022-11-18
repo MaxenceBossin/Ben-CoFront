@@ -1,4 +1,5 @@
-<app-header></app-header>
-<app-map></app-map>
-<app-filters-bennes></app-filters-bennes>
-<app-declaration-maker></app-declaration-maker>
+<app-map [filterParam]="currentFilter"></app-map>
+<app-filters-bennes (getFilterBenne)="getFilter($event)"></app-filters-bennes>
+<app-declaration></app-declaration>
+<app-auth></app-auth>
+

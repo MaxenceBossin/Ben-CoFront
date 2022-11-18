@@ -4,8 +4,7 @@ import { MentionsComponent } from './components/mentionsLegales/mentions.compone
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
-import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
+import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
 
 
 const routes: Routes = [
@@ -30,7 +29,8 @@ const routes: Routes = [
   { path: 'inscription', component: HomeComponent },
   { path: 'eboueur-messages', component: EboueurMessagesComponent },
   { path: 'declaration-maker', component: DeclarationMakerComponent },
-  // { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home' },
+
 ];
 
 @NgModule({

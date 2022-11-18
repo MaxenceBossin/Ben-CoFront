@@ -195,3 +195,10 @@ nav ul li:hover > ul{
 }
 
 
+.button_darkmode{
+  background-color: #f7e18094;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius:70px;
+}

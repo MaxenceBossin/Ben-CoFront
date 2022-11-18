@@ -14,7 +14,7 @@ h2 {
   .btn {
     margin-left: 4%;
     margin-top: 5%;
-    background: #6FCEAE;
+    background: #ba9fa8;
     border-radius: 5px;
     text-transform: uppercase;
   }
@@ -124,17 +124,13 @@ h1 {
     box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
     background-color: #74EBD5;
     background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);    
-    min-height: 300px;
+
     color: black;  
-    
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
 }
 
-
-.auth-container_block.register{
-    
-    margin-top: 250px;
-    margin-bottom: 30px;
-}
 
 /* Input */
 .auth-form {
@@ -143,7 +139,7 @@ h1 {
 }
 
 .auth-form_input-block {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -152,12 +148,13 @@ input, button {
     all: unset;
 }
 
-input {
+input[type='text'] {
     padding: 10px;
     border-radius: 1rem;
-    background-color: #ffffff;
+    background-color: #ffffffc2;
     border: none;
-    margin: 10px;
+    z-index: 99;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 input:focus {
@@ -169,28 +166,48 @@ input.error {
 }
 
 button {
-    width: 100px;
-    align-self: center;
-    text-align: center;
-    padding: .3rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    background-color: #EDEDED;
-    box-shadow: rgba(7, 65, 210, 0.1) 0px 9px 30px
+  margin-top: 5%;
+  align-self: center;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6rem;
+  cursor: pointer;
+  background-color: #ffd6b2;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 
-@media (max-width: 480px) { 
+@media (max-width: 600px) { 
     .auth-container_block {
-        background-image: linear-gradient(23deg, #6fceae 20%, #e0c3fc 100%);
+        background-color: #74EBD5;
+        background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
         width: 100%;
         border-radius: 0rem;
-        height: 100%;
-        padding-top: 130px;
-
+        padding-top: 15%;
+        top: 0%;
+        bottom: 0%;
     }
-    
+    input{
+      padding: 7px;
+    }
+}
+input[type='checkbox']{
+  width: 15px;
+  height: 15px;
+  background-color: rgb(228, 228, 228) !important;
+  border-radius: 50px;
+}
+input[type='checkbox']:checked{
+  width: 15px;
+  height: 15px;
+  background-color: rgb(47, 255, 0) !important;
+  border-radius: 50px;
 }
 
-
+.cgu{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: center;
+}
 

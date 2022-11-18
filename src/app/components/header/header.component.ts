@@ -1,4 +1,4 @@
-import { Component, OnInit,  Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,25 +7,31 @@ import { Component, OnInit,  Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  theme: string|null = localStorage.getItem('colorMode');
-
+  theme: string | null = localStorage.getItem('colorMode');
+  themehtml: string | null = ''
   @Output() newThemeEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-    if(this.theme == null){
+    console.log(this.theme)
+    if (this.theme == null) {
       this.theme = 'dark'
+      this.themehtml = '☼'
     }
+
+
   }
 
-  toggleTheme(){
-    if(this.theme == 'dark'){
+  toggleTheme() {
+    if (this.theme == 'dark') {
       this.theme = 'light'
+      this.themehtml = '☼'
       localStorage.setItem('colorMode', 'light');
-      
-    }else{
+
+    } else {
       this.theme = 'dark'
+      this.themehtml = '☽'
       localStorage.setItem('colorMode', 'dark');
     }
 

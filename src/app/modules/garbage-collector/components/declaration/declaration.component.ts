@@ -33,7 +33,7 @@ export class DeclarationComponent implements OnInit {
     this.form.category = declarationForm.value.category
     this.form.image_src = declarationForm.value.image_src
     this.form.content = declarationForm.value.content
-    this.form.title = declarationForm.value.title
+    this.form.title = declarationForm.value.title     
 
     console.log(this.form.category);
     console.log(this.form.content);

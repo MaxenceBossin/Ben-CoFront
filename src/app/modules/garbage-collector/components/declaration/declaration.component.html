@@ -1,28 +1,29 @@
 <div class="modal" id="declaration">
-  <div class="modal-content">
+  <div class="modal-content background-gradient">
 
     <h2>Nouvelle déclaration</h2>
 
     <form class="auth-form" id="declaration-form" #declarationForm="ngForm"
       (ngSubmit)="declarationForm.form.valid && onSubmit(declarationForm)">
 
-      <input type="text" name="title" ngModel #title="ngModel" class="declaration_style"
-        placeholder="Titre de votre déclaration">
+      <div class="photo_description">
+        <input type="text" name="title" ngModel #title="ngModel" class="declaration_style"
+          placeholder="Titre de votre déclaration">
 
-      <select name="category" ngModel #category="ngModel" class="declaration_style">
-        <option value="">-- Choisissez la raison de votre déclaration --</option>
-        <option value="Probleme1"> Dégradation d'une benne </option>
-      </select>
+        <select name="category" ngModel #category="ngModel" class="declaration_style">
+          <option value="">-- Choisissez la raison de votre déclaration --</option>
+          <option value="Probleme1"> Dégradation d'une benne </option>
+        </select>
+      </div>
 
       <!-- <geoapify-geocoder-autocomplete class="lieu_declaration" placeholder="Lieu de la déclaration (adresse de la benne)">
       </geoapify-geocoder-autocomplete> -->
+      <input name="content" ngModel #content="ngModel" type="text" id="explication_decla"
+        placeholder="Expliquez votre problème en quelques lignes...">
 
-      <div class="photo_description">
-        <input name="content" ngModel #content="ngModel" type="text" id="explication_decla"
-          placeholder="Expliquez votre problème en quelques lignes...">
-        <input name="image_src" ngModel #image_src="ngModel" type="file" id="photo_decla" name="declaration"
-          accept="image/png, image/jpeg">
-      </div>
+
+      <input name="image_src" ngModel #image_src="ngModel" type="file" id="photo_decla" name="declaration"
+        accept="image/png, image/jpeg">
 
       <div id="flex_">
         <a href="#annuler" class="btn closebtn"> Annuler </a>

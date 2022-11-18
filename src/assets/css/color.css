@@ -1,23 +1,21 @@
 :root {
     /* Light Mode */
+
+    --light-background-gradient: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     --light-background-color-main: #EDEDED;
     --light-background-color-main-transparent: #edeaeae6;
     --light-background-color-second: #ffffff;
     --light-background-color-third: #6fceae84;
-
-
-
     --light-color: black;
     --light-second: #6FCEAE;
 
     /* Dark Mode */
+    --dark-background-gradient:linear-gradient(19deg, #176678 0%, #6f1996 100%);
     --dark-background-color-main:#323232;
     --dark-background-color-second: #eeff00ea;
     --dark-background-color-third: #42c7f084;
-
     --dark-color-main: white;
     --dark-color-second: #f4f7f6;
-
     --map-tiles-filter: brightness(0.67) invert(1) contrast(2.5) hue-rotate(200deg) saturate(0.3);
     
 }
@@ -33,7 +31,7 @@
 }
 
 .dark #mainHeader {
-    background-color: #5b5b5b;
+    background-color: #414141df;
 }
 
 
@@ -105,7 +103,19 @@
 .dark .map-tiles {
     filter: var(--map-tiles-filter, none);
 }
-
+/* Modale*/
+.light .background-gradient  {
+    background-image: var(--light-background-gradient);
+}
+.dark .background-gradient  {
+    background-image: var(--dark-background-gradient);
+}
+.black-white{
+    background-image: var(--light-color);
+}
+.light-white{
+    background-color: var(--dark-color-main);
+}
 /* Module User */
 
 /* Module Garbage Collector */

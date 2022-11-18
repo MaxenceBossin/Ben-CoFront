@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,17 +22,18 @@ export class AppComponent implements OnInit {
         // cas si le local storage est null ou si la valeur n'est pas bonne 
         localStorage.setItem('colorMode', 'light');
         this.colorMode = 'light'
+
         break;
-        
+
     }
-  
+
   }
 
-  getTheme(theme : string){
+  getTheme(theme: string) {
     console.log(theme);
     this.colorMode = theme
-    
-    
+
+
   }
 
 }

@@ -1,0 +1,16 @@
+<form class="auth-form" id="login-form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit(loginForm)">
+    
+    <div class="auth-form_input-block">
+        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail">
+    </div>
+
+    <div class="auth-form_input-block">
+        <input id="password" name="password" ngModel #password="ngModel" type="text" placeholder="Mot de passe">
+    </div>
+
+    
+    
+
+    <button type="submit"> Je me connecte ! </button>
+
+</form>

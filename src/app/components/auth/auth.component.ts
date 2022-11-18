@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  title: string = 'Connexion'
+  phraseChangeForm: string = 'Pas de compte ? Inscrivez-vous'
+
+  isLogin: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleForm(){
+    this.isLogin = !this.isLogin;
   }
 
 }

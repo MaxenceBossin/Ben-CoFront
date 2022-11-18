@@ -13,7 +13,8 @@
     color: #50b996;
 }
 .green_button{
-    background-color: #6FCEAE;
+    background-color: #27c9ac;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     color: white;
     border-radius: 50px;
     height: 53%;
@@ -22,13 +23,14 @@
     margin-left: 10px;
     padding: 0 20px;
     cursor: pointer;
-    border: 2px solid #6FCEAE;
+    border: none;
     
 }
 .green_button:hover{
-    background-color: #EDEAEA;
-    color: #6FCEAE;
-    border: 2px solid #6FCEAE;
+  background-color: none;
+    background-image: none;
+    color: rgb(255, 255, 255);
+    border: none;
     margin-left: 10px;
 }
 .bouton_align{
@@ -58,10 +60,15 @@ p {
 	display: flex;
   justify-content: space-between;
   position: fixed;
+  
+}
+
+.light .flex-container{
+  background-color: red;
 }
 
 nav { 
-    background-color: #edeaeaa9;
+    
     width: 98%;
     height: 80px;
     z-index: 1;
@@ -73,6 +80,13 @@ nav {
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
+}
+
+.dark #mainHeader {
+  background-color: #000000a9;
+}
+.light  #mainHeader{
+  background-color: #edeaeaa9;
 }
 
 #logo{
@@ -181,3 +195,10 @@ nav ul li:hover > ul{
 }
 
 
+.button_darkmode{
+  background-color: #f7e18094;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius:70px;
+}

@@ -1,14 +1,15 @@
-<nav class="flex-container">
+<nav id="mainHeader" class="flex-container">
     <img id="logo" routerLink="/" src="../../../assets/images/logo.png">
 
     <label for="drop" class="toggle">☰</label>
     <input type="checkbox" id="drop" />
 
     <ul class="menu bouton_align">
-        <li><a href="#modal-one" class="btn openbtn">Déclarer un problème</a></li>
+        <li><button (click)="toggleTheme()" class="button_darkmode">{{themehtml}}</button></li>
+        <li><a href="#declaration" class="btn openbtn">Déclarer un problème</a></li>
         <li><a class="simple_button" routerLink="/mention-legal">Mentions Légales</a></li>
-        <li><a class="green_button" routerLink="/connexion">Connexion</a></li>    
-        
+        <li><a href="#connexion" class="btn openbtn green_button">Connexion</a></li>
+
     </ul>
 
 </nav>

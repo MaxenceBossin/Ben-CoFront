@@ -1,0 +1,29 @@
+<form class="auth-form" id="register-form" #registerForm="ngForm">
+    <div class="auth-form_input-block">
+        <input id="last_name" name="last_name" ngModel #password="ngModel" type="text" placeholder="Nom">
+    </div>
+
+    <div class="auth-form_input-block">
+        <input id="first_name" name="first_name" ngModel #password="ngModel" type="text" placeholder="Prenom">
+    </div>
+
+    <div class="auth-form_input-block">
+        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="Email*">
+    </div>
+
+    <div class="auth-form_input-block">
+        <input id="password" name="password" ngModel #password="ngModel" type="text" placeholder="Mot de passe * ">
+    </div>
+
+    <div class="auth-form_input-block">
+        <input id="password-confirm" name="password-confirm" ngModel #password="ngModel" type="text"
+            placeholder="Confirmation du mot de passe *">
+    </div>
+    <div class="auth-form_input-block cgu">
+        <span>Pour continuer, merci d'accepter les CGU </span>
+        <input type="checkbox" id="cgu" name="cgu">
+    </div>
+
+    <button type="submit"> Je m'inscris ! </button>
+
+</form>

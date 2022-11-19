@@ -1,10 +1,11 @@
+import { PlanningComponent } from './modules/admin/planning/planning.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { MentionsComponent } from './components/mentionsLegales/mentions.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { EboueurMessagesComponent } from './components/eboueur-messages/eboueur-messages.component';
-import { DeclarationMakerComponent } from './components/declaration-maker/declaration-maker.component';
+import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
+
 
 const routes: Routes = [
   {
@@ -27,8 +28,8 @@ const routes: Routes = [
   { path: 'connexion', component: AuthComponent },
   { path: 'inscription', component: HomeComponent },
   { path: 'eboueur-messages', component: EboueurMessagesComponent },
-  { path: 'declaration-maker', component: DeclarationMakerComponent  },
   { path: '**', redirectTo: 'home' },
+
 ];
 
 @NgModule({

@@ -28,7 +28,6 @@ const routes: Routes = [
   { path: 'connexion', component: AuthComponent },
   { path: 'inscription', component: HomeComponent },
   { path: 'eboueur-messages', component: EboueurMessagesComponent },
-  { path: 'declaration-maker', component: DeclarationMakerComponent },
   { path: '**', redirectTo: 'home' },
 
 ];

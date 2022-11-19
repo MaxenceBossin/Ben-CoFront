@@ -14,7 +14,6 @@ import {Observable} from "rxjs";
 export class AuthService {
 
   url = environment.api_url;
-  urlLogin = environment.api_url_login;
 
   httpsOption ={
     headers: new HttpHeaders({
@@ -26,7 +25,7 @@ export class AuthService {
 
   login(formData: I_LoginForm) : Observable<I_JWTToken>
   {
-    return this.http.post<I_JWTToken>(this.urlLogin, formData)
+    return this.http.post<I_JWTToken>(this.url + 'login_check', formData)
   }
 
   logout(): void{

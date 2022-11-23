@@ -4,21 +4,18 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import jwtDecode, { JwtPayload } from "jwt-decode";
 import {Router} from "@angular/router"
-
-
-
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['../auth.component.css']
 })
+
 export class FormLoginComponent{
 
   form: I_LoginForm = {
     email: '',
     password: ''
   }
-
   jwtDecode?: any;
 
   constructor(private serviceAuth: AuthService, private router: Router) { }
@@ -49,7 +46,5 @@ export class FormLoginComponent{
         return ""
       }
     })
-
   }
-
 }

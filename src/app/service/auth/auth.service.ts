@@ -2,6 +2,8 @@
 import { I_JWTToken } from 'src/app/interfaces/jwttoken';
 import { I_LoginForm } from 'src/app/interfaces/login-form';
 
+import { User } from 'src/app/model/user';
+
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 
@@ -32,7 +34,10 @@ export class AuthService {
     return localStorage.removeItem('jwtToken')
   }
   
-  register(){}
+  register(formData: User)
+  {
+    return this.http.post<User>(this.url + 'register', formData)
+  }
 
   isLogged() : boolean
   {

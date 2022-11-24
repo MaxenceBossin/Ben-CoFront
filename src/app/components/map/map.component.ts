@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import { MapService } from './map.service';
-
+import 'leaflet-routing-machine';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -78,7 +78,18 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1);
+    this.trajet();
   }
+
+  trajet() {
+    L.Routing.control({
+      waypoints: [
+        L.latLng(43.60899203730793, 1.4338861683142448),
+        L.latLng(43.70899203730793, 1.4338861683142448)
+      ]
+    }).addTo(this.map);
+  }
+
 
   getGeolocation() {
     if (window.navigator && window.navigator.geolocation) {

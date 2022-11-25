@@ -57,10 +57,10 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.mapS.getDumpster().subscribe((data: any) => {
       data.forEach((value: any) => {
         if (filter == -1) {
-          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         }
         else if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
-          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         }
       });
     })

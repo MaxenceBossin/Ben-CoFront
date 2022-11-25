@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from 'socketio-node/chat.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title: string = 'front';
+  title2: string = 'front';
   colorMode: string = 'light'
 
   // chargement de la charte visuel en fonction du local storage
@@ -35,6 +36,8 @@ export class AppComponent implements OnInit {
 
 
   }
-
+  title = 'app works!';
+  
+  constructor(chatService: ChatService) { }
 }
 

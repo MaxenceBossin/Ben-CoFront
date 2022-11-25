@@ -20,6 +20,7 @@ import { FormRegisterComponent } from './components/auth/form-register/form-regi
 import { FormsModule }   from '@angular/forms';
 import { Declaration } from './modules/garbage-collector/model/declaration';
 import { DeclarationComponent } from './modules/garbage-collector/components/declaration/declaration.component';
+import { ChatService } from 'socketio-node/chat.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DeclarationComponent } from './modules/garbage-collector/components/dec
     FormsModule      
   ],
   providers: [
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

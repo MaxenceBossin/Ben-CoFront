@@ -23,10 +23,13 @@
     "@geoapify/geocoder-autocomplete": "^1.4.2",
     "@types/leaflet": "^1.9.0",
     "@types/mapbox-gl-leaflet": "^0.0.1",
+    "express": "^4.18.2",
     "leaflet": "^1.9.2",
     "mapbox-gl": "^2.10.0",
     "mapbox-gl-leaflet": "^0.0.15",
     "rxjs": "~7.5.0",
+    "socket.io": "^4.5.4",
+    "socket.io-client": "^4.5.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -42,5 +45,18 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxenceBossin/Ben-CoFront.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxenceBossin/Ben-CoFront/issues"
+  },
+  "homepage": "https://github.com/MaxenceBossin/Ben-CoFront#readme"
 }

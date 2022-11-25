@@ -20,6 +20,7 @@ import { FormRegisterComponent } from './components/auth/form-register/form-regi
 import { FormsModule }   from '@angular/forms';
 import { Declaration } from './modules/garbage-collector/model/declaration';
 import { DeclarationComponent } from './modules/garbage-collector/components/declaration/declaration.component';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DeclarationComponent } from './modules/garbage-collector/components/dec
     AppRoutingModule,
     HttpClientModule,
     GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
-    FormsModule      
+    FormsModule,
+    LeafletMarkerClusterModule     
   ],
   providers: [
   ],

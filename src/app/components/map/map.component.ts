@@ -64,7 +64,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
         }
       });
     })
-
     tiles.addTo(this.map);
   }
 
@@ -86,7 +85,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
       waypoints: [
         L.latLng(43.60899203730793, 1.4338861683142448),
         L.latLng(43.70899203730793, 1.4338861683142448)
-      ]
+      ],
+      // formatter: new L.Routing.Formatter()
+      // language: "fr",
     }).addTo(this.map);
   }
 

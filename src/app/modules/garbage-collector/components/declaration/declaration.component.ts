@@ -1,3 +1,4 @@
+import { DeclarationService } from './../../../../service/declaration/declaration.service';
 import { Component, OnInit } from '@angular/core';
 import { Declaration } from '../../model/declaration';
 import { NgForm } from '@angular/forms';
@@ -19,7 +20,7 @@ export class DeclarationComponent implements OnInit {
     content: '',
     title: ''
   }
-  constructor() { }
+  constructor(private declarationS: DeclarationService) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +34,14 @@ export class DeclarationComponent implements OnInit {
     this.form.category = declarationForm.value.category
     this.form.image_src = declarationForm.value.image_src
     this.form.content = declarationForm.value.content
-    this.form.title = declarationForm.value.title     
+    this.form.title = declarationForm.value.title
+
+    var test = new Declaration(this.form.id, this.form.dumpster_id_id, this.form.fk_user_id_id, this.form.fk_admin_id_id, this.form.category, this.form.image_src, this.form.content, this.form.title)
 
     console.log(this.form.category);
     console.log(this.form.content);
     console.log(this.form.image_src);
     console.log(this.form.title);
+    this.declarationS.postDeclaration(test);
   }
 }

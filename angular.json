@@ -28,6 +28,7 @@
               "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"
             ],
             "scripts": [
+              "node_modules/leaflet-routing-machine/src/localization.js"
             ]
           },
           "configurations": {

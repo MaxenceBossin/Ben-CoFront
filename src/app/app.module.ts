@@ -43,7 +43,7 @@ import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluste
     HttpClientModule,
     GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
     FormsModule,
-    LeafletMarkerClusterModule     
+    LeafletMarkerClusterModule   
   ],
   providers: [
   ],

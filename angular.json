@@ -30,7 +30,9 @@
               "node_modules/leaflet.markercluster/dist/MarkerCluster.css"
             ],
             "scripts": [
-              "node_modules/leaflet-routing-machine/src/localization.js"
+              "node_modules/leaflet-routing-machine/src/localization.js",
+              "node_modules/leaflet-gps/src/leaflet-gps.js",
+              "node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"
             ]
           },
           "configurations": {

@@ -2,6 +2,7 @@ import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import { MapService } from './map.service';
 import 'leaflet-routing-machine';
+import 'leaflet-gps';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -31,7 +32,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.map = L.map('map', {
       // center: [43.60899203730793, 1.4338861683142448],
       center: [lat, lon],
-      zoom: 17
+      zoom: 20
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -54,7 +55,13 @@ export class MapComponent implements AfterViewInit, OnChanges {
       iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
-    var markers = L.markerClusterGroup();
+
+
+    var markers = L.markerClusterGroup({
+      spiderfyOnMaxZoom: false,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: false
+    });
 
     this.mapS.getDumpster().subscribe((data: any) => {
       data.forEach((value: any) => {
@@ -68,6 +75,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       });
     })
     this.map.addLayer(markers);
+    
     tiles.addTo(this.map);
   }
 

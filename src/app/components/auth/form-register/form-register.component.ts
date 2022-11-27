@@ -1,7 +1,7 @@
 import { User } from './../../../model/user';
 import { Component } from '@angular/core';
 import { AuthService } from './../../../service/auth/auth.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-register',
@@ -11,8 +11,22 @@ import { NgForm } from '@angular/forms';
 export class FormRegisterComponent {
 
   user = new User()
+  registerForm!   : FormGroup;
 
-  constructor(private serviceAuth: AuthService) { }
+  constructor(private serviceAuth: AuthService, private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue]
+    }, {
+      //  validator: MustMatch('password', 'confirmPassword')
+    });
+}
 
 
 

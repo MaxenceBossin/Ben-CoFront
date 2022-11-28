@@ -1,4 +1,4 @@
-<div id="bloc_message">
+<!-- <div id="bloc_message">
     <div id="messages_recus">
             
         <div class="message_recus_colum">
@@ -48,4 +48,31 @@
             <input class="type_message" type="text" placeholder="Entrer votre message ici">
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div id="history">
+    <div *ngFor="let chat of chats" class="mb">
+      <mat-card>
+        <mat-card-subtitle>
+          <span>{{chat.username}} (Sent: {{chat.timestamp | date:'long'}})</span>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <p>{{chat.message}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <form id="message" [formGroup]="form" (ngSubmit)="onChatSubmit(form.value)">
+    <mat-form-field appearance="outline" class="fw">
+      <input matInput
+                      formControlName="username" >
+    </mat-form-field>
+      <mat-form-field appearance="outline" class="fw">
+        <input matInput
+                        formControlName="message" >
+                        <button type="submit" matSuffix mat-icon-button aria-label="Submit">
+                          <mat-icon>send</mat-icon>
+                        </button>
+      </mat-form-field>
+  </form>

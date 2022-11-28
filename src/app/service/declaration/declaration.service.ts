@@ -7,12 +7,21 @@ import { Injectable } from '@angular/core';
 })
 export class DeclarationService {
 
+  form: Object = {
+    dumpsterId: 2,
+    fkUserId: 1,
+    category: 'efdzfd',
+    imageSrc: 'ezfzefz',
+    content: 'zefzf',
+    title: 'zefzefezf'
+  }
+
   url = 'https://127.0.0.1:8000/api/addSupport';
   constructor(private http: HttpClient) { }
 
-  postDeclaration(declaration: Declaration) {
+  postDeclaration(declaration: Object) {
     console.log(declaration);
 
-    return this.http.post(this.url, declaration);
+    return this.http.post(this.url, JSON.stringify(this.form));
   }
 }

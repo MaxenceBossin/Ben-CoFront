@@ -42,12 +42,12 @@ export class MapComponent implements AfterViewInit, OnChanges {
       className: 'map-tiles'
     }).addTo(this.map);;
 
-    var markerPlastique = L.icon({
-      iconUrl: './assets/images/marker_plastique.png',
-      iconSize: [30.75, 50.25], // size of the icon
-      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
-      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
-    });
+    // var markerPlastique = L.icon({
+    //   iconUrl: './assets/images/marker_plastique.png',
+    //   iconSize: [30.75, 50.25], // size of the icon
+    //   iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+    //   popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    // });
 
     var markerVerre = L.icon({
       iconUrl: './assets/images/marker_verre.png',

@@ -20,6 +20,7 @@ export class DeclarationComponent implements OnInit {
     content: '',
     title: ''
   }
+  
   constructor(private declarationS: DeclarationService) { }
 
   ngOnInit(): void {
@@ -36,8 +37,9 @@ export class DeclarationComponent implements OnInit {
     this.form.content = declarationForm.value.content
     this.form.title = declarationForm.value.title
 
-    var test = new Declaration(this.form.id, this.form.dumpster_id_id, this.form.fk_user_id_id, this.form.fk_admin_id_id, this.form.category, this.form.image_src, this.form.content, this.form.title)
-
+    var test = new Declaration(this.form.id, 2, 1, 2, "gregreg", this.form.image_src, this.form.content, this.form.title)
+    console.log(test);
+    
     console.log(this.form.category);
     console.log(this.form.content);
     console.log(this.form.image_src);

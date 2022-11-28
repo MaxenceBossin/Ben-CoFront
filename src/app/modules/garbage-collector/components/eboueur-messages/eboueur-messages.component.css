@@ -6,7 +6,7 @@ html, body{
 
 #bloc_message{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #EDEAEA;
     height: 100vh;
     width: 100vw;
@@ -16,7 +16,6 @@ html, body{
 #messages_recus{
     margin-top: 110px;
     background-color: #EDEAEA;
-    width: 20%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -25,7 +24,6 @@ html, body{
 }
 
 #liste_messages{
-    margin-top: 110px;
     background-color: #E4E4E4;
     width: 100%;
     height: 93%;
@@ -49,7 +47,9 @@ html, body{
 .flex_column{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .flex_row{
     display: flex;
@@ -123,7 +123,12 @@ html, body{
     display: flex;
     align-items: center;
 }
-
+#mat-input-1 {
+    width: 80%;
+    border: none;
+    height: 100%;
+  }
+  
 /*RESPONSIVE PETIT ECRAN PC - GRAND ECRAN TABLETTES MESSAGE*/
 
 @media all and (max-width : 1472px) {

@@ -23,7 +23,7 @@ import { DeclarationComponent } from './modules/garbage-collector/components/dec
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
@@ -57,8 +57,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatDividerModule,
     MatFormFieldModule
+
   ],
-  providers: [
+  providers: [    
+
   ],
   bootstrap: [AppComponent]
 })

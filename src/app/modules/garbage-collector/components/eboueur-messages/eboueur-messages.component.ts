@@ -4,7 +4,7 @@ import { FirebaseApp, initializeApp } from 'firebase/app';
 import { Database, getDatabase, ref, set, onValue  } from "firebase/database";
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
-import { Chat } from 'src/chat/chat'
+import { Chat } from 'src/app/modules/garbage-collector/components/eboueur-messages/chat'
 
 @Component({
   selector: 'app-eboueur-messages',

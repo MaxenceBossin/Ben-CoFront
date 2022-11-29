@@ -2,6 +2,8 @@
 import { I_JWTToken } from 'src/app/interfaces/jwttoken';
 import { I_LoginForm } from 'src/app/interfaces/login-form';
 
+import { User } from 'src/app/model/user';
+
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 
@@ -14,7 +16,6 @@ import {Observable} from "rxjs";
 export class AuthService {
 
   url = environment.api_url;
-  urlLogin = environment.api_url_login;
 
   httpsOption ={
     headers: new HttpHeaders({
@@ -26,14 +27,17 @@ export class AuthService {
 
   login(formData: I_LoginForm) : Observable<I_JWTToken>
   {
-    return this.http.post<I_JWTToken>(this.urlLogin, formData)
+    return this.http.post<I_JWTToken>(this.url + 'login_check', formData)
   }
 
   logout(): void{
     return localStorage.removeItem('jwtToken')
   }
   
-  register(){}
+  register(formData: User)
+  {
+    return this.http.post<User>(this.url + 'register', formData)
+  }
 
   isLogged() : boolean
   {

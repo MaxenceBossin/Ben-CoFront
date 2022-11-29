@@ -1,6 +1,7 @@
+import { DumpsterService } from './../../service/dumpster/dumpster.service';
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
-import { MapService } from './map.service';
+
 
 @Component({
   selector: 'app-map',
@@ -15,7 +16,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   public lat = 43.60899203730793;
   public lon = 1.4338861683142448;
   public geolocationPosition: any;
-  constructor(private mapS: MapService) { }
+  constructor(private DumpsterService: DumpsterService) { }
 
   ngOnChanges() {
     console.log("map", this.map);
@@ -54,7 +55,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
-    this.mapS.getDumpster().subscribe((data: any) => {
+    this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
       data.forEach((value: any) => {
         if (filter == -1) {
           L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);

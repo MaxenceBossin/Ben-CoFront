@@ -68,7 +68,6 @@ p {
 }
 
 .bouton_align {
-  background-color: var(--light-background-color-main-transparent);
   cursor: pointer;
   border-radius: 0 0 15px 15px;
 }
@@ -84,7 +83,6 @@ nav {
     border-radius: 17px;
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; 
 }
 
 .dark #mainHeader {

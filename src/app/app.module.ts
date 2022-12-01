@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AccueilComponent } from './components/home/accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormLoginComponent,
     FormRegisterComponent,
     DeclarationComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,

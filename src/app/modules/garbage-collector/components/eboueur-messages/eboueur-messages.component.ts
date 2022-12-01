@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment'
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { Database, getDatabase, ref, set, onValue  } from "firebase/database";
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { v4 as uuidv4 } from 'uuid';
 import { Chat } from 'src/app/modules/garbage-collector/components/eboueur-messages/chat'
+import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-eboueur-messages',

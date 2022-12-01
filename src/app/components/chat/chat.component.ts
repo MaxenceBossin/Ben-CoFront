@@ -7,11 +7,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { Chat } from 'src/app/modules/garbage-collector/components/eboueur-messages/chat'
 
 @Component({
-  selector: 'app-eboueur-messages',
-  templateUrl: './eboueur-messages.component.html',
-  styleUrls: ['./eboueur-messages.component.css']
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.css']
 })
-export class EboueurMessagesComponent implements OnInit {
+export class ChatComponent implements OnInit {
 
   title = 'firechat';
   app: FirebaseApp;
@@ -52,5 +52,4 @@ export class EboueurMessagesComponent implements OnInit {
       }
     });
   }
-
 }

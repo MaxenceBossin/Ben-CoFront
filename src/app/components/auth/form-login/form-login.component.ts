@@ -1,42 +1,58 @@
 import { I_LoginForm } from './../../../interfaces/login-form';
-import { I_JWTToken } from './../../../interfaces/jwttoken';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import {Router} from "@angular/router"
 import { AuthService } from './../../../service/auth/auth.service';
-import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-
-
-
+import { JwtService } from 'src/app/service/jwt.service';
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['../auth.component.css']
 })
-export class FormLoginComponent implements OnInit {
+
+export class FormLoginComponent{
 
   form: I_LoginForm = {
     email: '',
     password: ''
   }
+  jwtToken?: string;
 
-  constructor(private serviceAuth: AuthService, private http:HttpClient) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor(
+    private serviceAuth: AuthService,
+    private serviceJwt: JwtService,
+    private router: Router) { }
 
   onSubmit(loginForm: NgForm) {
     this.form.email    = loginForm.value.email
     this.form.password = loginForm.value.password
 
-    console.log('h' , this.form);
     // Si la connexion est valide on stock le token en local storage +  TODO : rediriger vers la page d'accuiel
     this.serviceAuth.login(this.form).subscribe({
-      next: (data) => this.serviceAuth.saveToken(data.token),
+      next: (data) => {
+        this.serviceAuth.saveToken(data.token),
+        this.jwtToken = data.token
+      },
       error: (e) => console.error(e),
-      complete: () => console.info('connection success') 
+      complete: () => {
+        console.info('connection success')
+        // redirection de l'utilisateur en fonction de son rôle
+        if (this.jwtToken != undefined) {
+          const role = this.serviceJwt.getJwtRole(this.jwtToken)
+
+          switch (role) {
+            case 'ROLE_ADMIN':
+              return this.router.navigate(['/admin/planning'])
+            case 'ROLE_GARBAGE_COLLECTOR':
+              return this.router.navigate(['/']) // TODO
+            case 'ROLE_USER':
+              return this.router.navigate(['/']) // TODO 
+          }
+        }        
+        // en cas de token erroné
+        return console.log('erreur');
+         // TODO
+      }
     })
-
   }
-
 }

@@ -12,7 +12,6 @@ h2 {
     display: flex;
   }
   .btn {
-    margin-left: 4%;
     margin-top: 5%;
     background: #ba9fa8;
     border-radius: 5px;
@@ -59,9 +58,6 @@ h2 {
       right: 32.5%;
       display: flex;
       flex-direction: column;
-      background-color: #74EBD5;
-      background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-      box-shadow: -5px -5px 10px 4px rgb(0 0 0 / 10%), 5px 5px 10px 4px rgb(45 150 255 / 15%);
   }
     
     .modal:target {
@@ -103,33 +99,35 @@ h2 {
     }
 /*-------------------------------------------------------------------*/
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+  background-color: #5eda96;
+  background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+  position: fixed;
+  width: 100%;
 }
 
 h1 {
-    color: white;
+    color: black;
 }
 
 .auth-container_block {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px;
-    border-radius: 1rem;
-    width: 500px;
-    box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
-    background-color: #74EBD5;
-    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);    
-
-    color: black;  
-    position: absolute;
-    top: 10%;
-    bottom: 10%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 1rem;
+  width: 500px;
+  background-color: white;
+  box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
+  color: black;
+  position: absolute;
+  height: fit-content;
+  z-index: 1;
 }
 
 
@@ -173,8 +171,9 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 6rem;
   cursor: pointer;
-  background-color: #ffd6b2;
+  background-color: rgb(94, 104, 90);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: white;
 }
 
 
@@ -212,3 +211,21 @@ input[type='checkbox']:checked{
   align-items: center;
 }
 
+img {
+  position: absolute;
+  top: 92%;
+  width: 150px;
+  animation: animate 20s cubic-bezier(0.1, -0.6, 0.2, 0) infinite;
+}
+
+@keyframes animate {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+  0% {
+    left: 0;
+  }
+}

@@ -31,6 +31,20 @@
     left: 10%;
     font-size: 50px;
 }
+.subtitle_accueil{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    font-size: 15px;
+}
+.reseaux_sociaux{
+    color: rgb(82, 82, 82);
+    position: absolute;
+    bottom: 2%;
+    left: 6%;
+    font-size: 15px;
+}
 .button_redirect_user{
     position: absolute;
     background-color: rgb(255, 255, 255);
@@ -59,4 +73,4 @@
 }
 a{
     text-decoration: none;
-} 
+}

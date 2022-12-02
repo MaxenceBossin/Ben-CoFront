@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
 
 #accueil{
     position: fixed;
@@ -23,13 +24,17 @@
     right: 4%;
     top: 17%;
 }
+
+.telephone:hover{
+    transform: scale(1.05);
+}
 .title_accueil{
     font-family: 'Fredoka One', cursive;
     color: white;
     position: absolute;
     top: 25%;
     left: 10%;
-    font-size: 50px;
+    font-size: 55px;
 }
 .subtitle_accueil{
     color: rgb(255, 255, 255);
@@ -38,12 +43,43 @@
     left: 10%;
     font-size: 15px;
 }
+
+
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #00f7b9 0%,
+    #e3e700 29%,
+    #13ffc4 67%,
+    #367486 100%
+  );
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
 .reseaux_sociaux{
     color: rgb(82, 82, 82);
     position: absolute;
     bottom: 2%;
     left: 6%;
     font-size: 15px;
+}
+.fi{
+    margin-right: 5px;
 }
 .button_redirect_user{
     position: absolute;

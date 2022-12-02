@@ -123,7 +123,6 @@ h1 {
   border-radius: 1rem;
   width: 500px;
   background-color: white;
-  box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
   color: black;
   position: absolute;
   height: fit-content;
@@ -175,12 +174,16 @@ button {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   color: white;
 }
-
+h2{
+  color: black;
+}
 
 @media (max-width: 600px) { 
+  h2{
+    color: white;
+  }
     .auth-container_block {
-        background-color: #74EBD5;
-        background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+        background-color: #5eda9600;
         width: 100%;
         border-radius: 0rem;
         padding-top: 15%;
@@ -189,6 +192,9 @@ button {
     }
     input{
       padding: 7px;
+    }
+    img{
+      display: none;
     }
 }
 input[type='checkbox']{

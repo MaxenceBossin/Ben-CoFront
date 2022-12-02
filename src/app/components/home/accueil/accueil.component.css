@@ -23,11 +23,21 @@
     width: 40%;
     right: 4%;
     top: 17%;
+    animation: float 6s ease-in-out infinite;
 }
 
-.telephone:hover{
-    transform: scale(1.05);
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }
+
 .title_accueil{
     font-family: 'Fredoka One', cursive;
     color: white;
@@ -49,13 +59,13 @@
 {
   background-image: linear-gradient(
     -225deg,
-    #00f7b9 0%,
-    #e3e700 16%,
-    #13ffb0 32%,
-    #e3e700 48%,
-    #13ffc4 64%,
-    #e3e700 80%,
-    #00f7b9 100%
+    #f8fa92 0%,
+    #70f8c4 16%,
+    #bfebf8 32%,
+    #f8fa92 48%,
+    #bfebf8 64%,
+    #f8fa92 80%,
+    #70f8c4 100%
 
 
   );
@@ -104,7 +114,7 @@
     background-color:rgb(94, 104, 90);
     color: white;
     top: 59%;
-    left: 418px;
+    left: 400px;
     border-radius: 50px;
     padding: 11px;
     font-weight: 600;
@@ -112,6 +122,204 @@
 .button_redirect_eboueur:hover{
     transform: scale(1.1);
 }
+
 a{
     text-decoration: none;
+}
+@media screen and (max-width: 1500px) {
+    .telephone {
+        top: 28%;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .telephone {
+        top: 28%;
+    }
+    .title_accueil{
+        font-size: 45px;
+        top: 28%;
+    }
+    .subtitle_accueil{
+        font-size: 12px;
+        top: 52%;
+    }
+    .button_redirect_user{
+        left: 196px;
+        top: 65%;
+    }
+    .button_redirect_eboueur{
+       left: 369px;
+       top: 65%;
+    }
+}
+
+@media screen and (max-width: 1238px) {
+    .telephone {
+        top: 40%;
+        right: 16px;
+    }
+}
+
+@media screen and (max-width: 1146px) {
+    .telephone {
+        top: 37%;
+        width: 43%;
+        right: 19px;
+    }
+    .title_accueil{
+        font-size: 36px;
+        top: 28%;
+    }
+    .subtitle_accueil{
+        font-size: 11px;
+        top: 47%;
+    }
+    .button_redirect_user{
+        left: 146px;
+        top: 60%;
+    }
+    .button_redirect_eboueur{
+        left: 327px;
+        top: 60%;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .telephone {
+        top: 51%;
+        width: 42%;
+        right: 37%;
+    }
+    .title_accueil{
+        font-size: 45px;
+        top: 18%;
+    }
+    .subtitle_accueil{
+        font-size: 14px;
+        top: 41%;
+    }
+    .button_redirect_user{
+        left: 523px;
+        top: 58%;
+    }
+    .button_redirect_eboueur{
+        left: 691px;
+        top: 58%;
+    }
+    .reseaux_sociaux{
+        bottom: 21%;
+        left: 70%;
+        transform: rotate(-5deg);
+    }
+}
+
+@media screen and (max-width: 936px) {
+    .telephone {
+        top: 51%;
+        width: 49%;
+        right: 37%;
+    }
+    .title_accueil{
+        font-size: 45px;
+        top: 18%;
+    }
+    .subtitle_accueil{
+        font-size: 14px;
+        top: 41%;
+    }
+    .button_redirect_user{
+        left: 434px;
+        top: 60%;
+    }
+    .button_redirect_eboueur{
+        left: 434px;
+        top: 54%;
+    }
+    .reseaux_sociaux{
+        bottom: 21%;
+        left: 70%;
+        transform: rotate(-5deg);
+    }
+}
+
+@media screen and (max-width: 718px) {
+    .telephone {
+        top: 55%;
+        width: 56%;
+        right: 31%;
+    }
+    .reseaux_sociaux{
+        left: 66%;
+    }
+    .button_redirect_user{
+        left: 396px;
+        top: 60%;
+    }
+    .button_redirect_eboueur{
+        left: 396px;
+        top: 53%;
+    }
+}
+@media screen and (max-width: 676px) {
+    .telephone {
+        top: 55%;
+        width: 56%;
+        right: 31%;
+    }
+    .reseaux_sociaux{
+        left: 66%;
+    }
+    .button_redirect_user{
+        left: 245px;
+    }
+    .button_redirect_eboueur{
+        left: 245px;
+    }
+}
+@media screen and (max-width: 660px) {
+    .button_redirect_user{
+        left: 315px;
+    }
+    .button_redirect_eboueur{
+        left: 315px;
+    }
+    .reseaux_sociaux{
+        font-size: small;
+    }
+}
+@media screen and (max-width: 500px) {
+    .telephone {
+        top: 48%;
+        width: 85%;
+        right: 4%;
+    }
+    .title_accueil{
+        font-size: 37px;
+        top: 19%;
+        text-align: center;
+        left: 33px;
+    }
+    .subtitle_accueil{
+        font-size: 13px;
+        top: 37%;
+        text-align: center;
+        left: 9px;
+    }
+    .button_redirect_user{
+        left: 295px;
+        top: 48%;
+        padding: 7px;
+        font-size: 13px;
+    }
+    .button_redirect_eboueur{
+        left: 295px;
+        top: 53%;
+        padding: 7px;
+        font-size: 13px;
+    }
+    .reseaux_sociaux{
+        bottom: 9%;
+        left: 70%;
+        transform: rotate(-28deg);
+    }
 }

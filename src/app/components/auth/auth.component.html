@@ -2,7 +2,7 @@
         <section class="auth-container">
 
             <div [ngClass]="(isLogin==true) ? '' : 'register' " class="auth-container_block">
-                <h1 style="padding-bottom: 1rem">{{(isLogin==true) ? 'Connexion' : 'Inscription'}}</h1>
+                <h2 style="margin-bottom: 25px;">{{(isLogin==true) ? 'VOUS NOUS AVEZ MANQUE !' : 'Inscription'}}</h2>
 
                 <ng-container *ngIf="isLogin">
                     <app-form-login style="width: 90%;"></app-form-login>

@@ -34,7 +34,7 @@
     position: absolute;
     top: 25%;
     left: 10%;
-    font-size: 55px;
+    font-size: 50px;
 }
 .subtitle_accueil{
     color: rgb(255, 255, 255);
@@ -50,9 +50,14 @@
   background-image: linear-gradient(
     -225deg,
     #00f7b9 0%,
-    #e3e700 29%,
-    #13ffc4 67%,
-    #367486 100%
+    #e3e700 16%,
+    #13ffb0 32%,
+    #e3e700 48%,
+    #13ffc4 64%,
+    #e3e700 80%,
+    #00f7b9 100%
+
+
   );
   background-clip: border-box;
   background-size: 200% auto;

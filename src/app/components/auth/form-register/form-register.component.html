@@ -1,29 +1,65 @@
-<form class="auth-form" id="register-form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && onSubmit(registerForm)">
+<form class="auth-form" id="register-form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && passwordsValid == true && onSubmit(registerForm)">
+    <!-- Nom -->
     <div class="auth-form_input-block">
-        <input id="last_name" name="last_name" ngModel #password="ngModel" type="text" placeholder="Nom">
+        <input id="last_name" name="last_name" ngModel #last_name="ngModel" type="text" placeholder="Nom">
     </div>
-
+    <!-- Prénom -->
     <div class="auth-form_input-block">
-        <input id="first_name" name="first_name" ngModel #password="ngModel" type="text" placeholder="Prenom">
+        <input id="first_name" name="first_name" ngModel #first_name="ngModel" type="text" placeholder="Prénom">
     </div>
-
+    <!-- Email -->
     <div class="auth-form_input-block">
-        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="Email*">
+        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="Email *" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
     </div>
-
+    <div *ngIf="email.invalid && email.touched">
+        <p class="error" *ngIf="email.errors?.['required']">
+            Veuillez renseigner un mail 
+        </p>
+        <p class="error" *ngIf="email.errors?.['pattern']">
+            Veuillez renseigner un mail valide
+        </p>
+    </div>
+    <!-- Mot de passe -->
     <div class="auth-form_input-block">
-        <input id="password" name="password" ngModel #password="ngModel" type="text" placeholder="Mot de passe * ">
+        <input
+        id="password"
+        name="password"
+        ngModel #password="ngModel"
+        (ngModelChange)="verifyPassword(registerForm)"
+        type="password"
+         placeholder="Mot de passe *"
+        required min="6"
+        >
     </div>
-
+    <div *ngIf="password.invalid && password.touched">
+        <p class="error" *ngIf="password.errors?.['required']">
+            Vous devez renseigner un mot de passe
+        </p>
+        <p class="error" *ngIf="password.errors?.['min']">
+            Votre mot de passe doit faire au moins 6 caractères 
+        </p>
+    </div>
+    <!-- Confirmation du mots de passe -->
     <div class="auth-form_input-block">
-        <input id="password-confirm" name="password-confirm" ngModel #password="ngModel" type="text"
-            placeholder="Confirmation du mot de passe *">
+        <input 
+        id="passwordConfirm" 
+        name="passwordConfirm"
+        ngModel #passwordConfirm="ngModel"
+        (ngModelChange)="verifyPassword(registerForm)"
+        type="password"
+        placeholder="Confirmation du mot de passe *">
     </div>
+    <div *ngIf="password.value != passwordConfirm.value && (passwordConfirm.touched || password.touched) ">
+        <p class="error">Les deux mots de passe doivent être identique</p>
+    </div>
+    <!-- CGU -->
     <div class="auth-form_input-block cgu">
-        <span>Pour continuer, merci d'accepter les CGU </span>
-        <input type="checkbox" id="cgu" name="cgu">
+        <span [ngClass]="cgu.errors?.['required'] ? 'error' : ''">
+            Pour continuer, merci d'accepter les CGU 
+        </span>
+        <input type="checkbox" id="cgu" name="cgu" ngModel #cgu="ngModel" required>
     </div>
 
-    <button type="submit"> Je m'inscris ! </button>
+    <button type="submit">Je m'inscris ! </button>
 
 </form>

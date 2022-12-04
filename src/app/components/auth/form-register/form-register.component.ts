@@ -11,11 +11,9 @@ import { NgForm } from '@angular/forms';
 export class FormRegisterComponent {
 
   user = new User()
+  passwordsValid : boolean = false
 
   constructor(private serviceAuth: AuthService) { }
-
-
-
 
   onSubmit(registerForm: NgForm) {
     console.log(this.user);
@@ -26,14 +24,27 @@ export class FormRegisterComponent {
     this.user.first_name = registerForm?.value.first_name
     this.user.last_name = registerForm?.value.password
 
-    this.serviceAuth.register(this.user).subscribe({
+ /*    this.serviceAuth.register(this.user).subscribe({
       next: (data) => console.log(data),
       error: (e) => console.error(e),
       complete: () => console.info('register success') 
     })
-
-    
-
+ */
   }
+
+  verifyPassword(registerForm: NgForm){
+    console.log("fix verifyPassword" , registerForm.value.password , registerForm.value.passwordConfirm );
+    console.log("fix verifyPassword" , registerForm );
+    console.log("fix verifyPassword" , registerForm.value );
+    
+    if(registerForm.value.password == registerForm.value.passwordConfirm){
+      this.passwordsValid = true
+    }else{
+      this.passwordsValid = false
+    }
+    console.log("fix verifyPassword" ,  this.passwordsValid );
+  }
+
+
 
 }

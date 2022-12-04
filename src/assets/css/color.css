@@ -9,6 +9,8 @@
     --light-color: black;
     --light-second: #6FCEAE;
 
+    --light-error: #b33e3e;
+
     /* Dark Mode */
     --dark-background-gradient:linear-gradient(19deg, #176678 0%, #6f1996 100%);
     --dark-background-color-main:#323232;
@@ -93,7 +95,9 @@
     color: rgba(255, 254, 254, 0.6);
 }
 
-
+.error{
+    color: var(--light-error);
+}
 
 
 /* Bar de filter  */

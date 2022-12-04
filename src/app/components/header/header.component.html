@@ -8,7 +8,17 @@
         <li><button (click)="toggleTheme()" class="button_darkmode">{{themehtml}}</button></li>
         <li><a href="#declaration" class="btn openbtn">Déclarer un problème</a></li>
         <li><a class="simple_button" routerLink="/mention-legal">Mentions Légales</a></li>
-        <li><a href="#connexion" class="btn openbtn green_button">Connexion</a></li>
+        <ng-container *ngIf="token == null">
+            <li><a href="#connexion" class="btn openbtn green_button">Connexion</a></li>
+        </ng-container>
+        <ng-container *ngIf="token">
+            <li><button 
+                (click)="logout()"
+                style="display: block; padding: 14px 20px; font-size: 17px;"
+                class="btn openbtn green_button">
+                Déconnexion
+            </button></li>
+        </ng-container>
 
     </ul>
 

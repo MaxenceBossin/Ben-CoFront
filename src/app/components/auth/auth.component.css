@@ -123,13 +123,28 @@ h1 {
     width: 500px;
     box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
     background-color: #74EBD5;
-    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);    
-
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     color: black;  
     position: absolute;
+    
+}
+
+@media (max-width: 600px) { 
+
+  .auth-container_block{
     top: 10%;
     bottom: 10%;
-}
+    height: 100vh;
+  }
+ }
+@media (min-width: 599px) { 
+  .auth-container_block{
+    max-height: 90vh;
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%);
+  }
+ }
+
 
 
 /* Input */
@@ -139,7 +154,7 @@ h1 {
 }
 
 .auth-form_input-block {
-    padding-bottom: 1rem;
+    padding: 0.5rem 0;
     display: flex;
     flex-direction: column;
 }
@@ -148,7 +163,7 @@ input, button {
     all: unset;
 }
 
-input[type='text'] {
+input[type='text'], input[type='password']  {
     padding: 10px;
     border-radius: 1rem;
     background-color: #ffffffc2;

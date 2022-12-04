@@ -24,12 +24,11 @@ export class FormRegisterComponent {
     this.user.first_name = registerForm?.value.first_name
     this.user.last_name = registerForm?.value.password
 
- /*    this.serviceAuth.register(this.user).subscribe({
+   this.serviceAuth.register(this.user).subscribe({
       next: (data) => console.log(data),
       error: (e) => console.error(e),
       complete: () => console.info('register success') 
     })
- */
   }
 
   verifyPassword(registerForm: NgForm){

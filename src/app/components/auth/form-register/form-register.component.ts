@@ -22,7 +22,8 @@ export class FormRegisterComponent {
     this.user.email   = registerForm.value.email
     this.user.password = registerForm.value.password
     this.user.first_name = registerForm?.value.first_name
-    this.user.last_name = registerForm?.value.password
+    this.user.last_name = registerForm?.value.last_name
+    this.user.roles =""
 
     this.serviceAuth.register(this.user).subscribe({
       next: (data) => console.log(data),
@@ -33,10 +34,6 @@ export class FormRegisterComponent {
   }
 
   verifyPassword(registerForm: NgForm){
-    console.log("fix verifyPassword" , registerForm.value.password , registerForm.value.passwordConfirm );
-    console.log("fix verifyPassword" , registerForm );
-    console.log("fix verifyPassword" , registerForm.value );
-    
     if(registerForm.value.password == registerForm.value.passwordConfirm){
       this.passwordsValid = true
     }else{

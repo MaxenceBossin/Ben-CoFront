@@ -163,3 +163,17 @@ a{
         justify-content: space-between;
 }
     }
+
+    @media screen and (max-width: 1060px) {
+        .text_acceuil{
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 38%;
+            left: 10%;
+            transform: rotate(5deg);
+            width: 0px;
+            height: 328px;
+            justify-content: space-between;
+    }
+        }

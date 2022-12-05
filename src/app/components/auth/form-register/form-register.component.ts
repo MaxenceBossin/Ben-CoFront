@@ -36,7 +36,4 @@ export class FormRegisterComponent {
       this.passwordsValid = false
     }
   }
-
-
-
 }

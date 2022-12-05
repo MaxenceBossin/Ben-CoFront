@@ -17,9 +17,13 @@ import { MapComponent } from './components/map/map.component';
 import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
-import { FormsModule }   from '@angular/forms';
-import { Declaration } from './modules/garbage-collector/model/declaration';
+import { FormGroup, FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { DeclarationComponent } from './modules/garbage-collector/components/declaration/declaration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AccueilComponent } from './components/home/accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -34,16 +38,24 @@ import { DeclarationComponent } from './modules/garbage-collector/components/dec
     EboueurMessagesComponent,
     FormLoginComponent,
     FormRegisterComponent,
-    DeclarationComponent
+    DeclarationComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
-    FormsModule      
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [
+  providers: [    
+
   ],
   bootstrap: [AppComponent]
 })

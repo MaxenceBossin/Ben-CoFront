@@ -16,9 +16,6 @@ export class FormRegisterComponent {
   constructor(private serviceAuth: AuthService) { }
 
   onSubmit(registerForm: NgForm) {
-    console.log(this.user);
-    console.log(registerForm.value);
-
     this.user.email   = registerForm.value.email
     this.user.password = registerForm.value.password
     this.user.first_name = registerForm?.value.first_name
@@ -26,7 +23,7 @@ export class FormRegisterComponent {
     this.user.roles =""
 
     this.serviceAuth.register(this.user).subscribe({
-      next: (data) => console.log(data),
+      next: (data) => console.info('connexion en cours'),
       error: (e) => console.error(e),
       complete: () => console.info('register success') 
     })
@@ -38,7 +35,6 @@ export class FormRegisterComponent {
     }else{
       this.passwordsValid = false
     }
-    console.log("fix verifyPassword" ,  this.passwordsValid );
   }
 
 

@@ -32,10 +32,6 @@ export class FormRegisterComponent {
   }
 
   verifyPassword(registerForm: NgForm){
-    console.log("fix verifyPassword" , registerForm.value.password , registerForm.value.passwordConfirm );
-    console.log("fix verifyPassword" , registerForm );
-    console.log("fix verifyPassword" , registerForm.value );
-    
     if(registerForm.value.password == registerForm.value.passwordConfirm){
       this.passwordsValid = true
     }else{

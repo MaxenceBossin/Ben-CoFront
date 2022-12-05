@@ -30,7 +30,6 @@ export class FormRegisterComponent {
       error: (e) => console.error(e),
       complete: () => console.info('register success') 
     })
-
   }
 
   verifyPassword(registerForm: NgForm){

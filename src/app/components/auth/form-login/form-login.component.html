@@ -1,16 +1,24 @@
 <form class="auth-form" id="login-form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit(loginForm)">
     
     <div class="auth-form_input-block">
-        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail">
+        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail" required>
+    </div>
+
+    <div *ngIf="email.invalid && email.touched">
+        <p class="error" *ngIf="email.errors?.['required']">
+            Vous devez renseigner un email
+        </p>
     </div>
 
     <div class="auth-form_input-block">
-        <input id="password" name="password" ngModel #password="ngModel" type="text" placeholder="Mot de passe">
+        <input id="password" name="password" ngModel #password="ngModel" type="password" placeholder="Mot de passe" required>
+    </div>
+    <div *ngIf="password.invalid && password.touched">
+        <p class="error" *ngIf="password.errors?.['required']">
+            Vous devez renseigner un mot de passe
+        </p>
     </div>
 
-    
-    
-
-    <button type="submit"> Je me connecte ! </button>
+    <button type="submit">Je me connecte !</button>
 
 </form>

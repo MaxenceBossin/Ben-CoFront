@@ -39,7 +39,6 @@ export class FormLoginComponent{
         // redirection de l'utilisateur en fonction de son rôle
         if (this.jwtToken != undefined) {
           const role = this.serviceJwt.getJwtRole(this.jwtToken)
-
           switch (role) {
             case 'ROLE_ADMIN':
               return this.router.navigate(['/admin/planning'])

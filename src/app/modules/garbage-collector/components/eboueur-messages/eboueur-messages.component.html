@@ -1,5 +1,5 @@
 <div id="bloc_message">
-    <div id="messages_recus">
+    <!-- <div id="messages_recus">
             
         <div class="message_recus_colum">
             <div class="flex_row">
@@ -20,32 +20,41 @@
                 <h4>Me revoilà aux nouvelles, je comptais...</h4>
             </div>
         </div>
-    </div>
+    </div> -->
    
+   
+    <div id="liste_messages">
+        <div class="flex_column">
+            <h2 class="nom_contact">Groupe de discussion | Eboueurs</h2>
+            <div *ngFor="let chat of chats" class="mb">
+                <div class="message_destinataire">
+                    <h6>{{chat.username}}</h6>
+                    <div class="interieur_message_recu">
 
-    <div class="flex_column">
-        <div id="liste_messages">
-            <h2 class="nom_contact">Maxence Ladeche</h2>
-            
-            <div class="message_destinataire">
-       
-                <div class="interieur_message_recu">
                     <div>
-                        <h4>Je suis parti vers l'église St-Vivien, rejoins moi vers 18h</h4>
+                        <h4>{{chat.message}}</h4>
                     </div>
+
                 </div>
-                <h4 class="heure_message">09:10</h4>
+                <h4 class="heure_message">{{chat.timestamp | date:'HH:mm'}}</h4>
             </div>
 
             <div class="message_envoye">
-                <h4 class="heure_message">09:25</h4>
+                <h4 class="heure_message">{{chat.timestamp | date:'HH:mm'}}</h4>
                 <div class="interieur_message_envoye">
                     
-                <h4>Je suis parti vers l'église St-Vivien, rejoins moi vers 18h</h4></div>
+                <h4>{{chat.message}}</h4></div>
             </div>
         </div>
-        <div id="envoi_message">
-            <input class="type_message" type="text" placeholder="Entrer votre message ici">
-        </div>
+       </div>
+
     </div>
+    <form id="envoi_message" [formGroup]="form" (ngSubmit)="onChatSubmit(form.value)">
+        <input matInput formControlName="username" >
+        <input placeholder="Tapez votre message ..." matInput formControlName="message" >
+        <button type="submit" matSuffix mat-icon-button aria-label="Submit">
+            <i class="fi fi-rr-paper-plane"></i>
+        </button>
+    </form>
+       
 </div>

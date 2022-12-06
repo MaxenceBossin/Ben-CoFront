@@ -1,7 +1,7 @@
 :root {
     /* Light Mode */
 
-    --light-background-gradient: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    --light-background-gradient:linear-gradient(135deg, #5eda96 0%, #8186da 100%);
     --light-background-color-main: #EDEDED;
     --light-background-color-main-transparent: #edeaeae6;
     --light-background-color-second: #ffffff;

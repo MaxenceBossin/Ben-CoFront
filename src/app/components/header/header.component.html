@@ -4,12 +4,11 @@
     <label for="drop" class="toggle">☰</label>
     <input type="checkbox" id="drop" />
 
-    <ul class="menu bouton_align">
+    <ul class="menu bouton_align" >
         <li><button (click)="toggleTheme()" class="button_darkmode">{{themehtml}}</button></li>
-        <li><a href="#declaration" class="btn openbtn">Déclarer un problème</a></li>
         <li><a class="simple_button" routerLink="/mention-legal">Mentions Légales</a></li>
-        <ng-container *ngIf="token == null">
-            <li><a href="#connexion" class="btn openbtn green_button">Connexion</a></li>
+        <ng-container *ngIf="!token">
+        <li><a href="/connexion" class="btn openbtn green_button">ESPACE PRO</a></li>
         </ng-container>
         <ng-container *ngIf="token">
             <li><button 
@@ -19,7 +18,6 @@
                 Déconnexion
             </button></li>
         </ng-container>
-
     </ul>
 
 </nav>

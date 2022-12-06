@@ -1,3 +1,5 @@
+import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete';
+import { MapComponent } from './../../components/map/map.component';
 import { GarbageCollectorRoutingModule } from './garbage-collector-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,14 +10,15 @@ import { ProfilGarbageCollectorComponent } from './components/profil-garbage-col
 
 @NgModule({
   declarations: [
-  
     WayGarbageCollectorComponent,
-       ProfilGarbageCollectorComponent
+    ProfilGarbageCollectorComponent,
+    MapComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    GarbageCollectorRoutingModule
+    GarbageCollectorRoutingModule,
+    GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
   ]
 })
 export class GarbageCollectorModule { }

@@ -93,8 +93,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1, "");
-    this.trajet();
-
   }
 
   trajet() {

@@ -17,6 +17,7 @@ export class FormLoginComponent{
     password: ''
   }
   jwtToken?: string;
+  isSubmitted : boolean = false;
 
   constructor(
     private serviceAuth: AuthService,

@@ -4,7 +4,7 @@
         <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail" required>
     </div>
 
-    <div *ngIf="email.invalid && email.touched">
+    <div *ngIf="email.invalid && email.touched || isSubmitted">
         <p class="error" *ngIf="email.errors?.['required']">
             Vous devez renseigner un email
         </p>
@@ -13,12 +13,12 @@
     <div class="auth-form_input-block">
         <input id="password" name="password" ngModel #password="ngModel" type="password" placeholder="Mot de passe" required>
     </div>
-    <div *ngIf="password.invalid && password.touched">
+    <div *ngIf="password.invalid && password.touched || isSubmitted">
         <p class="error" *ngIf="password.errors?.['required']">
             Vous devez renseigner un mot de passe
         </p>
     </div>
 
-    <button type="submit">Je me connecte !</button>
+    <button (click)="isSubmitted = true" type="submit">Je me connecte !</button>
 
 </form>

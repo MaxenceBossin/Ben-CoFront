@@ -11,6 +11,7 @@ import * as L from 'leaflet';
 
 export class MapComponent implements AfterViewInit, OnChanges {
   @Input() filterParam = ''; // decorate the property with @Input()
+  @Input() filterParamType = ''; // decorate the property with @Input()
 
   public map: any;
   public lat = 43.60899203730793;
@@ -19,16 +20,16 @@ export class MapComponent implements AfterViewInit, OnChanges {
   constructor(private DumpsterService: DumpsterService) { }
 
   ngOnChanges() {
-    console.log("map", this.map);
     // changes.prop contains the old and the new value...
     if (this.map != undefined) {
-      console.log("fixMap", this.filterParam);
+      // console.log("fixMapppppppppp", this.filterParam);
       this.map.remove();
-      this.initMap(this.lat, this.lon, this.filterParam);
+      this.initMap(this.lat, this.lon, this.filterParam, this.filterParamType);
     }
+
   }
 
-  public initMap(lat: any, lon: any, filter: any): void {
+  public initMap(lat: any, lon: any, filter: any, filterType: any): void {
     this.map = L.map('map', {
       // center: [43.60899203730793, 1.4338861683142448],
       center: [lat, lon],
@@ -40,28 +41,37 @@ export class MapComponent implements AfterViewInit, OnChanges {
       minZoom: 9,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>',
       className: 'map-tiles'
-    }).addTo(this.map);;
+    }).addTo(this.map);
 
-    var markerPlastique = L.icon({
-      iconUrl: './assets/images/marker_plastique.png',
-      iconSize: [30.75, 50.25], // size of the icon
-      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
-      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
-    });
-
-    var markerVerre = L.icon({
-      iconUrl: './assets/images/marker_verre.png',
-      iconSize: [30.75, 50.25], // size of the icon
-      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
-      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
-    });
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
       data.forEach((value: any) => {
-        if (filter == -1) {
-          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
-        }
-        else if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
-          L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["numero_voie"] + " " + value["voie"] + ", " + value["commune"] + " " + value["code_postal"]);
+        switch (filter) {
+          case -1:
+            switch (filterType) {
+              case "":
+                this.addMarker(value);
+                break;
+              default:
+                if (filterType == value["type"]) {
+                  this.addMarker(value);
+                }
+                break;
+            }
+            break;
+          default:
+            switch (filterType) {
+              case "":
+                if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
+                  this.addMarker(value);
+                }
+                break;
+              default:
+                if ((filterType == value["type"]) && (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter)) {
+                  this.addMarker(value);
+                }
+                break;
+            }
+            break;
         }
       });
     })
@@ -74,11 +84,59 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.lat = event.properties.lat;
     this.lon = event.properties.lon;
     this.map.remove();
-    this.initMap(this.lat, this.lon, -1);
+    this.initMap(this.lat, this.lon, -1, "");
   }
 
   ngAfterViewInit(): void {
-    this.initMap(this.lat, this.lon, -1);
+    this.initMap(this.lat, this.lon, -1, "");
+  }
+
+  addMarker(value: any) {
+    var markerVerre = L.icon({
+      iconUrl: './assets/images/marker_verre.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var markerTextile = L.icon({
+      iconUrl: './assets/images/marker_textile.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var markerOrdures = L.icon({
+      iconUrl: './assets/images/marker_ordures.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var markerCollecte = L.icon({
+      iconUrl: './assets/images/marker_collecte.png',
+      iconSize: [30.75, 50.25], // size of the icon
+      iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
+      popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
+    });
+    
+    switch (value["type"]) {
+      case "verre":
+        L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        break;
+      case "textile":
+        L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        break;
+      case "ordures ménagères":
+        L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        break;
+      case "collecte sélective":
+        L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        break;
+      default:
+        console.log("No such type exists!");
+        break;
+    }
   }
 
   getGeolocation() {
@@ -89,7 +147,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
             this.lat = position.coords.latitude,
             this.lon = position.coords.longitude,
             this.map.remove(),
-            this.initMap(this.lat, this.lon, -1);
+            this.initMap(this.lat, this.lon, -1, "");
         },
         error => {
           switch (error.code) {

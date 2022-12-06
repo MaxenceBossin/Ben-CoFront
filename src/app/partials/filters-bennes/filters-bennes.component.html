@@ -3,18 +3,18 @@
     <label for="slide" class="toggle"><i class="fi fi-rr-settings-sliders"></i></label>
     <nav class="sidebar">
         <div class="materiaux">
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_verre.png" width="15px" alt=""> <br>
+            <a class="bouton_filtres" (click)="filterType('verre')"><img src="./assets/images/marker_verre.png" width="15px" alt=""> <br>
                 Verre</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_plastique.png" width="15px" alt="">
-                <br>Plastique</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_carton.png" width="15px" alt="">
-                <br>Carton</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_electronique.png" width="15px" alt="">
-                <br>Electronique</a>
+            <a class="bouton_filtres" (click)="filterType('textile')"><img src="./assets/images/marker_textile.png" width="15px" alt="">
+                <br>Textile</a>
+            <a class="bouton_filtres" (click)="filterType('ordures ménagères')"><img src="./assets/images/marker_ordures.png" width="15px" alt="">
+                <br>Ordures ménagères</a>
+            <a class="bouton_filtres" (click)="filterType('collecte sélective')"><img src="./assets/images/marker_collecte.png" width="15px" alt="">
+                <br>Collecte selective</a>
         </div>
         <div class="materiaux">
             <a class="bouton_filtres" (click)="filterMap(0.25)"><img src="./assets/images/marker_lieu.png" width="15px"
-                    alt=""> <br>- 250m</a>
+                    alt=""> <br>-250m</a>
             <a class="bouton_filtres" (click)="filterMap(0.5)"><img src="./assets/images/marker_lieu.png" width="15px"
                     alt=""> <br>-500m</a>
             <a class="bouton_filtres" (click)="filterMap(0.75)"><img src="./assets/images/marker_lieu.png" width="15px"

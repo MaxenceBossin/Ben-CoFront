@@ -1,29 +1,31 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 
-<ul>
-    <li *ngFor="let liste of listUsers">{{ liste.email }}</li>
-</ul>
 <table>
-	<caption>Eboueurs</caption>
+	<caption> 
+		<p>Éboueurs</p>
+		<button class="btn add">Ajouter un nouvel éboueurs</button>
+	</caption>
+	
 	<thead>
 		<tr>
 			<th>Email</th>
-			<th>Prenom</th>
+			<th>Prénom</th>
 			<th>Nom</th>
+            <th>Modifier</th>
 			<th>Supprimer</th>
-            <th>Modifier</th>
-            <th>Modifier</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let liste of listUsers">
-			<td>{{ liste.email }}</td>
-			<td>Controle de fluxo de um restaurante</td>
-			<td>Erick Jacquin</td>
-			<td>4</td>
-			<td>20/04/2018</td>
-            <td>Modifier</td>
+        
+		<tr *ngFor="let garbageCollector of garbageCollectors">
+			<td>{{ garbageCollector.email }}</td>
+			<td>{{ garbageCollector?.first_name }}</td>
+			<td>{{ garbageCollector?.last_name }}</td>
+			<td><button class="btn edit">Modifier</button></td>
+			<td><button class="btn delete">Supprimer</button></td>
+			
 		</tr>
 		
 	</tbody>
 </table>
+

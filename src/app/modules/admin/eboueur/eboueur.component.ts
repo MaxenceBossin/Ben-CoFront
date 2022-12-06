@@ -13,8 +13,11 @@ export class EboueurComponent implements OnInit, OnDestroy {
   listUsers : any
   garbageCollectors?: any
   subscribe : any
+  idSend: any = {
+    "id": 0
+  }
 
-  constructor(private UserService : UserService,  private router: Router) { 
+  constructor(private UserService : UserService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -24,8 +27,14 @@ export class EboueurComponent implements OnInit, OnDestroy {
       return u.roles.includes('ROLE_GARBAGE_COLLECTOR')
       })
     })
-    
-    
+  }
+
+  remove(id:number){
+      this.subscribe = this.UserService.setUser(id).subscribe({
+      next: (data) => console.info('donnée envoyé', data),
+      error: (e) => console.error(e),
+      complete: () => this.ngOnInit() 
+    })
   }
 
   ngOnDestroy(): void {

@@ -1,2 +1,29 @@
 <app-nav-bar-admin></app-nav-bar-admin>
-<p>eboueur works!</p>
+
+<ul>
+    <li *ngFor="let liste of listUsers">{{ liste.email }}</li>
+</ul>
+<table>
+	<caption>Eboueurs</caption>
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Prenom</th>
+			<th>Nom</th>
+			<th>Supprimer</th>
+            <th>Modifier</th>
+            <th>Modifier</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let liste of listUsers">
+			<td>{{ liste.email }}</td>
+			<td>Controle de fluxo de um restaurante</td>
+			<td>Erick Jacquin</td>
+			<td>4</td>
+			<td>20/04/2018</td>
+            <td>Modifier</td>
+		</tr>
+		
+	</tbody>
+</table>

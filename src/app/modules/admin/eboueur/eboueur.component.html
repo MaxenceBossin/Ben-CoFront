@@ -3,7 +3,7 @@
 <table>
 	<caption> 
 		<p>Éboueurs</p>
-		<button class="btn add">Ajouter un nouvel éboueurs</button>
+		<button (click)="redirectAdd()" class="btn add">Ajouter un nouvel éboueurs</button>
 	</caption>
 	
 	<thead>
@@ -21,7 +21,7 @@
 			<td>{{ garbageCollector.email }}</td>
 			<td>{{ garbageCollector?.first_name }}</td>
 			<td>{{ garbageCollector?.last_name }}</td>
-			<td><button class="btn edit">Modifier</button></td>
+			<td><button (click)="redirectEdit(garbageCollector.id)" class="btn edit">Modifier</button></td>
 			<td><button class="btn delete">Supprimer</button></td>
 			
 		</tr>

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user/user.service';
 import { User } from 'src/app/model/user';
 import { Observable } from 'rxjs';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-eboueur',
@@ -13,7 +14,7 @@ export class EboueurComponent implements OnInit, OnDestroy {
   garbageCollectors?: any
   subscribe : any
 
-  constructor(private UserService : UserService) { 
+  constructor(private UserService : UserService,  private router: Router) { 
   }
 
   ngOnInit() {
@@ -30,4 +31,13 @@ export class EboueurComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscribe?.unsubscribe()
   }
+
+  redirectAdd(): void{
+    this.router.navigate(['/admin/eboueurs/ajout'])
+  }
+
+  redirectEdit(id:number): void{
+    this.router.navigate(['/admin/eboueurs/modifier/'+id])
+  }
+
 }

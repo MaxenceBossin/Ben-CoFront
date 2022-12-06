@@ -16,7 +16,7 @@ const routes: Routes = [
     canActivate:[UserGuard]
   },
   {
-    path: 'travailleur',
+    path: 'eboueurs',
     loadChildren: () => import('./modules/garbage-collector/garbage-collector.module')
     .then(m => m.GarbageCollectorModule),
     canActivate:[GarbageCollectorGuard]

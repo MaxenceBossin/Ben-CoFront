@@ -7,15 +7,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FiltersBennesComponent implements OnInit {
   @Output() getFilterBenne = new EventEmitter<string>();
-
-  public filter = -1;
+  @Output() getFilterType = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-    // console.log(this.mapComponent.lat);
-    // console.log(this.mapComponent.lon);
-    // console.log(this.mapComponent.map);
   }
 
   filterMap(param: any) {
@@ -23,13 +19,8 @@ export class FiltersBennesComponent implements OnInit {
     this.getFilterBenne.emit(param);
   }
 
-  Filter(filter: any) {
-    // this.filter = filter;
-    // this.mapComponent.getFilter(this.filter);
-    // console.log(this.mapComponent.lat);
-    // console.log(this.mapComponent.lon);
-    // console.log(this.mapComponent.map);
-    // this.mapComponent.map.remove();
-    // this.mapComponent.initMap(this.mapComponent.lat, this.mapComponent.lon, filter);
+  filterType(param:any){
+    console.log('fix filterType' , param);
+    this.getFilterType.emit(param);
   }
 }

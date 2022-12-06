@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   colorMode? : string
   currentFilter = "";
+  currentFilterType = "";
 
   constructor() { }
 
@@ -21,6 +22,12 @@ export class HomeComponent implements OnInit {
     console.log('fix home' , param);
     this.currentFilter = param;
     console.log('fix current', this.currentFilter);
+  }
+
+  getFilterType(param: any) {
+    console.log('fix paramType' , param);
+    this.currentFilterType = param;
+    console.log('fix currentFilterType', this.currentFilterType);
   }
 
   toggleTheme(){

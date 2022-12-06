@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   getFilter(param: any) {
-    console.log('fix home' , param);
     this.currentFilter = param;
-    console.log('fix current', this.currentFilter);
   }
 
   getFilterType(param: any) {
@@ -49,7 +47,6 @@ export class HomeComponent implements OnInit {
   }
 
   getTheme(theme: string) {
-    console.log(theme);
     this.colorMode = theme
   }
 

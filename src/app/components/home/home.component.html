@@ -1,9 +1,6 @@
 <div id="app"  [ngClass]="colorMode">
     <app-header (newThemeEvent)="getTheme($event)"></app-header>
-    <app-map [filterParam]="currentFilter" [filterParamType]="currentFilterType"></app-map>
-    <app-filters-bennes (getFilterBenne)="getFilter($event)" (getFilterType)="getFilterType($event)"></app-filters-bennes>
-    <app-declaration></app-declaration>
-    <app-auth></app-auth>
+    <app-accueil></app-accueil> 
 </div>
 
 

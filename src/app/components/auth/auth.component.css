@@ -12,7 +12,6 @@ h2 {
     display: flex;
   }
   .btn {
-    margin-left: 4%;
     margin-top: 5%;
     background: #ba9fa8;
     border-radius: 5px;
@@ -27,6 +26,7 @@ h2 {
   }
   .btn.openbtn {
     padding: 20px;
+    color: black;
   }
   .btn.openbtn:hover {
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.4);
@@ -58,9 +58,6 @@ h2 {
       right: 32.5%;
       display: flex;
       flex-direction: column;
-      background-color: #74EBD5;
-      background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-      box-shadow: -5px -5px 10px 4px rgb(0 0 0 / 10%), 5px 5px 10px 4px rgb(45 150 255 / 15%);
   }
     
     .modal:target {
@@ -102,49 +99,35 @@ h2 {
     }
 /*-------------------------------------------------------------------*/
 .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: auto;
+  background-color: #5eda96;
+  background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+  position: fixed;
+  width: 100%;
 }
 
 h1 {
-    color: white;
+    color: black;
 }
 
 .auth-container_block {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px;
-    border-radius: 1rem;
-    width: 500px;
-    box-shadow: -5px -5px 10px 4px rgba(0,0,0,0.1), 5px 5px 10px 4px rgba(45, 150, 255, 0.15);
-    background-color: #74EBD5;
-    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
-    color: black;  
-    position: absolute;
-    
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 1rem;
+  width: 500px;
+  background-color: white;
+  color: black;
+  position: absolute;
+  height: fit-content;
+  z-index: 1;
 }
-
-@media (max-width: 600px) { 
-
-  .auth-container_block{
-    top: 10%;
-    bottom: 10%;
-    height: 100vh;
-  }
- }
-@media (min-width: 599px) { 
-  .auth-container_block{
-    max-height: 90vh;
-    top: 50%; left: 50%; 
-    transform: translate(-50%, -50%);
-  }
- }
-
 
 
 /* Input */
@@ -154,7 +137,7 @@ h1 {
 }
 
 .auth-form_input-block {
-    padding: 0.5rem 0;
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -163,7 +146,7 @@ input, button {
     all: unset;
 }
 
-input[type='text'], input[type='password']  {
+input[type='text'],input[type='password']  {
     padding: 10px;
     border-radius: 1rem;
     background-color: #ffffffc2;
@@ -187,15 +170,20 @@ button {
   padding: 0.5rem 1rem;
   border-radius: 6rem;
   cursor: pointer;
-  background-color: #ffd6b2;
+  background-color: rgb(94, 104, 90);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  color: white;
+}
+h2{
+  color: black;
 }
 
-
 @media (max-width: 600px) { 
+  h2{
+    color: white;
+  }
     .auth-container_block {
-        background-color: #74EBD5;
-        background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+        background-color: #5eda9600;
         width: 100%;
         border-radius: 0rem;
         padding-top: 15%;
@@ -204,6 +192,9 @@ button {
     }
     input{
       padding: 7px;
+    }
+    img{
+      display: none;
     }
 }
 input[type='checkbox']{
@@ -226,3 +217,21 @@ input[type='checkbox']:checked{
   align-items: center;
 }
 
+img {
+  position: absolute;
+  top: 92%;
+  width: 150px;
+  animation: animate 20s cubic-bezier(0.1, -0.6, 0.2, 0) infinite;
+}
+
+@keyframes animate {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+  0% {
+    left: 0;
+  }
+}

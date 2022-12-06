@@ -15,7 +15,6 @@ export class FiltersBennesComponent implements OnInit {
   }
 
   filterMap(param: any) {
-    console.log('fix filter' , param);
     this.getFilterBenne.emit(param);
   }
 

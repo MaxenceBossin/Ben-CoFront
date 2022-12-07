@@ -2,7 +2,7 @@ import { User } from './../../../model/user';
 import { Component } from '@angular/core';
 import { AuthService } from './../../../service/auth/auth.service';
 import { NgForm } from '@angular/forms';
-
+import {Router} from "@angular/router"
 @Component({
   selector: 'app-form-register',
   templateUrl: './form-register.component.html',
@@ -12,8 +12,9 @@ export class FormRegisterComponent {
 
   user = new User()
   passwordsValid : boolean = false
+  isSubmitted : boolean = false
 
-  constructor(private serviceAuth: AuthService) { }
+  constructor(private serviceAuth: AuthService, private router: Router) { }
 
   onSubmit(registerForm: NgForm) {
     this.user.email   = registerForm.value.email
@@ -25,7 +26,10 @@ export class FormRegisterComponent {
     this.serviceAuth.register(this.user).subscribe({
       next: (data) => console.info('connexion en cours'),
       error: (e) => console.error(e),
-      complete: () => console.info('register success') 
+      complete: () => {
+        console.info('register success'),
+        this.router.navigate(['/']);
+      }
     })
   }
 

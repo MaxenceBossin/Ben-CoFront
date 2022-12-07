@@ -17,6 +17,7 @@ export class FormLoginComponent{
     password: ''
   }
   jwtToken?: string;
+  isSubmitted : boolean = false;
 
   constructor(
     private serviceAuth: AuthService,
@@ -43,7 +44,7 @@ export class FormLoginComponent{
             case 'ROLE_ADMIN':
               return this.router.navigate(['/admin/planning'])
             case 'ROLE_GARBAGE_COLLECTOR':
-              return this.router.navigate(['/']) // TODO
+              return this.router.navigate(['/eboueurs/trajets'])
             case 'ROLE_USER':
               return this.router.navigate(['/']) // TODO 
           }

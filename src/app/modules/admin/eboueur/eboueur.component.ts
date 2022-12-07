@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/service/users/users.service';
+
 
 @Component({
   selector: 'app-eboueur',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EboueurComponent implements OnInit {
 
-  constructor() { }
+  constructor(private UsersService : UsersService) { }
+  listUsers : any
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.UsersService.getUsers().subscribe((data: any) => {
+      this.listUsers = data;
+    })
   }
-
 }

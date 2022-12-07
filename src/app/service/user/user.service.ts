@@ -21,7 +21,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User>{
-    return this.http.get<User>(this.url + 'showUsers')
+    return this.http.get<User>(this.url + 'showUsers' ,this.httpsOption)
   }
 
   setGarbageCollector(email: string){

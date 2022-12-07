@@ -10,8 +10,10 @@ import { AdminRoutingModule } from './admin-routing.module';
 
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { EboueurAddComponent } from './eboueur-add/eboueur-add.component';
+import { EboueurEditComponent } from './eboueur-edit/eboueur-edit.component';
 
-
+import { FormsModule }   from '@angular/forms';
 
 
 @NgModule({
@@ -22,13 +24,16 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     TrajetComponent,
     PlanningComponent,
     DeclarationComponent,
+    EboueurAddComponent,
+    EboueurEditComponent,
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     // BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    FormsModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

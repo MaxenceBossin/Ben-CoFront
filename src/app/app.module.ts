@@ -44,7 +44,6 @@ import { AccueilComponent } from './components/home/accueil/accueil.component';
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [    

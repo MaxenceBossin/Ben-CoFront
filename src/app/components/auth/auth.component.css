@@ -114,6 +114,8 @@ h1 {
     color: black;
 }
 
+
+
 .auth-container_block {
   display: flex;
   flex-flow: column nowrap;
@@ -235,3 +237,5 @@ img {
     left: 0;
   }
 }
+
+

@@ -14,7 +14,8 @@ export class DumpsterService {
   url = environment.api_url;
   httpsOption ={
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
     })
   }
 

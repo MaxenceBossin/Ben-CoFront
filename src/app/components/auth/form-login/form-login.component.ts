@@ -1,9 +1,10 @@
 import { I_LoginForm } from './../../../interfaces/login-form';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Router} from "@angular/router"
 import { AuthService } from './../../../service/auth/auth.service';
 import { JwtService } from 'src/app/service/jwt.service';
+
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -18,6 +19,9 @@ export class FormLoginComponent{
   }
   jwtToken?: string;
   isSubmitted : boolean = false;
+  formUnknownError : boolean = false;
+  
+
 
   constructor(
     private serviceAuth: AuthService,
@@ -27,14 +31,16 @@ export class FormLoginComponent{
   onSubmit(loginForm: NgForm) {
     this.form.email    = loginForm.value.email
     this.form.password = loginForm.value.password
-
-    // Si la connexion est valide on stock le token en local storage +  TODO : rediriger vers la page d'accuiel
+    // Si la connexion est valide on stock le token en local storage +  TODO : rediriger vers la page d’accueil
     this.serviceAuth.login(this.form).subscribe({
       next: (data) => {
         this.serviceAuth.saveToken(data.token),
         this.jwtToken = data.token
       },
-      error: (e) => console.error(e),
+      error: (e) => {
+        console.error(e)
+        this.displayError(loginForm)
+      },
       complete: () => {
         console.info('connection success')
         // redirection de l'utilisateur en fonction de son rôle
@@ -50,9 +56,16 @@ export class FormLoginComponent{
           }
         }        
         // en cas de token erroné
-        return console.log('erreur');
-         // TODO
+        return this.displayError(loginForm)
+
       }
     })
   }
+
+  displayError(loginForm: NgForm){
+    this.formUnknownError = true
+    this.isSubmitted = false
+    loginForm.reset()
+  }
+
 }

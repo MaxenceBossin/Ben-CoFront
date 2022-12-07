@@ -1,7 +1,7 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 <div id="planningBg">
     <div id="flexboxSemaine">
-        <p>SEMAINE 35</p>
+        <p>SEMAINE {{weekNumber}} || {{year}}</p>
 
         <form>
             <input name='name' class='input1' type="text">
@@ -51,9 +51,9 @@
         </div>
     </div> -->
     <ul id="dayFlexbox">
-        <div class="skipWeek"><i class="fi fi-rr-angle-left"></i></div>
+        <div class="skipWeek"><i class="fi fi-rr-angle-left" (click)="previousWeek()"></i></div>
         <li>
-            <p>lundi 05</p>
+            <p>{{week[0].name}} {{week[0].int}}</p>
             <div class="dayBackground" cdkDropList #day0list="cdkDropList" [cdkDropListData]="daysdata[0]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -63,7 +63,7 @@
             </div>
         </li>
         <li>
-            <p>mardi 06</p>
+            <p>{{week[1].name}} {{week[1].int}}</p>
             <div class="dayBackground" cdkDropList #day1list="cdkDropList" [cdkDropListData]="daysdata[1]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -73,7 +73,7 @@
             </div>
         </li>
         <li>
-            <p>mercredi 07</p>
+            <p>{{week[2].name}} {{week[2].int}}</p>
             <div class="dayBackground" cdkDropList #day2list="cdkDropList" [cdkDropListData]="daysdata[2]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -83,7 +83,7 @@
             </div>
         </li>
         <li>
-            <p>jeudi 08</p>
+            <p>{{week[3].name}} {{week[3].int}}</p>
             <div class="dayBackground" cdkDropList #day3list="cdkDropList" [cdkDropListData]="daysdata[3]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -93,7 +93,7 @@
             </div>
         </li>
         <li>
-            <p>vendredi 09</p>
+            <p>{{week[4].name}} {{week[4].int}}</p>
             <div class="dayBackground" cdkDropList #day4list="cdkDropList" [cdkDropListData]="daysdata[4]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -103,7 +103,7 @@
             </div>
         </li>
         <li>
-            <p>samedi 10</p>
+            <p>{{week[5].name}} {{week[5].int}}</p>
             <div class="dayBackground" cdkDropList #day5list="cdkDropList" [cdkDropListData]="daysdata[5]"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
@@ -112,7 +112,7 @@
                 </div>
             </div>
         </li>
-        <div class="skipWeek"><i class="fi fi-rr-angle-right"></i></div>
+        <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
     </ul>
     <input type='submit' class="boutonValidé">
 </div>

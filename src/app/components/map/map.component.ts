@@ -1,6 +1,8 @@
-import { DumpsterService } from './../../service/dumpster/dumpster.service';
+import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet-routing-machine';
+import { bindNodeCallback } from 'rxjs';
 
 
 @Component({
@@ -17,6 +19,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
   public lat = 43.60899203730793;
   public lon = 1.4338861683142448;
   public geolocationPosition: any;
+  public tab: any = [];
+
   constructor(private DumpsterService: DumpsterService) { }
 
   ngOnChanges() {
@@ -38,7 +42,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      minZoom: 9,
+      minZoom: 2,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>',
       className: 'map-tiles'
     }).addTo(this.map);
@@ -89,6 +93,32 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1, "");
+    this.trajet();
+
+  }
+
+  trajet() {
+    this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
+      for (let index = 0; index < 81; index++) {
+        this.tab.push(L.latLng(data[index]["latitude"], data[index]["longitude"]))
+        if (index == 80) {
+          L.Routing.control({
+            router: L.Routing.osrmv1({
+              language: "fr",
+              profile: "car",
+              
+            }),
+            waypoints: this.tab,
+          }).addTo(this.map);
+        }
+        // this.tab.push(data[index]["latitude"], data[index]["longitude"]);
+        // console.log(data[index]["latitude"]);
+      }
+    });
+    console.log("fix", this.tab);
+
+
+
   }
 
   addMarker(value: any) {
@@ -119,7 +149,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       iconAnchor: [10.75, 25.25], // point of the icon which will correspond to marker's location
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
-    
+
     switch (value["type"]) {
       case "verre":
         L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);

@@ -4,8 +4,6 @@ import { User } from 'src/app/model/user';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,18 +19,15 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User>{
-    return this.http.get<User>(this.url + 'showUsers' ,this.httpsOption)
+    return this.http.get<User>(this.url + 'showUsers')
   }
 
-  getGarbageCollector(): Observable<User>{
-    return this.http.get<User>(this.url + 'showGarbageCollector' ,this.httpsOption)
-  }
-
-  setGarbageCollector(email: string){
+  setGarbageCollector(email: string) {
     return this.http.put(this.url + 'setGarbageCollector', email, this.httpsOption)
   }
 
   setUser(id: any) {
     return this.http.patch(this.url + 'removeGarbageCollector/' + id, '', this.httpsOption)
   }
+
 }

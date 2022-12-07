@@ -10,6 +10,7 @@ import { Router } from "@angular/router"
   styleUrls: ['./eboueur.component.css']
 })
 export class EboueurComponent implements OnInit, OnDestroy {
+  listUsers: any
   garbageCollectors?: any
   subscribe: any
   idSend: any = {
@@ -20,7 +21,7 @@ export class EboueurComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscribe = this.UserService.getGarbageCollector().subscribe((users: any) =>  this.garbageCollectors = users)    
+    this.subscribe = this.UserService.getGarbageCollector().subscribe((users: any) =>  this.garbageCollectors = users)
   }
 
   remove(id: number) {

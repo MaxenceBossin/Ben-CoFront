@@ -1,4 +1,4 @@
-import { DumpsterService } from './../../service/dumpster/dumpster.service';
+import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
@@ -99,25 +99,25 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   trajet() {
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
-      for (let index = 0; index < 5; index++) {
+      for (let index = 0; index < 81; index++) {
         this.tab.push(L.latLng(data[index]["latitude"], data[index]["longitude"]))
+        if (index == 80) {
+          L.Routing.control({
+            router: L.Routing.osrmv1({
+              language: "fr",
+              profile: "car",
+              
+            }),
+            waypoints: this.tab,
+          }).addTo(this.map);
+        }
         // this.tab.push(data[index]["latitude"], data[index]["longitude"]);
         // console.log(data[index]["latitude"]);
       }
-      // data.forEach((value: any) => {
-        // this.tab.push(L.Routing.waypoint(L.latLng(value["latitude"], value["longitude"])))
-      // })
     });
-
     console.log("fix", this.tab);
 
-    L.Routing.control({
-      router: L.Routing.osrmv1({
-        language: "fr",
-        profile: "car"
-      }),
-      waypoints: this.tab,
-    }).addTo(this.map);
+
 
   }
 

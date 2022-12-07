@@ -46,13 +46,83 @@ table th,
 table td {
 	padding: 0.75rem 1rem;
 	font-weight: normal;
-	text-align: left;
+	text-align: center;
 }
 
 table th:nth-child(4),
 table td:nth-child(4) {
-	text-align: right;
+	text-align: center;
 }
+
+.btn{
+	padding: .7rem;
+	
+	color: #FFF;
+	border-radius: 10rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border: 0px solid #ffffff;
+	cursor: pointer;
+}
+
+
+
+/* CSS */
+.btn {
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 5px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: .5s;
+}
+
+.btn:hover {
+
+  color: #fff;
+}
+.edit{
+	background-color: #cdb9f6;
+}
+.delete{
+	background-color: #ef9c9c;
+}
+.add{
+	background-color: #9cefca;
+}
+
+.edit:hover{
+	background-color:  #6d32e2;
+}
+.delete:hover{
+	background-color:  #ec0e0e;
+}
+.add:hover{
+	background-color: #028148;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+
 
 @media screen and (max-width: 768px) {
 	table {
@@ -82,7 +152,7 @@ table td:nth-child(4) {
 
 	table td {
 		font-size: 0.875rem;
-		text-align: right;
+		text-align: center;
 		display: block;
 	}
 

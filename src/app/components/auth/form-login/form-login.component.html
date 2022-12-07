@@ -1,7 +1,7 @@
 <form class="auth-form" id="login-form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && onSubmit(loginForm)">
 
     <div class="auth-form_input-block">
-        <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail" required>
+        <input id="email" name="email" (ngModelChange)="formUnknownError = false" ngModel #email="ngModel" type="text" placeholder="E-mail" required>
     </div>
 
     <div *ngIf="email.invalid && email.touched || isSubmitted">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="auth-form_input-block">
-        <input id="password" name="password" ngModel #password="ngModel" type="password" placeholder="Mot de passe" required>
+        <input id="password" name="password" (ngModelChange)="formUnknownError = false" ngModel #password="ngModel" type="password" placeholder="Mot de passe" required>
     </div>
     <div *ngIf="password.invalid && password.touched || isSubmitted">
         <p class="error" *ngIf="password.errors?.['required']">

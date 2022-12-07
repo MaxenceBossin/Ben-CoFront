@@ -1,9 +1,9 @@
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/model/user';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { JsonPipe } from '@angular/common';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+
 
 
 @Injectable({
@@ -24,7 +24,11 @@ export class UserService {
     return this.http.get<User>(this.url + 'showUsers' ,this.httpsOption)
   }
 
-  setGarbageCollector(email: string) {
+  getGarbageCollector(): Observable<User>{
+    return this.http.get<User>(this.url + 'showGarbageCollector' ,this.httpsOption)
+  }
+
+  setGarbageCollector(email: string){
     return this.http.put(this.url + 'setGarbageCollector', email, this.httpsOption)
   }
 

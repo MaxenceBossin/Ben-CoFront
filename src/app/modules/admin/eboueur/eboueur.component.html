@@ -1,2 +1,32 @@
 <app-nav-bar-admin></app-nav-bar-admin>
-<p>eboueur works!</p>
+
+<table>
+	<caption> 
+		<p>Éboueurs</p>
+		<button (click)="redirectAdd()" class="btn add">Ajouter un nouvel éboueurs</button>
+	</caption>
+	
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Email</th>
+			<th>Prénom</th>
+			<th>Nom</th>
+            <th>Modifier</th>
+			<th>Supprimer</th>
+		</tr>
+	</thead>
+	<tbody>
+        
+		<tr *ngFor="let garbageCollector of garbageCollectors">
+			<td>{{ garbageCollector.id }}</td>
+			<td>{{ garbageCollector.email }}</td>
+			<td>{{ garbageCollector?.first_name }}</td>
+			<td>{{ garbageCollector?.last_name }}</td>
+			<td><button (click)="redirectEdit(garbageCollector.id)" class="btn edit">Modifier</button></td>
+			<td><button (click)="remove(garbageCollector.id)" class="btn delete">Supprimer</button></td>			
+		</tr>
+		
+	</tbody>
+</table>
+

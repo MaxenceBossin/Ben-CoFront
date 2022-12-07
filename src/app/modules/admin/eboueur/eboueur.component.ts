@@ -10,7 +10,6 @@ import { Router } from "@angular/router"
   styleUrls: ['./eboueur.component.css']
 })
 export class EboueurComponent implements OnInit, OnDestroy {
-  listUsers: any
   garbageCollectors?: any
   subscribe: any
   idSend: any = {

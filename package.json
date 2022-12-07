@@ -30,8 +30,6 @@
     "form-group": "^3.0.8",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.2",
-    "leaflet-css": "^0.1.0",
-    "leaflet-routing-machine": "^3.2.12",
     "mapbox-gl": "^2.10.0",
     "mapbox-gl-leaflet": "^0.0.15",
     "rxjs": "~7.5.0",

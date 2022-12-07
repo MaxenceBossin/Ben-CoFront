@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   theme: string | null = localStorage.getItem('colorMode');
+  token: string | null = localStorage.getItem('jwtToken');
   themehtml: string | null = ''
   @Output() newThemeEvent = new EventEmitter<string>();
 
@@ -36,6 +37,11 @@ export class HeaderComponent implements OnInit {
     }
 
     this.newThemeEvent.emit(this.theme);
+  }
+
+  logout(){
+    localStorage.removeItem('jwtToken');
+    this.token = null
   }
 
 }

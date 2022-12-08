@@ -24,5 +24,9 @@ export class PlanningService {
     return this.http.post(this.url + 'getPlanning', date, this.httpsOption)
   }
 
+  sendPlanning(data:any){
+    return this.http.post(this.url + 'addPlanning', data, this.httpsOption)
+  }
+
 
 }

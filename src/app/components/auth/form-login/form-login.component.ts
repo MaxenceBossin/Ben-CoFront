@@ -46,7 +46,7 @@ export class FormLoginComponent{
             case 'ROLE_GARBAGE_COLLECTOR':
               return this.router.navigate(['/eboueurs/trajets'])
             case 'ROLE_USER':
-              return this.router.navigate(['/utilisateur/carte'])
+              return this.router.navigate(['/utilisateur/userAccueil'])
           }
         }        
         // en cas de token erroné

@@ -1,0 +1,25 @@
+<nav id="mainHeader" class="flex-container">
+    <img id="logo" routerLink="/eboueurs/trajets" src="../../../assets/images/logo.png">
+
+    <label for="drop" class="toggle">☰</label>
+    <input type="checkbox" id="drop" />
+
+    <ul class="menu bouton_align">
+        <li><button routerLink="/utilisateur/userAccueil" style="display: block; padding: 14px 20px; font-size: 17px;"
+                class="btn openbtn green_button">
+                Map
+            </button></li>
+
+        <li><button routerLink="/utilisateur/profil" style="display: block; padding: 14px 20px; font-size: 17px;"
+                class="btn openbtn green_button">
+                Profil
+            </button></li>
+
+        <li><button (click)="logout()" style="display: block; padding: 14px 20px; font-size: 17px;"
+                class="btn openbtn green_button">
+                Déconnexion
+            </button></li>
+
+    </ul>
+
+</nav>

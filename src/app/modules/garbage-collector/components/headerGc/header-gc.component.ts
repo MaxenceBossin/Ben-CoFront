@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-nav-bar-admin',
-  templateUrl: './nav-bar-admin.component.html',
-  styleUrls: ['./nav-bar-admin.component.css']
+  selector: 'app-header-gc',
+  templateUrl: './header-gc.component.html',
+  styleUrls: ['./header-gc.component.css']
 })
-export class NavBarAdminComponent implements OnInit {
-
+export class HeaderGcComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,5 +17,4 @@ export class NavBarAdminComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/']);
   }
-
 }

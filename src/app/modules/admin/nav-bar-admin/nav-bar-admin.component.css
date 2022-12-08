@@ -30,6 +30,7 @@ a:visited {
     height: 50px;
     margin-top: auto;
     margin-bottom: auto;
+    cursor: pointer;
 }
 
 .flex-container {

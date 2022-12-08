@@ -1,5 +1,5 @@
 <nav class="flex-container">
-    <img id="logo" routerLink="/" src="../../../assets/images/logo.png">
+    <img id="logo" routerLink="/admin/planning" src="../../../assets/images/logo.png">
     <ul class="menu bouton_align">
         <li><a routerLink="/admin/planning" routerLinkActive="active-link">Planning</a></li>
         <li><a routerLink="/admin/trajet" routerLinkActive="active-link">Trajet</a></li>
@@ -8,6 +8,6 @@
     </ul>
     <span class="spanSvg">
         <img class='svg_NavBarAdmin' src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Ei-gear.svg">
-        <img class='svg_NavBarAdmin' src="../../../assets/images/exit-logout-2859 (1).svg" />
+        <img (click)="logout()" class='svg_NavBarAdmin' src="../../../assets/images/exit-logout-2859 (1).svg" />
     </span>
 </nav>

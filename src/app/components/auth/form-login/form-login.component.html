@@ -22,7 +22,7 @@
     <p [ngStyle]="{'visibility': formUnknownError || isSubmitted ? 'visible' : 'hidden'}" 
     [ngClass]="formUnknownError ? 'error' : ''">
         <ng-container *ngIf="formUnknownError">Identifiant invalide</ng-container>
-        <ng-container *ngIf="isSubmitted">Connexion en cours</ng-container>
+        <ng-container *ngIf="isSubmitted && loginForm.form.valid">Connexion en cours</ng-container>
     </p>
 
     <button [disabled]="isSubmitted" (click)="isSubmitted = true" type="submit">Je me connecte !</button>

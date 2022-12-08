@@ -63,9 +63,9 @@ export class FormLoginComponent{
   }
 
   displayError(loginForm: NgForm){
+    loginForm.reset()
     this.formUnknownError = true
     this.isSubmitted = false
-    loginForm.reset()
   }
 
 }

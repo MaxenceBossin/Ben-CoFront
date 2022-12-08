@@ -1,0 +1,44 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+
+
+
+<section class="container">
+    <h1> {{support.title}} | Catégorie : {{support.category}}</h1>
+
+    <p>Ticket créer par : {{ support?.garbageCollector_name }}</p>
+    <hr>
+    <p>{{support.content!}}</p>
+    <hr>
+    
+    <div *ngIf="support.dumpster_id">
+        <table>
+            <caption> 
+                <p>Problème Benne</p>
+            </caption>            
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Adresse</th>
+                    <th>Type de benne</th>
+                </tr>
+            </thead>
+
+            <tbody>                
+                <td>{{support.garbageCollector_id}}</td>
+                <td>{{support.dumpster_latitude}}</td>
+                <td>{{support.dumpster_longitude}}</td>
+                <td>{{support.dumpster_street_number}}  {{support.dumpster_street_label}}, {{support.dumpster_cp}}, {{support.dumpster_street_city}}</td>
+                <td> {{support.dumpster_type}}</td>                
+            </tbody>
+        </table>    
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        <button (click)="changeStatus('En attente')" style="margin: 1rem" class="btn edit">En attente</button>
+        <button (click)="changeStatus('Prendre en charge')" style="margin: 1rem" class="btn edit">Prendre en charge</button>
+        <button (click)="changeStatus('Résolu')" style="margin: 1rem" class="btn edit">Résolu</button>
+        <button (click)="back()" style="margin: 1rem" class="btn">Retour</button>
+    </div>
+</section>

@@ -7,7 +7,6 @@ import { AuthComponent } from './components/auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MentionsComponent } from './components/mentionsLegales/mentions.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { UserAccueilComponent } from './modules/user/user-accueil/user-accueil.c
     HomeComponent,
     AuthComponent,
     MentionsComponent,
-    NavbarPleineComponent,
     FormLoginComponent,
     FormRegisterComponent,
     AccueilComponent

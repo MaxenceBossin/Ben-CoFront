@@ -113,7 +113,7 @@
     padding: 11px;
     font-weight: 600;
     width: fit-content;
-    margin-right: 10px;
+    margin: 10px 20px 10px 0px
 }
 .button_redirect_user:hover{
     transform: scale(1.1);
@@ -125,7 +125,7 @@
     padding: 11px;
     font-weight: 600;
     width: fit-content;
-
+    margin: 10px 20px 10px 0px
 }
 .button_redirect_eboueur:hover{
     transform: scale(1.1);

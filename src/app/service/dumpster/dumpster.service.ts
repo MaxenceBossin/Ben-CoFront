@@ -22,7 +22,7 @@ export class DumpsterService {
   constructor(private http: HttpClient) { }
 
   getAllDumpsters(): Observable<Array<any>>{
-    return this.http.get<Array<any>>(this.url + 'showDumpster' ,  this.httpsOption)
+    return this.http.get<Array<any>>(this.url + 'showDumpster' , this.httpsOption);
   }
 
 }

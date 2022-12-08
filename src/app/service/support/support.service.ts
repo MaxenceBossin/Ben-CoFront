@@ -19,14 +19,14 @@ export class SupportService {
     constructor(private http: HttpClient) { }
     
     getAll() {
-      return this.http.get(this.url + 'supports')
+      return this.http.get(this.url + 'supports' , this.httpsOption)
     }
 
     getOne(id:number) {
-      return this.http.get(this.url + 'support/' + id)
+      return this.http.get(this.url + 'support/' + id , this.httpsOption)
     }
 
     patchStatus(id: number, status : any){
-      return this.http.patch(this.url +'support/' + id, status)
+      return this.http.patch(this.url +'support/' + id, status , this.httpsOption)
     }
 }

@@ -31,12 +31,9 @@ export class DeclarationComponent implements OnInit, OnDestroy{
     if(status == ''){
       this.supportsFilter = this.supports
     }else{
-
       console.log(2);
-      this.supportsFilter = this.supports.filter((s:any) => s.status == status)
-      
+      this.supportsFilter = this.supports.filter((s:any) => s.status == status)      
     }
-    console.log( 'fix' , this.supportsFilter);
     
   }
 

@@ -2,42 +2,44 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
 
 #accueil{
-    position: fixed;
     width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.telephone{
+    width: 90%;
+    animation: float 3s infinite;
+}
+#tel{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text_acceuil {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 .bloc_vert{
-    width: 108%;
-    height: 600px;
     background-color: #5eda96;
     background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
-    position: absolute;
-    top: -100px;
-    left: -20px;
-    border-radius: 100px;
-    transform: rotate(-5deg);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    padding: 7% 4% 4% 4%;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 .dispay_button{
     display: flex;
     width: fit-content;
-}
-.text_acceuil{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 38%;
-    left: 10%;
-    transform: rotate(5deg);
-    width: 50%;
-    height: 328px;
-    justify-content: space-between;
-}
-.telephone{
-    position: absolute;
-    width: 550px;
-    right: 50px;
-    top: 119px;
-    animation: float 2s ease-in-out infinite;
-    transform: rotate(5deg);
+    flex-wrap: wrap;
 }
 
 @keyframes float {
@@ -95,7 +97,7 @@
 
 
 .reseaux_sociaux{
-    color: rgb(82, 82, 82);
+    color: rgb(229, 229, 229);
     position: absolute;
     bottom: 2%;
     left: 6%;
@@ -133,63 +135,11 @@ a{
     text-decoration: none;
 }
 
-@media screen and (max-width: 1359px) {
-  .telephone{
-    position: absolute;
-    width: 381px;
-    right: 24px;
-    top: 228px;
-    animation: float 2s ease-in-out infinite;
-    transform: rotate(5deg);
-  }
-}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .telephone{
-        position: absolute;
-        width: 381px;
-        top: 487px;
-        animation: float 2s ease-in-out infinite;
-        transform: rotate(5deg);
+        display: none;
     }
     .text_acceuil{
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 38%;
-        left: 10%;
-        transform: rotate(5deg);
-        width: 78%;
-        height: 328px;
-        justify-content: space-between;
-}
+        align-items: center;
     }
-
-    @media screen and (max-width: 1060px) {
-        .text_acceuil{
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 38%;
-            left: 10%;
-            transform: rotate(5deg);
-            width: 0px;
-            height: 328px;
-            justify-content: space-between;
-    }
-}
-
-/* MOBILE | RESPONSIVE IPHONE XR */
-
-@media screen and (max-width: 416px){
-.text_acceuil {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 36%;
-    left: 7%;
-    transform: rotate(5deg);
-    width: 370px;
-    height: 328px;
-    justify-content: space-between;
-}
-}
+  }

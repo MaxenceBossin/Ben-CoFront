@@ -13,8 +13,6 @@ import { FormRegisterComponent } from './components/auth/form-register/form-regi
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccueilComponent } from './components/home/accueil/accueil.component';
-import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapComponent } from './components/map/map.component';
 import { UserAccueilComponent } from './modules/user/user-accueil/user-accueil.component';
 
@@ -35,8 +33,6 @@ import { UserAccueilComponent } from './modules/user/user-accueil/user-accueil.c
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    LeafletModule,
-    LeafletMarkerClusterModule,
     FormsModule
   ],
   exports:[

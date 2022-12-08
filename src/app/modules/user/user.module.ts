@@ -7,6 +7,8 @@ import { UserProfilComponent } from 'src/app/modules/user/components/user-profil
 import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete';
 import { FiltersBennesComponent } from 'src/app/partials/filters-bennes/filters-bennes.component';
 import { UserAccueilComponent } from './user-accueil/user-accueil.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
 
 
@@ -22,6 +24,8 @@ import { UserAccueilComponent } from './user-accueil/user-accueil.component';
     CommonModule,
     UserRoutingModule,
     GeoapifyGeocoderAutocompleteModule.withConfig('b5cbfb7341384fafa948d56b4da4899c'),
+    LeafletModule,
+    LeafletMarkerClusterModule,
   ]
 })
 export class UserModule { }

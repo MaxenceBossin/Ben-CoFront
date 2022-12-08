@@ -1,5 +1,7 @@
 import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 
@@ -17,6 +19,9 @@ export class CarteComponent implements AfterViewInit, OnChanges {
   public lon = 1.4338861683142448;
   public geolocationPosition: any;
   public tab: any = [];
+  // layerGroup = L.markerClusterGroup();
+
+
 
   constructor(private DumpsterService: DumpsterService) { }
 
@@ -45,21 +50,21 @@ export class CarteComponent implements AfterViewInit, OnChanges {
     }).addTo(this.map);
     console.log("fixd", filter);
 
+    let markersClusters = L.markerClusterGroup();
+
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
       data.forEach((value: any) => {
         switch (filter) {
           case -1:
             switch (filterType) {
               case "":
-                console.log("fix test", "1");
-
-                this.addMarker(value);
+                this.addMarker(value, markersClusters);
                 break;
               default:
                 console.log("fix test", "2");
 
                 if (filterType == value["type"]) {
-                  this.addMarker(value);
+                  this.addMarker(value, markersClusters);
                 }
                 break;
             }
@@ -70,14 +75,14 @@ export class CarteComponent implements AfterViewInit, OnChanges {
                 console.log("fix test", "3");
 
                 if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
-                  this.addMarker(value);
+                  this.addMarker(value, markersClusters);
                 }
                 break;
               default:
                 console.log("fix test", "4");
 
                 if ((filterType == value["type"]) && (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter)) {
-                  this.addMarker(value);
+                  this.addMarker(value, markersClusters);
                 }
                 break;
             }
@@ -86,6 +91,7 @@ export class CarteComponent implements AfterViewInit, OnChanges {
       });
     })
 
+    // this.layerGroup = markersClusters;  
     tiles.addTo(this.map);
   }
 
@@ -103,29 +109,22 @@ export class CarteComponent implements AfterViewInit, OnChanges {
 
   }
 
-  trajet() {
-    this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
-      for (let index = 0; index < 81; index++) {
-        this.tab.push(L.latLng(data[index]["latitude"], data[index]["longitude"]))
-        if (index == 80) {
-          L.Routing.control({
-            router: L.Routing.osrmv1({
-              language: "fr",
-              profile: "car",
+  trajet(lat: any, lon: any) {
+    L.Routing.control({
+      router: L.Routing.osrmv1({
+        language: "fr",
+        profile: "car",
 
-            }),
-            waypoints: this.tab,
-          }).addTo(this.map);
-        }
-        // this.tab.push(data[index]["latitude"], data[index]["longitude"]);
-        // console.log(data[index]["latitude"]);
-      }
-    });
-    console.log("fix", this.tab);
-
-
-
+      }),
+      waypoints:
+        [
+          L.latLng(48.133205, 11.565225),
+          L.latLng(lat, lon)
+        ]
+      ,
+    }).addTo(this.map);
   }
+
   markers = L.markerClusterGroup({
     spiderfyOnMaxZoom: false,
     showCoverageOnHover: false,
@@ -133,7 +132,7 @@ export class CarteComponent implements AfterViewInit, OnChanges {
   });
 
 
-  addMarker(value: any) {
+  addMarker(value: any, marker: any) {
     var markerVerre = L.icon({
       iconUrl: './assets/images/marker_verre.png',
       iconSize: [30.75, 50.25], // size of the icon
@@ -162,18 +161,34 @@ export class CarteComponent implements AfterViewInit, OnChanges {
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
 
+
     switch (value["type"]) {
       case "verre":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        
+        var content = L.DomUtil.create('h4', 'content'),
+          popup = L.popup().setContent(content);
+        content.style.textAlign = "center";
+        content.style.cursor = "pointer";
+
+        content.textContent = value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"];
+
+        L.DomEvent.addListener(content, 'click', function (this: CarteComponent, event: any) {
+          console.log(value["latitude"]);
+
+          this.trajet(value["latitude"], value["longitude"]);
+        }, content);
+        L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup(popup);
+
+        // marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
         break;
       case "textile":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
         break;
       case "ordures ménagères":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
         break;
       case "collecte sélective":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
         break;
       default:
         console.log("No such type exists!");

@@ -11,6 +11,7 @@ table {
 	border-collapse: collapse;
 	color: var(--text-color);
 	table-layout: fixed;
+	margin-top: 80px;
 }
 
 table caption {
@@ -132,9 +133,10 @@ table td:nth-child(4) {
 	table caption {
 		padding: 0.75rem 1rem;
 		border-radius: 6px 6px 0 0;
-		color: whitesmoke;
+		color: black;
 		font-size: 1.35rem;
-		background-color: var(--accent-color);
+		background-color: #e2e2e2;
+		margin-top: 15%;
 	}
 
 	table thead {

@@ -6,19 +6,14 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MentionsComponent } from './components/mentionsLegales/mentions.component';
-import { FiltersBennesComponent } from './partials/filters-bennes/filters-bennes.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NavbarPleineComponent } from './partials/navbar-pleine/navbar-pleine.component';
-import { EboueurMessagesComponent } from './modules/garbage-collector/components/eboueur-messages/eboueur-messages.component';
 import { FormLoginComponent } from './components/auth/form-login/form-login.component';
 import { FormRegisterComponent } from './components/auth/form-register/form-register.component';
-import { FormGroup, FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { DeclarationComponent } from './modules/garbage-collector/components/declaration/declaration.component';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { AccueilComponent } from './components/home/accueil/accueil.component';
+import { MapComponent } from './components/map/map.component';
+import { UserAccueilComponent } from './modules/user/user-accueil/user-accueil.component';
 
 @NgModule({
   declarations: [
@@ -27,26 +22,21 @@ import { AccueilComponent } from './components/home/accueil/accueil.component';
     HomeComponent,
     AuthComponent,
     MentionsComponent,
-    NavbarPleineComponent,
-    FiltersBennesComponent,
-    EboueurMessagesComponent,
     FormLoginComponent,
     FormRegisterComponent,
-    DeclarationComponent,
-    AccueilComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [    
+  exports:[
+    
+  ],
+  providers: [
 
   ],
   bootstrap: [AppComponent]

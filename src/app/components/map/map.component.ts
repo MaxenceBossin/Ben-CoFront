@@ -93,6 +93,8 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1, "");
+    // this.trajet();
+
   }
 
   trajet() {
@@ -118,6 +120,12 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
 
   }
+  markers = L.markerClusterGroup({
+    spiderfyOnMaxZoom: false,
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: false
+  });
+
 
   addMarker(value: any) {
     var markerVerre = L.icon({
@@ -153,13 +161,13 @@ export class MapComponent implements AfterViewInit, OnChanges {
         L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         break;
       case "textile":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         break;
       case "ordures ménagères":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         break;
       case "collecte sélective":
-        L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
+        L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]);
         break;
       default:
         console.log("No such type exists!");

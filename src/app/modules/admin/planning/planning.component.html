@@ -55,7 +55,7 @@
         <div class="skipWeek"><i class="fi fi-rr-angle-left" (click)="previousWeek()"></i></div>
         <li>
             <p>{{week[0].name}} {{week[0].int}}</p>
-            <div class="dayBackground" cdkDropList #day0list="cdkDropList" [cdkDropListData]="daysdata[0]"
+            <div class="dayBackground" cdkDropList #day0list="cdkDropList" [cdkDropListData]="weekPlanning[0].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[0]?.team" cdkDrag>
@@ -65,7 +65,7 @@
         </li>
         <li>
             <p>{{week[1].name}} {{week[1].int}}</p>
-            <div class="dayBackground" cdkDropList #day1list="cdkDropList" [cdkDropListData]="daysdata[1]"
+            <div class="dayBackground" cdkDropList #day1list="cdkDropList" [cdkDropListData]="weekPlanning[1].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[1]?.team" cdkDrag>
@@ -75,7 +75,7 @@
         </li>
         <li>
             <p>{{week[2].name}} {{week[2].int}}</p>
-            <div class="dayBackground" cdkDropList #day2list="cdkDropList" [cdkDropListData]="daysdata[2]"
+            <div class="dayBackground" cdkDropList #day2list="cdkDropList" [cdkDropListData]="weekPlanning[2].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[2]?.team" cdkDrag>
@@ -85,7 +85,7 @@
         </li>
         <li>
             <p>{{week[3].name}} {{week[3].int}}</p>
-            <div class="dayBackground" cdkDropList #day3list="cdkDropList" [cdkDropListData]="daysdata[3]"
+            <div class="dayBackground" cdkDropList #day3list="cdkDropList" [cdkDropListData]="weekPlanning[3].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[3]?.team" cdkDrag>
@@ -95,7 +95,7 @@
         </li>
         <li>
             <p>{{week[4].name}} {{week[4].int}}</p>
-            <div class="dayBackground" cdkDropList #day4list="cdkDropList" [cdkDropListData]="daysdata[4]"
+            <div class="dayBackground" cdkDropList #day4list="cdkDropList" [cdkDropListData]="weekPlanning[4].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[4]?.team" cdkDrag>
@@ -105,7 +105,7 @@
         </li>
         <li>
             <p>{{week[5].name}} {{week[5].int}}</p>
-            <div class="dayBackground" cdkDropList #day5list="cdkDropList" [cdkDropListData]="daysdata[5]"
+            <div class="dayBackground" cdkDropList #day5list="cdkDropList" [cdkDropListData]="weekPlanning[5].team"
                 [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[5]?.team" cdkDrag>
@@ -115,5 +115,5 @@
         </li>
         <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
     </ul>
-    <input type='submit' class="boutonValidé">
+    <input type='submit' class="boutonValidé" (click)="sendData()">
 </div>

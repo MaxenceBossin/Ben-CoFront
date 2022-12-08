@@ -1,13 +1,22 @@
-<nav class="flex-container">
+<nav id="mainHeader" class="flex-container">
     <img id="logo" routerLink="/" src="../../../assets/images/logo.png">
+
+    <label for="drop" class="toggle">☰</label>
+    <input type="checkbox" id="drop" />
+
     <ul class="menu bouton_align">
         <li><a routerLink="/admin/planning" routerLinkActive="active-link">Planning</a></li>
         <li><a routerLink="/admin/trajet" routerLinkActive="active-link">Trajet</a></li>
         <li><a routerLink="/admin/declaration" routerLinkActive="active-link">Déclarations</a></li>
         <li><a routerLink="/admin/eboueurs" routerLinkActive="active-link">Eboueurs</a></li>
+
+        <ng-container>
+            <li><button (click)="logout()" style="display: block; padding: 14px 20px; font-size: 17px;"
+                    class="btn openbtn green_button">
+                    Déconnexion
+                </button></li>
+        </ng-container>
+
     </ul>
-    <span class="spanSvg">
-        <img class='svg_NavBarAdmin' src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Ei-gear.svg">
-        <img class='svg_NavBarAdmin' src="../../../assets/images/exit-logout-2859 (1).svg" />
-    </span>
+
 </nav>

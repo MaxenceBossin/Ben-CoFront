@@ -33,7 +33,6 @@ const routes: Routes = [
   { path: 'mention-legal', component: MentionsComponent },
   { path: 'connexion', component: AuthComponent },
   { path: 'inscription', component: AuthComponent },
-  { path: 'eboueur-messages', component: EboueurMessagesComponent },
   { path: '**', redirectTo: 'home' },
 
 ];

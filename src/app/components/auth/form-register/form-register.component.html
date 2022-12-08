@@ -60,10 +60,10 @@
         <input type="checkbox" id="cgu" name="cgu" ngModel #cgu="ngModel" required>
     </div>
 
-    <p [ngStyle]="{'visibility': formUnknownError || isSubmitted ? 'visible' : 'hidden'}" 
+    <p class="coEnCours" [ngStyle]="{'visibility': formUnknownError || isSubmitted ? 'visible' : 'hidden'}" 
     [ngClass]="formUnknownError ? 'error' : ''">
-        <ng-container *ngIf="formUnknownError">Problème lors de l'inscription veuillez ressayer</ng-container>
-        <ng-container *ngIf="isSubmitted">Inscription en cours</ng-container>
+        <ng-container *ngIf="formUnknownError">Problème lors de l'inscription, veuillez ressayer</ng-container>
+        <ng-container *ngIf="isSubmitted">Votre profil est en cours de création ...</ng-container>
     </p>
 
     <button [disabled]="isSubmitted" (click)="isSubmitted = true" type="submit">Je m'inscris ! </button>

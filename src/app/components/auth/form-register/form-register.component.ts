@@ -12,7 +12,8 @@ export class FormRegisterComponent {
 
   user = new User()
   passwordsValid : boolean = false
-  isSubmitted : boolean = false
+  isSubmitted : boolean = false;
+  formUnknownError : boolean = false
 
   constructor(private serviceAuth: AuthService, private router: Router) { }
 
@@ -25,7 +26,9 @@ export class FormRegisterComponent {
 
     this.serviceAuth.register(this.user).subscribe({
       next: (data) => console.info('connexion en cours'),
-      error: (e) => console.error(e),
+      error: (e) => {console.error(e)
+        this.displayError(registerForm)
+      },
       complete: () => {
         console.info('register success'),
         this.router.navigate(['/']);
@@ -39,5 +42,10 @@ export class FormRegisterComponent {
     }else{
       this.passwordsValid = false
     }
+  }
+  displayError(loginForm: NgForm){
+    loginForm.reset()
+    this.formUnknownError = true
+    this.isSubmitted = false
   }
 }

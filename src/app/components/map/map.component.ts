@@ -93,7 +93,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   ngAfterViewInit(): void {
     this.initMap(this.lat, this.lon, -1, "");
-    this.trajet();
+    // this.trajet();
 
   }
 
@@ -120,6 +120,12 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
 
   }
+  markers = L.markerClusterGroup({
+    spiderfyOnMaxZoom: false,
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: false
+  });
+
 
   addMarker(value: any) {
     var markerVerre = L.icon({

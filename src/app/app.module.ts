@@ -19,6 +19,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AccueilComponent } from './components/home/accueil/accueil.component';
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { AccueilComponent } from './components/home/accueil/accueil.component';
     MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    LeafletModule,
+    LeafletMarkerClusterModule
   ],
   providers: [    
 

@@ -177,3 +177,19 @@ a{
             justify-content: space-between;
     }
 }
+
+/* MOBILE | RESPONSIVE IPHONE XR */
+
+@media screen and (max-width: 416px){
+.text_acceuil {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 36%;
+    left: 7%;
+    transform: rotate(5deg);
+    width: 370px;
+    height: 328px;
+    justify-content: space-between;
+}
+}

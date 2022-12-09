@@ -1,0 +1,215 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css%27');
+
+#planningBg {
+    background-color: #E3E3E3;
+    min-height: calc(100vh - 80px - 3vh);
+    padding-top: 3vh;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#flexboxSemaine {
+    --input-height: 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: blue; */
+    color: #5E5E5E;
+    width: inherit;
+}
+
+li{
+    margin: 10px;
+    width: 11%;
+}
+
+#flexboxSemaine>p {
+    font-size: 20px;
+}
+
+
+
+.dayBackground {
+    height: 300px;
+    width: 100%;
+    background-color: white;
+    padding: 10px 5px 0 5px;
+}
+
+#flexboxSemaine>form {
+    /* width: 60%; */
+
+    display: flex;
+    height: 40px;
+    align-items: center;
+    background-color: white;
+    border-radius: 300px;
+}
+
+#flexboxSemaine>form>input,
+#flexboxSemaine>form>div {
+
+    border: none;
+    height: 100%;
+    padding: 0;
+    background-color: white;
+}
+
+#flexboxSemaine>form>.input1 {
+    border-radius: 300px 0 0 300px;
+}
+
+#flexboxSemaine>form>.input2 {
+    border-radius: 0 300px 300px 0;
+    width: var(--input-height);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#flexboxSemaine>form>div>.submit {
+    border: none;
+    height: 85%;
+    width: 85%;
+    border-radius: 300px;
+    background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#flexboxSemaine>form>img {
+    background-color: white;
+    height: 70%;
+    cursor: pointer;
+}
+
+.skipWeek {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.skipWeek>.fi {
+    transform: scale(3);
+    color: #484848;
+
+}
+
+#dayFlexbox {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-block-end: 0;
+    margin-block-start: 50px;
+    padding-inline-start: 0;
+    flex-wrap: wrap;
+}
+
+.nom {
+    background-color: #6FCEAE;
+    width: 100px;
+    height: 50px;
+}
+
+
+#dayFlexbox>li>p {
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: #6FCEAE;
+    margin: 0;
+    font-size: 80%;
+    font-weight: 600;
+
+}
+
+/* .wrapper {
+    margin: 25px auto;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.container {
+    width: 45%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+} */
+
+
+
+
+.name-block {
+    padding: 20px 10px;
+    color: rgba(0, 0, 0, 0.87);
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    border-radius: 300px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.nameP {
+    text-align: center;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    box-sizing: border-box;
+    cursor: move;
+    /* background: white; */
+    font-size: 14px;
+    background-color: #6FCEAE;
+    border-radius: 300px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.boutonValidé {
+    padding: 7px 7px 7px 7px;
+    background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+    color: white !important;
+    text-decoration: none;
+    border: none;
+    border-radius: 200px;
+    font-size: 20px;
+    margin-top: 2%;
+    cursor: pointer;
+}

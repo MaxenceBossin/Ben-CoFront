@@ -62,7 +62,6 @@ a.btn.closebtn {
     display: none;
   }
   
-  
   .declaration_style{
       border: none;
       padding: 17px;
@@ -175,6 +174,11 @@ color: black;
 }
 
 @media (max-width: 600px) { 
+  #declaration-form {
+    width: inherit;
+    background-color: #0000ff00;
+}
+
 h2{
   color: white;
 }

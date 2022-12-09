@@ -257,6 +257,11 @@ export class CarteComponent implements OnInit, OnChanges {
     this.lat = event.properties.lat;
     this.lon = event.properties.lon;
     this.center = L.latLng([this.lat, this.lon]);
+<<<<<<< Updated upstream
+=======
+    // this.map.remove();
+    // this.initMap(this.lat, this.lon, -1, "");
+>>>>>>> Stashed changes
   }
 
   getGeolocation() {
@@ -295,5 +300,9 @@ export class CarteComponent implements OnInit, OnChanges {
     this.routing.setWaypoints([L.latLng(this.lat, this.lon), L.latLng(lat, lon)]);
     // control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
     // this.routing.setWaypoints([this.userCoord, coord]);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   }
 }

@@ -1,0 +1,24 @@
+<app-nav-bar-admin></app-nav-bar-admin>
+<div class="container">
+    <h1>Ajouter un nouvel éboueur</h1>
+    <form  id="add-gb-form" #addGbForm="ngForm" (ngSubmit)="addGbForm.form.valid && onSubmit(addGbForm)">
+
+        <div class="auth-form_input-block">
+            <input id="email" name="email" ngModel #email="ngModel" type="text" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+        </div>
+    
+    
+            <p  *ngIf="email.invalid || email == null" class="error">
+                Vous devez renseigner un email valide
+            </p>
+            <p  *ngIf="email.valid" style="color: black;">
+                Email valide
+            </p>
+    
+    
+        <button [disabled]="email.invalid" (click)="isSubmitted = true" type="submit">Ajouter</button>
+    
+    </form>
+
+    <button (click)="redirect()" type="submit">Retour</button>
+</div>

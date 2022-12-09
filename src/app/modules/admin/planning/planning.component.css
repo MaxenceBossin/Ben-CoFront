@@ -4,6 +4,13 @@
     background-color: #E3E3E3;
     min-height: calc(100vh - 80px - 3vh);
     padding-top: 3vh;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #flexboxSemaine {
@@ -13,30 +20,45 @@
     align-items: center;
     /* background-color: blue; */
     color: #5E5E5E;
+    width: inherit;
+}
+
+li {
+    margin: 10px;
+    width: 11%;
 }
 
 #flexboxSemaine>p {
     font-size: 20px;
 }
 
-#flexboxSemaine>* {
-    /* background-color: yellow; */
-
-}
 
 
 .dayBackground {
-    height: 500px;
-    width: 260px;
+    height: 400px;
+    width: 100%;
     background-color: white;
     padding: 10px 5px 0 5px;
+}
+
+.dayBackgroundReversed {
+    height: 400px;
+    width: 100%;
+    background-color: #6FCEAE;
+    padding: 10px 5px 0 5px;
+    overflow-Y: scroll;
+    overflow-x: hidden;
+}
+
+.dayBackgroundReversed::-webkit-scrollbar {
+    display: none;
 }
 
 #flexboxSemaine>form {
     /* width: 60%; */
 
     display: flex;
-    height: var(--input-height);
+    height: 40px;
     align-items: center;
     background-color: white;
     border-radius: 300px;
@@ -69,25 +91,25 @@
     height: 85%;
     width: 85%;
     border-radius: 300px;
-    background-color: #6FCEAE;
+    background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
     color: white;
     font-size: 20px;
+    cursor: pointer;
 }
 
 #flexboxSemaine>form>img {
     background-color: white;
     height: 70%;
-
-
-
+    cursor: pointer;
 }
 
 .skipWeek {
     width: 5%;
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .skipWeek>.fi {
@@ -102,10 +124,10 @@
     text-align: center;
     justify-content: space-between;
     width: 100%;
-
     margin-block-end: 0;
     margin-block-start: 50px;
     padding-inline-start: 0;
+    flex-wrap: wrap;
 }
 
 .nom {
@@ -121,25 +143,20 @@
     color: white;
     background-color: #6FCEAE;
     margin: 0;
-    font-size: 23px;
+    font-size: 80%;
     font-weight: 600;
 
 }
 
-/* .wrapper {
-    margin: 25px auto;
-    max-width: 600px;
-    text-align: center;
-    padding: 0 20px;
+.reversed {
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+    color: #6FCEAE !important;
+    background-color: white !important;
+    margin: 0;
+    font-size: 80%;
+    font-weight: 600;
 }
-
-.container {
-    width: 45%;
-    margin: 0 25px 25px 0;
-    display: inline-block;
-    vertical-align: top;
-} */
-
 
 
 
@@ -163,6 +180,8 @@
     margin-bottom: 10px;
     text-align: center;
 }
+
+
 
 .nameP {
     text-align: center;
@@ -198,14 +217,13 @@
 
 .boutonValidé {
     padding: 7px 7px 7px 7px;
-    background-color: #6FCEAE;
+    background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
     color: white !important;
     text-decoration: none;
     border: none;
     border-radius: 200px;
     font-size: 20px;
-    box-shadow: 0px 3px 4px rgb(168, 168, 168);
-    float: right;
-    margin-top: 80px;
-    margin-right: 20%;
+    margin-top: 2%;
+    cursor: pointer;
 }

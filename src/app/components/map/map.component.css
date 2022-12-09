@@ -27,8 +27,9 @@
     left: 25%;
     width: 50%;  
 }
+
 .input_recherche{
-    
+    background-color: white;
     border: none;
     border-radius: 50px 0px 0px 50px ;
     width: 90%;
@@ -41,16 +42,6 @@
     outline: none;
     font-size: medium;
 }
-.bouton_location{
-    border-radius: 0px 50px 50px 0px ;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    cursor: pointer;
-}
 
 .fi-rs-marker{
   background-color: #27c9ac;
@@ -61,11 +52,24 @@
     display: flex;
 }
 
-/*MEDIAQUERIES SEARCH BAR*/
-@media all and (max-device-width: 564px){
-  #search_bar_container{
-    right: 4%;
-    left: 4%;
-    width: 90%;
-  }
+/*MEDIAQUERIES TABLETTE SEARCH BAR*/
+@media all and (max-device-width: 800px){
+
+#search_bar_container {
+  right: 10%;
+  left: 10%;
+  width: 80%;
+}
+}
+
+/*MEDIAQUERIES MOBILE SEARCH BAR*/
+@media all and (max-device-width: 500px){
+  .bouton_location{
+    width: 20%;
+}
+#search_bar_container{
+  right: 4%;
+  left: 4%;
+  width: 90%;
+}
 }

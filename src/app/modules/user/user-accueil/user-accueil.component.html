@@ -1,0 +1,3 @@
+<app-header-user></app-header-user>
+<app-filters-bennes (getFilterBenne)="getFilter($event)" (getFilterType)="getFilterType($event)"></app-filters-bennes>
+<app-carte [filterParam]="currentFilter" [filterParamType]="currentFilterType"></app-carte>

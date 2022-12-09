@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
+
+#accueil{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.telephone{
+    width: 90%;
+    animation: float 3s infinite;
+}
+#tel{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text_acceuil {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.bloc_vert{
+    background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    padding: 7% 4% 4% 4%;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.dispay_button{
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.title_accueil{
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    font-size: 300%;
+}
+.subtitle_accueil{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #f8fa92 0%,
+    #70f8c4 16%,
+    #bfebf8 32%,
+    #f8fa92 48%,
+    #bfebf8 64%,
+    #f8fa92 80%,
+    #70f8c4 100%
+
+
+  );
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+.reseaux_sociaux{
+    color: rgb(229, 229, 229);
+    position: absolute;
+    bottom: 2%;
+    left: 6%;
+    font-size: 15px;
+}
+.fi{
+    margin-right: 5px;
+}
+.button_redirect_user{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 50px;
+    padding: 11px;
+    font-weight: 600;
+    width: fit-content;
+    margin: 10px 20px 10px 0px
+}
+.button_redirect_user:hover{
+    transform: scale(1.1);
+}
+.button_redirect_eboueur{
+    background-color:rgb(94, 104, 90);
+    color: white;
+    border-radius: 50px;
+    padding: 11px;
+    font-weight: 600;
+    width: fit-content;
+    margin: 10px 20px 10px 0px
+}
+.button_redirect_eboueur:hover{
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+    .telephone{
+        display: none;
+    }
+    .text_acceuil{
+        align-items: center;
+    }
+  }

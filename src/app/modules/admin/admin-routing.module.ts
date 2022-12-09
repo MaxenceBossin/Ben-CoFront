@@ -4,6 +4,9 @@ import { TrajetComponent } from './trajet/trajet.component';
 import { PlanningComponent } from './planning/planning.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EboueurAddComponent } from './eboueur-add/eboueur-add.component';
+import { EboueurEditComponent } from './eboueur-edit/eboueur-edit.component';
+import { DeclarationDetailComponent } from './declaration-detail/declaration-detail.component';
 
 
 
@@ -17,8 +20,20 @@ const routes: Routes = [
         component: DeclarationComponent
     },
     {
+        path: 'declaration/modifier/:id',
+        component: DeclarationDetailComponent
+    },
+    {
         path: 'eboueurs',
         component: EboueurComponent
+    },
+    {
+        path: 'eboueurs/ajout',
+        component: EboueurAddComponent
+    },
+    {
+        path: 'eboueurs/modifier/:id',
+        component: EboueurEditComponent
     },
     {
         path: 'trajet',

@@ -1,2 +1,41 @@
 <app-nav-bar-admin></app-nav-bar-admin>
-<p>declaration works!</p>
+
+<table>
+	<caption> 
+		<p>Liste des tickets le ticket</p>
+		<span style="display : flex; justify-content: space-evenly; margin: 1rem 0">
+			<button (click)="filter('En attente')" class="btn">En attente</button>
+			<button (click)="filter('Pris en charge')" class="btn">Pris en charge</button>
+			<button (click)="filter('Résolu')" class="btn">Résolu</button>
+			<button (click)="filter('')" class="btn">Réinitialiser</button>
+		</span>
+	</caption>
+	
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Titre</th>
+			<th>Status</th>
+			<th>Catégorie</th>
+			<th>Poubelle</th>
+			<th>Éboueur</th>
+			<th>Admin</th>
+            <th>Voir</th>
+		</tr>
+	</thead>
+	<tbody>
+        
+		<tr *ngFor="let support of supportsFilter">
+			<td>{{ support.id }}</td>
+			<td>{{ support.title }}</td>
+			<td>{{ support.status }}</td>
+			<td>{{ support.category }}</td>
+			<td>{{ support?.dumpster_id || support?.dumpster_type }}</td>
+			<td>{{ support?.garbageCollector_name }}</td>
+			<td>{{ support?.admin_name }}</td>
+			<!-- <td><button (click)="redirectEdit(garbageCollector.id)" class="btn edit">Modifier</button></td> -->
+			<td><button (click)="redirectToDetail(support.id)" class="btn edit">Voir</button></td>
+		</tr>
+		
+	</tbody>
+</table>

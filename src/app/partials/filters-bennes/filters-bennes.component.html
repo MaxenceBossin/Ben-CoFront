@@ -3,23 +3,31 @@
     <label for="slide" class="toggle"><i class="fi fi-rr-settings-sliders"></i></label>
     <nav class="sidebar">
         <div class="materiaux">
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_verre.png" width="15px" alt=""> <br>
+            <a class="bouton_filtres" [ngClass]="isFilterTypeVerre ? 'active' : ''"
+                (click)="filterType('verre'); isFilterTypeActivated('verre')"><img src="./assets/images/marker_verre.png"
+                    width="15px" alt=""> <br>
                 Verre</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_plastique.png" width="15px" alt="">
-                <br>Plastique</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_carton.png" width="15px" alt="">
-                <br>Carton</a>
-            <a class="bouton_filtres" href=""><img src="./assets/images/marker_electronique.png" width="15px" alt="">
-                <br>Electronique</a>
+            <a class="bouton_filtres" [ngClass]="isFilterTypeTextile ? 'active' : ''"
+                (click)="filterType('textile'); isFilterTypeActivated('textile')"><img src="./assets/images/marker_textile.png"
+                    width="15px" alt="">
+                <br>Textile</a>
+            <a class="bouton_filtres" [ngClass]="isFilterTypeOrdures ? 'active' : ''"
+                (click)="filterType('ordures ménagères'); isFilterTypeActivated('ordures')"><img
+                    src="./assets/images/marker_ordures.png" width="15px" alt="">
+                <br>Ordures ménagères</a>
+            <a class="bouton_filtres" [ngClass]="isFilterTypeCollecte ? 'active' : ''"
+                (click)="filterType('collecte sélective'); isFilterTypeActivated('collecte')"><img
+                    src="./assets/images/marker_collecte.png" width="15px" alt="">
+                <br>Collecte selective</a>
         </div>
         <div class="materiaux">
-            <a class="bouton_filtres" (click)="filterMap(0.25)"><img src="./assets/images/marker_lieu.png" width="15px"
-                    alt=""> <br>- 250m</a>
-            <a class="bouton_filtres" (click)="filterMap(0.5)"><img src="./assets/images/marker_lieu.png" width="15px"
+            <a class="bouton_filtres" [ngClass]="isFilter250 ? 'active' : ''" (click)="filterMap(0.25); isFilterDistanceActivated(0.25)"><img src="./assets/images/marker_lieu.png" width="15px"
+                    alt=""> <br>-250m</a>
+            <a class="bouton_filtres" [ngClass]="isFilter500 ? 'active' : ''" (click)="filterMap(0.5); isFilterDistanceActivated(0.5)"><img src="./assets/images/marker_lieu.png" width="15px"
                     alt=""> <br>-500m</a>
-            <a class="bouton_filtres" (click)="filterMap(0.75)"><img src="./assets/images/marker_lieu.png" width="15px"
+            <a class="bouton_filtres" [ngClass]="isFilter750 ? 'active' : ''" (click)="filterMap(0.75); isFilterDistanceActivated(0.75)"><img src="./assets/images/marker_lieu.png" width="15px"
                     alt=""> <br>-750m</a>
-            <a class="bouton_filtres" (click)="filterMap(1)"><img src="./assets/images/marker_lieu.png" width="15px"
+            <a class="bouton_filtres" [ngClass]="isFilter1000 ? 'active' : ''" (click)="filterMap(1); isFilterDistanceActivated(1)"><img src="./assets/images/marker_lieu.png" width="15px"
                     alt=""> <br>-1km</a>
         </div>
     </nav>

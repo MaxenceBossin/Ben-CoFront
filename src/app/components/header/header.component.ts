@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   theme: string | null = localStorage.getItem('colorMode');
+  token: string | null = localStorage.getItem('jwtToken');
   themehtml: string | null = ''
   @Output() newThemeEvent = new EventEmitter<string>();
 
@@ -16,8 +17,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.theme)
     if (this.theme == null) {
-      this.theme = 'dark'
-      this.themehtml = '☼'
+      this.theme = 'light'
+      this.themehtml = 'light'
     }
 
 
@@ -26,16 +27,21 @@ export class HeaderComponent implements OnInit {
   toggleTheme() {
     if (this.theme == 'dark') {
       this.theme = 'light'
-      this.themehtml = '☼'
+      this.themehtml = 'light'
       localStorage.setItem('colorMode', 'light');
 
     } else {
       this.theme = 'dark'
-      this.themehtml = '☽'
+      this.themehtml = 'dark'
       localStorage.setItem('colorMode', 'dark');
     }
 
     this.newThemeEvent.emit(this.theme);
+  }
+
+  logout(){
+    localStorage.removeItem('jwtToken');
+    this.token = null
   }
 
 }

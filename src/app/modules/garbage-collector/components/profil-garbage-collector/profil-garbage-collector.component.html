@@ -1,0 +1,61 @@
+<app-header-gc></app-header-gc>
+<div id="planningBg">
+    <div id="flexboxSemaine">
+        <p>SEMAINE {{weekNumber}} || {{year}}</p>
+    </div>
+
+    <ul id="dayFlexbox">
+        <div class="skipWeek"><i class="fi fi-rr-angle-left" (click)="previousWeek()"></i></div>
+        <li>
+            <p>{{week[0].name}} {{week[0].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[0]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>{{week[1].name}} {{week[1].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[1]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>{{week[2].name}} {{week[2].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[2]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>{{week[3].name}} {{week[3].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[3]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>{{week[4].name}} {{week[4].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[4]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+        <li>
+            <p>{{week[5].name}} {{week[5].int}}</p>
+            <div class="dayBackground">
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[5]?.team" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
+
+        <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
+    </ul>
+
+</div>

@@ -6,8 +6,8 @@ html, body{
 
 #bloc_message{
     display: flex;
-    flex-direction: row;
-    background-color: #EDEAEA;
+    flex-direction: column;
+    background-color: #e4e4e4;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -15,8 +15,7 @@ html, body{
 
 #messages_recus{
     margin-top: 110px;
-    background-color: #EDEAEA;
-    width: 20%;
+    background-color: #e4e4e4;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -25,20 +24,23 @@ html, body{
 }
 
 #liste_messages{
-    margin-top: 110px;
-    background-color: #E4E4E4;
+    background-color: #e4e4e4;
     width: 100%;
     height: 93%;
     overflow-y: scroll;
     scrollbar-width:none;
     display: flex;
     flex-direction: column;
+    margin: 0 0 70px 0;
 }
 
 #envoi_message{
-    background-color: #FFFFFF;
+    background-color: #e4e4e4;
     width: 100%;
     height: 7%;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
 }
 .type_message{
     border: none;
@@ -49,7 +51,9 @@ html, body{
 .flex_column{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .flex_row{
     display: flex;
@@ -98,22 +102,25 @@ html, body{
 }
 .interieur_message_envoye{
     background-color: rgb(255, 255, 255);
-    border-radius: 30px;
+    border-radius: 30px 30px 0 30px;
     width: auto;
     margin-right: 1%;
+    padding: 5px;
 }
 .interieur_message_recu{
-    background-color: #6FCEAE;
+    background: linear-gradient(90deg, #74cfeb 0%, #9FACE6 100%);
     color: white;
-    border-radius: 30px;
+    border-radius: 30px 30px 30px 0px;
     width: auto;
     margin-left: 1%;
+    padding: 5px;
 }
 .message_envoye h4, .message_destinataire h4 {
     padding: 7px 13px;
 }
 
 .nom_contact{
+    margin-top: 110px;
     text-align: center;
     margin-bottom: 3%;
 }
@@ -123,7 +130,37 @@ html, body{
     display: flex;
     align-items: center;
 }
-
+#mat-input-1 {
+    background-color: #fff;
+    width: 80%;
+    border: none;
+    height: 57px;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 10px;
+    padding: 0 0 0 2%;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  }
+  #mat-input-1:active{
+    border: none;
+  }
+button {
+    padding: 10px;
+    background-color: #6fceae;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0);
+    font-size: larger;
+    position: fixed;
+    bottom: 11px;
+    right: 15%;
+}
+button:hover{
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+}
 /*RESPONSIVE PETIT ECRAN PC - GRAND ECRAN TABLETTES MESSAGE*/
 
 @media all and (max-width : 1472px) {
@@ -142,7 +179,7 @@ html, body{
         display: none;
     }
     #liste_messages{
-        margin-top: 100px;
+        margin: 0 0 70px 0;
     }
     .flex_column{
         width: 100%;
@@ -164,4 +201,18 @@ html, body{
     .nom_contact{
         font-size: medium;
     }
+}
+
+
+.message{
+    width: 100%;
+    height: 70px;
+    bottom: 0px;
+    position: fixed;
+    border: none;
+    left: 0;
+    padding: 0 0 0 15%;
+}
+.username{
+    visibility: hidden;
 }

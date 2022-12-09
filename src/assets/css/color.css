@@ -1,13 +1,15 @@
 :root {
     /* Light Mode */
 
-    --light-background-gradient: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    --light-background-gradient:linear-gradient(135deg, #5eda96 0%, #8186da 100%);
     --light-background-color-main: #EDEDED;
     --light-background-color-main-transparent: #edeaeae6;
     --light-background-color-second: #ffffff;
     --light-background-color-third: #6fceae84;
     --light-color: black;
     --light-second: #6FCEAE;
+
+    --light-error: #b33e3e;
 
     /* Dark Mode */
     --dark-background-gradient:linear-gradient(19deg, #176678 0%, #6f1996 100%);
@@ -93,7 +95,9 @@
     color: rgba(255, 254, 254, 0.6);
 }
 
-
+.error{
+    color: var(--light-error);
+}
 
 
 /* Bar de filter  */

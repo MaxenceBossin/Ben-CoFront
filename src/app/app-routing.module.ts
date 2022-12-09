@@ -16,7 +16,7 @@ const routes: Routes = [
     canActivate:[UserGuard]
   },
   {
-    path: 'travailleur',
+    path: 'eboueurs',
     loadChildren: () => import('./modules/garbage-collector/garbage-collector.module')
     .then(m => m.GarbageCollectorModule),
     canActivate:[GarbageCollectorGuard]
@@ -32,8 +32,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'mention-legal', component: MentionsComponent },
   { path: 'connexion', component: AuthComponent },
-  { path: 'inscription', component: HomeComponent },
-  { path: 'eboueur-messages', component: EboueurMessagesComponent },
+  { path: 'inscription', component: AuthComponent },
   { path: '**', redirectTo: 'home' },
 
 ];

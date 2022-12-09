@@ -9,8 +9,16 @@
     font-family: 'Montserrat', sans-serif;
     
 }
-
-
+.bouton_location{
+    border-radius: 0px 50px 50px 0px ;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    cursor: pointer;
+    background-color: white;
+}
 .geoapify-autocomplete-items {
     position: absolute;
     border: none;
@@ -26,9 +34,9 @@
     padding: 10px;
     cursor: pointer;
 }
-
-
-
+.geocoder-container {
+    background-color: white;
+}
 .geoapify-autocomplete-items .active {
     background-color: rgba(0, 0, 0, 0.1);
 }

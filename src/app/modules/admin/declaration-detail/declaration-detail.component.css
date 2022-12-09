@@ -1,0 +1,186 @@
+.container{
+    padding: 1rem;
+    
+
+}
+hr{
+    margin: 1rem 0;
+}
+h1{
+    text-align: center;
+}
+
+
+
+table {
+	--accent-color: #2f4b4a;
+	--text-color: slategray;
+	--bgColorDarker: #ececec;
+	--bgColorLighter: #fcfcfc;
+	--insideBorderColor: lightgray;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-collapse: collapse;
+	color: var(--text-color);
+	table-layout: fixed;
+}
+
+table caption {
+	margin: 1rem 0;
+	color: slategray;
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: 0.055rem;
+	text-align: center;
+}
+
+table thead tr {
+	color: whitesmoke;
+	background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+	font-size: 1rem;
+}
+
+table tbody tr {
+	border: 1px solid var(--insideBorderColor);
+	background-color: var(--bgColorDarker);
+}
+
+table tbody tr:nth-child(odd) {
+	background-color: var(--bgColorLighter);
+}
+
+table th {
+	letter-spacing: 0.075rem;
+}
+
+table th,
+table td {
+	padding: 0.75rem 1rem;
+	font-weight: normal;
+	text-align: center;
+}
+
+table th:nth-child(4),
+table td:nth-child(4) {
+	text-align: center;
+}
+
+.btn{
+	padding: .7rem;
+	
+	color: #FFF;
+	border-radius: 10rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border: 0px solid #ffffff;
+	cursor: pointer;
+}
+
+
+
+/* CSS */
+.btn {
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 5px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: .5s;
+}
+
+.btn:hover {
+
+  color: #fff;
+}
+.edit{
+	background-color: #cdb9f6;
+}
+.delete{
+	background-color: #ef9c9c;
+}
+.add{
+	background-color: #9cefca;
+}
+
+.edit:hover{
+	background-color:  #6d32e2;
+}
+.delete:hover{
+	background-color:  #ec0e0e;
+}
+.add:hover{
+	background-color: #028148;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+	table {
+		border: none;
+	}
+
+	table caption {
+		padding: 0.75rem 1rem;
+		border-radius: 6px 6px 0 0;
+		color: whitesmoke;
+		font-size: 1.35rem;
+		background-color: var(--accent-color);
+	}
+
+	table thead {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		clip: rect(0 0 0 0);
+		overflow: hidden;
+	}
+
+	table tbody tr {
+		margin-bottom: 2rem;
+		display: block;
+	}
+
+	table td {
+		font-size: 0.875rem;
+		text-align: center;
+		display: block;
+	}
+
+	table td:before {
+		content: attr(data-label);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.075rem;
+		text-transform: uppercase;
+		float: left;
+		opacity: 0.5;
+	}
+
+	table td:not(:last-child) {
+		border-bottom: 1px solid var(--insideBorderColor);
+	}
+}

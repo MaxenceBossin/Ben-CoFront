@@ -1,8 +1,8 @@
-<div class="modal" id="connexion">
+
         <section class="auth-container">
 
             <div [ngClass]="(isLogin==true) ? '' : 'register' " class="auth-container_block">
-                <h1 style="padding-bottom: 1rem">{{(isLogin==true) ? 'Connexion' : 'Inscription'}}</h1>
+                <h2 style="margin-bottom: 25px;">{{(isLogin==true) ? 'VOUS NOUS AVEZ MANQUÉ !' : 'Inscription'}}</h2>
 
                 <ng-container *ngIf="isLogin">
                     <app-form-login style="width: 90%;"></app-form-login>
@@ -20,8 +20,9 @@
                     }}
                 </p>
                 
-        <a href="#annuler" class="btn closebtn"> Annuler </a>
+        <a routerLink="/" class="btn closebtn"> Retour </a>
             </div>
 
         </section>
-    </div>
+
+        <img src="../../../assets/images/tombereau.png" alt="poubelles">

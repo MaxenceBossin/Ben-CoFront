@@ -13,7 +13,8 @@
   }
   
   #map {
-    height: 100%;
+    height: 100vh !important; 
+    z-index: 0;
   }
 
   /*search bar map*/

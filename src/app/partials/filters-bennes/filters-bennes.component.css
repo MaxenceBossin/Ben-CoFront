@@ -1,3 +1,6 @@
+*{
+    z-index: 1;
+}
 #boite_filtres{
 background-color: rgba(233, 229, 251, 0.747);
     position: fixed;

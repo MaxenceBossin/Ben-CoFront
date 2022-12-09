@@ -12,8 +12,6 @@ import { FormRegisterComponent } from './components/auth/form-register/form-regi
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccueilComponent } from './components/home/accueil/accueil.component';
-import { MapComponent } from './components/map/map.component';
-import { UserAccueilComponent } from './modules/user/user-accueil/user-accueil.component';
 
 @NgModule({
   declarations: [

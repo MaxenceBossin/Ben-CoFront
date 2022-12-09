@@ -1,138 +1,131 @@
-import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
-import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
-import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+
 import * as L from 'leaflet';
-import 'leaflet-routing-machine';
+import 'leaflet.markercluster';
+import { Control } from 'leaflet';
+import LayersOptions = Control.LayersOptions;
+import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
+
 
 @Component({
   selector: 'app-carte',
   templateUrl: './carte.component.html',
   styleUrls: ['./carte.component.css']
 })
-export class CarteComponent implements AfterViewInit, OnChanges {
+export class CarteComponent implements OnInit, OnChanges {
   @Input() filterParam = -1; // decorate the property with @Input()
   @Input() filterParamType = ''; // decorate the property with @Input()
 
-  public map: any;
   public lat = 43.60899203730793;
   public lon = 1.4338861683142448;
   public geolocationPosition: any;
-  public tab: any = [];
-  // layerGroup = L.markerClusterGroup();
+
+  private tab: L.Marker[] = [];
+
+  // Open Street Map Definition
+  LAYER_OSM = {
+    id: 'openstreetmap',
+    name: 'Open Street Map',
+    enabled: false,
+    layer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 2,
+      attribution: 'Open Street Map'
+    })
+  };
+
+  // Values to bind to Leaflet Directive
+  layersControlOptions: LayersOptions = { position: 'bottomright' };
+  baseLayers = {
+    'Open Street Map': this.LAYER_OSM.layer
+  };
+  zoom = 17;
+  center = L.latLng([this.lat, this.lon]);
 
 
+  // Marker cluster stuff
+  markerClusterGroup: L.MarkerClusterGroup = L.markerClusterGroup();
+  markerClusterData: L.Marker[] = [];
 
   constructor(private DumpsterService: DumpsterService) { }
 
+  ngOnInit() {
+    this.generateData();
+  }
+
   ngOnChanges() {
-    // changes.prop contains the old and the new value...
-    if (this.map != undefined) {
-      // console.log("fixMapppppppppp", this.filterParam);
-      this.map.remove();
-      this.initMap(this.lat, this.lon, this.filterParam, this.filterParamType);
-    }
+    console.log("filterParam", this.filterParam);
+    console.log("filterParamType", this.filterParamType);
+    this.generateData();
+  }
+
+  markerClusterReady(group: L.MarkerClusterGroup) {
+
+    this.markerClusterGroup = group;
 
   }
 
-  public initMap(lat: any, lon: any, filter: any, filterType: any): void {
-    this.map = L.map('map', {
-      // center: [43.60899203730793, 1.4338861683142448],
-      center: [lat, lon],
-      zoom: 17
-    });
+  refreshData(): void {
+    console.log(this.tab);
+    this.markerClusterData = this.tab;
+    console.log("refresh");
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 2,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright%22%3EOpenStreetMap</a>',
-      className: 'map-tiles'
-    }).addTo(this.map);
-    console.log("fixd", filter);
+  }
 
-    let markersClusters = L.markerClusterGroup();
+  //@ts-ignore
+
+  generateData(): L.Marker[] {
+
+    // const dataMarker: L.Marker[] = [];
+
+    this.tab = [];
 
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
-      data.forEach((value: any) => {
-        switch (filter) {
+      for (let i = 0; i < 1993; i++) {
+        switch (this.filterParam) {
           case -1:
-            switch (filterType) {
+            switch (this.filterParamType) {
               case "":
-                this.addMarker(value, markersClusters);
+                console.log("1");
+
+                this.addMarkers(data[i]);
                 break;
               default:
-                console.log("fix test", "2");
+                console.log("2");
 
-                if (filterType == value["type"]) {
-                  this.addMarker(value, markersClusters);
+                if (this.filterParamType == data[i]["type"]) {
+                  this.addMarkers(data[i]);
                 }
                 break;
             }
             break;
           default:
-            switch (filterType) {
+            switch (this.filterParamType) {
               case "":
-                console.log("fix test", "3");
+                console.log("3");
 
-                if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
-                  this.addMarker(value, markersClusters);
+                if (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam) {
+                  this.addMarkers(data[i]);
                 }
                 break;
               default:
-                console.log("fix test", "4");
+                console.log("4");
 
-                if ((filterType == value["type"]) && (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter)) {
-                  this.addMarker(value, markersClusters);
+                if ((this.filterParamType == data[i]["type"]) && (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam)) {
+                  this.addMarkers(data[i]);
                 }
                 break;
             }
             break;
         }
-      });
+        if (i == 1992) {
+          this.refreshData();
+        }
+      };
     })
-
-    // this.layerGroup = markersClusters;  
-    tiles.addTo(this.map);
   }
 
-
-  placeSelected(event: any) {
-    this.lat = event.properties.lat;
-    this.lon = event.properties.lon;
-    this.map.remove();
-    this.initMap(this.lat, this.lon, -1, "");
-  }
-
-  ngAfterViewInit(): void {
-    this.initMap(this.lat, this.lon, -1, "");
-    // this.trajet();
-
-  }
-
-  trajet(lat: any, lon: any) {
-    L.Routing.control({
-      router: L.Routing.osrmv1({
-        language: "fr",
-        profile: "car",
-
-      }),
-      waypoints:
-        [
-          L.latLng(48.133205, 11.565225),
-          L.latLng(lat, lon)
-        ]
-      ,
-    }).addTo(this.map);
-  }
-
-  markers = L.markerClusterGroup({
-    spiderfyOnMaxZoom: false,
-    showCoverageOnHover: false,
-    zoomToBoundsOnClick: false
-  });
-
-
-  addMarker(value: any, marker: any) {
+  addMarkers(data: any) {
     var markerVerre = L.icon({
       iconUrl: './assets/images/marker_verre.png',
       iconSize: [30.75, 50.25], // size of the icon
@@ -162,65 +155,23 @@ export class CarteComponent implements AfterViewInit, OnChanges {
     });
 
 
-    switch (value["type"]) {
+    switch (data["type"]) {
       case "verre":
-        
-        var content = L.DomUtil.create('h4', 'content'),
-          popup = L.popup().setContent(content);
-        content.style.textAlign = "center";
-        content.style.cursor = "pointer";
-
-        content.textContent = value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"];
-
-        L.DomEvent.addListener(content, 'click', function (this: CarteComponent, event: any) {
-          console.log(value["latitude"]);
-
-          this.trajet(value["latitude"], value["longitude"]);
-        }, content);
-        L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup(popup);
-
-        // marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerVerre }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
         break;
       case "textile":
-        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerTextile }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
         break;
       case "ordures ménagères":
-        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerOrdures }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
         break;
       case "collecte sélective":
-        marker.addLayer(L.marker([value["latitude"], value["longitude"]], { icon: markerCollecte }).addTo(this.map).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + value["street_number"] + " " + value["street_label"] + ", " + value["city"] + " " + value["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
         break;
       default:
         console.log("No such type exists!");
         break;
     }
-  }
-
-  getGeolocation() {
-    if (window.navigator && window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(
-        position => {
-          this.geolocationPosition = position,
-            this.lat = position.coords.latitude,
-            this.lon = position.coords.longitude,
-            this.map.remove(),
-            this.initMap(this.lat, this.lon, -1, "");
-        },
-        error => {
-          switch (error.code) {
-            case 1:
-              console.log('Permission Denied');
-              break;
-            case 2:
-              console.log('Position Unavailable');
-              break;
-            case 3:
-              console.log('Timeout');
-              break;
-          }
-        }
-      );
-    };
   }
 
   private distance(lat1: any, lon1: any, lat2: any, lon2: any, unit: any) {
@@ -243,5 +194,40 @@ export class CarteComponent implements AfterViewInit, OnChanges {
       if (unit == "N") { dist = dist * 0.8684 }
       return dist;
     }
+  }
+
+  placeSelected(event: any) {
+    this.lat = event.properties.lat;
+    this.lon = event.properties.lon;
+    this.center = L.latLng([this.lat, this.lon]);
+    // this.map.remove();
+    // this.initMap(this.lat, this.lon, -1, "");
+  }
+
+  getGeolocation() {
+    if (window.navigator && window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        position => {
+          this.geolocationPosition = position,
+            this.lat = position.coords.latitude,
+            this.lon = position.coords.longitude,
+            this.center = L.latLng([this.lat, this.lon]);
+        },
+        error => {
+          switch (error.code) {
+            case 1:
+              console.log('Permission Denied');
+              break;
+            case 2:
+              console.log('Position Unavailable');
+              break;
+            case 3:
+              console.log('Timeout');
+              break;
+          }
+        }
+      );
+    };
+
   }
 }

@@ -10,8 +10,6 @@ import { UserAccueilComponent } from './user-accueil/user-accueil.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
 
-
-
 @NgModule({
   declarations: [
     CarteComponent,

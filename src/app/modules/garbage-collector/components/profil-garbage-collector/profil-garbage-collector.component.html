@@ -1,59 +1,61 @@
 <app-header-gc></app-header-gc>
 <div id="planningBg">
     <div id="flexboxSemaine">
-        <p>SEMAINE 42  || MOIS</p>
-
+        <p>SEMAINE {{weekNumber}} || {{year}}</p>
     </div>
 
     <ul id="dayFlexbox">
+        <div class="skipWeek"><i class="fi fi-rr-angle-left" (click)="previousWeek()"></i></div>
         <li>
-            <p>LUNDI</p>
+            <p>{{week[0].name}} {{week[0].int}}</p>
             <div class="dayBackground">
-                <div class="name-block">
-                    <p>FOREACH LUNDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[0]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
         <li>
-            <p>MARDI</p>
+            <p>{{week[1].name}} {{week[1].int}}</p>
             <div class="dayBackground">
-                <div class="name-block">
-                    <p>FOREACH MARDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[1]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
         <li>
-            <p>MERCREDI</p>
+            <p>{{week[2].name}} {{week[2].int}}</p>
             <div class="dayBackground">
-                    <div class="name-block" cdkDrag>
-                    <p>FOREACH MERCREDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[2]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
         <li>
-            <p>JEUDI</p>
+            <p>{{week[3].name}} {{week[3].int}}</p>
             <div class="dayBackground">
-                <div class="name-block">
-                    <p>FOREACH JEUDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[3]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
         <li>
-            <p>VENDREDI</p>
+            <p>{{week[4].name}} {{week[4].int}}</p>
             <div class="dayBackground">
-                <div class="name-block">
-                    <p>FOREACH VENDREDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[4]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
         <li>
-            <p>SAMEDI</p>
+            <p>{{week[5].name}} {{week[5].int}}</p>
             <div class="dayBackground">
-                <div class="name-block">
-                    <p>FOREACH SAMEDI</p>
+                <div class="name-block" *ngFor="let garbageCollector of weekPlanning[5]?.team" cdkDrag>
+                    {{garbageCollector}}
                 </div>
             </div>
         </li>
-        
+
+        <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
     </ul>
+
 </div>

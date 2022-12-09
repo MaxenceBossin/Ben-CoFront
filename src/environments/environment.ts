@@ -14,8 +14,7 @@ export const environment = {
     measurementId: "G-6CJ2QMMNEP"
   },
   production: true,
-  api_url: 'https://localhost:8000/api/',
-  api_url_login: 'https://localhost:8000/authentication_token',
+  api_url: 'http://176.31.163.124:27931/api/'
 };
 
 /*

@@ -8,7 +8,10 @@ import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-a
 import { UserAccueilComponent } from './user-accueil/user-accueil.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+<<<<<<< HEAD
 import { FiltersBennesEboueursComponent } from 'src/app/partials/filters-bennes-eboueurs/filters-bennes-eboueurs.component';
+=======
+>>>>>>> 4530446 (fix map)
 
 @NgModule({
   declarations: [

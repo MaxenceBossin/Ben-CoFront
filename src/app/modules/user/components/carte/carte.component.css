@@ -1,27 +1,21 @@
 /*map*/
 .map-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -5;
-}
-
-.map-frame {
-  height: 100%;
-}
-
-#map {
-  height: 100vh !important;
-  z-index: 0;
-}
-
-
-/* Pop Up */
-.popup {
-  text-align: center;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+  }
+  
+  .map-frame {
+    height: 100%;
+  }
+  
+  #map {
+    height: 100vh !important; 
+    z-index: 0;
+  }
 
 /*search bar map*/
 #search_bar_container {

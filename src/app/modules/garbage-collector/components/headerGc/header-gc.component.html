@@ -5,26 +5,10 @@
     <input type="checkbox" id="drop" />
 
     <ul class="menu bouton_align">
-
-        <li><button routerLink="/eboueurs/trajets" style="display: block; padding: 14px 20px; font-size: 17px;"
-                class="btn openbtn green_button">
-                Trajets
-            </button></li>
-
-        <li><button routerLink="/eboueurs/messagerie" style="display: block; padding: 14px 20px; font-size: 17px;"
-                class="btn openbtn green_button">
-                Messagerie
-            </button></li>
-
-        <li><button routerLink="/eboueurs/declaration" style="display: block; padding: 14px 20px; font-size: 17px;"
-                class="btn openbtn green_button">
-                Declaration
-            </button></li>
-
-        <li><button routerLink="/eboueurs/profil" style="display: block; padding: 14px 20px; font-size: 17px;"
-                class="btn openbtn green_button">
-                Profil
-            </button></li>
+        <li><a routerLink="/eboueurs/trajets" routerLinkActive="active-link">Trajets</a></li>
+        <li><a routerLink="/eboueurs/messagerie" routerLinkActive="active-link">Messagerie</a></li>
+        <li><a routerLink="/eboueurs/declaration" routerLinkActive="active-link">Déclarations</a></li>
+        <li><a routerLink="/eboueurs/profil" routerLinkActive="active-link">Planning</a></li>
 
         <li><button (click)="logout()" style="display: block; padding: 14px 20px; font-size: 17px;"
                 class="btn openbtn green_button">

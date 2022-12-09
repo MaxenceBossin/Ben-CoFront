@@ -1,17 +1,19 @@
 table {
 	--accent-color: #2f4b4a;
-	--text-color: slategray;
-	--bgColorDarker: #ececec;
-	--bgColorLighter: #fcfcfc;
-	--insideBorderColor: lightgray;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-collapse: collapse;
-	color: var(--text-color);
-	table-layout: fixed;
-	margin-top: 80px;
+    --text-color: slategray;
+    --bgColorDarker: #ececec;
+    --bgColorLighter: #fcfcfc;
+    --insideBorderColor: lightgray;
+    width: 98%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-collapse: collapse;
+    color: var(--text-color);
+    table-layout: fixed;
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 table caption {
@@ -25,8 +27,7 @@ table caption {
 
 table thead tr {
 	color: whitesmoke;
-	background-color: #5eda96;
-    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
+	background-color: #6FCEAE;
 	font-size: 1rem;
 }
 
@@ -118,8 +119,9 @@ table td:nth-child(4) {
 
 @media (min-width: 768px) {
   .btn {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
+	font-size: 80%;
+    padding: 11px;
+    color: white;
   }
 }
 

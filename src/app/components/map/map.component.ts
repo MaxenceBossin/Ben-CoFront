@@ -120,11 +120,11 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
 
   }
-  markers = L.markerClusterGroup({
-    spiderfyOnMaxZoom: false,
-    showCoverageOnHover: false,
-    zoomToBoundsOnClick: false
-  });
+  // markers = L.markerClusterGroup({
+  //   spiderfyOnMaxZoom: false,
+  //   showCoverageOnHover: false,
+  //   zoomToBoundsOnClick: false
+  // });
 
 
   addMarker(value: any) {

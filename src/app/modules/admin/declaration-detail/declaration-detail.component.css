@@ -1,19 +1,30 @@
+.container{
+    padding: 1rem;
+    
+
+}
+hr{
+    margin: 1rem 0;
+}
+h1{
+    text-align: center;
+}
+
+
+
 table {
 	--accent-color: #2f4b4a;
-    --text-color: slategray;
-    --bgColorDarker: #ececec;
-    --bgColorLighter: #fcfcfc;
-    --insideBorderColor: lightgray;
-    width: 98%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-collapse: collapse;
-    color: var(--text-color);
-    table-layout: fixed;
-    margin-top: 80px;
-    margin-right: auto;
-    margin-left: auto;
+	--text-color: slategray;
+	--bgColorDarker: #ececec;
+	--bgColorLighter: #fcfcfc;
+	--insideBorderColor: lightgray;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-collapse: collapse;
+	color: var(--text-color);
+	table-layout: fixed;
 }
 
 table caption {
@@ -27,7 +38,8 @@ table caption {
 
 table thead tr {
 	color: whitesmoke;
-	background-color: #6FCEAE;
+	background-color: #5eda96;
+    background-image: linear-gradient(135deg, #5eda96 0%, #8186da 100%);
 	font-size: 1rem;
 }
 
@@ -119,9 +131,8 @@ table td:nth-child(4) {
 
 @media (min-width: 768px) {
   .btn {
-	font-size: 80%;
-    padding: 11px;
-    color: white;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -135,10 +146,9 @@ table td:nth-child(4) {
 	table caption {
 		padding: 0.75rem 1rem;
 		border-radius: 6px 6px 0 0;
-		color: black;
+		color: whitesmoke;
 		font-size: 1.35rem;
-		background-color: #e2e2e2;
-		margin-top: 15%;
+		background-color: var(--accent-color);
 	}
 
 	table thead {

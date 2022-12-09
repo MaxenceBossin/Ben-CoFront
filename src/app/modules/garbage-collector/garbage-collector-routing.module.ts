@@ -18,6 +18,10 @@ const routes: Routes = [
         component: DeclarationComponent
     },
     {
+        path: 'declaration/:id',
+        component: DeclarationComponent
+    },
+    {
         path: 'trajets',
         component: WayGarbageCollectorComponent
     },

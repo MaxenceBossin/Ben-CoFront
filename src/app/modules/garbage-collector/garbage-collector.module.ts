@@ -1,5 +1,6 @@
+import { LeafletMarkerClusterModule } from '@asymmetrik/ngx-leaflet-markercluster';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-autocomplete';
-import { MapComponent } from './../../components/map/map.component';
 import { GarbageCollectorRoutingModule } from './garbage-collector-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DeclarationComponent } from './components/declaration/declaration.component';
+import { FiltersBennesComponent } from 'src/app/partials/filters-bennes/filters-bennes.component';
+import { CarteEboueursComponent } from './components/carte-eboueurs/carte-eboueurs.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { DeclarationComponent } from './components/declaration/declaration.compo
     HeaderGcComponent,
     EboueurMessagesComponent,
     DeclarationComponent,
-    MapComponent
+    FiltersBennesComponent,
+    CarteEboueursComponent
     ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { DeclarationComponent } from './components/declaration/declaration.compo
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LeafletModule,
+    LeafletMarkerClusterModule
     ],
   exports:[
   ]

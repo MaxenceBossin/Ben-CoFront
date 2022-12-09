@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EboueurAddComponent } from './eboueur-add/eboueur-add.component';
 import { EboueurEditComponent } from './eboueur-edit/eboueur-edit.component';
+import { DeclarationDetailComponent } from './declaration-detail/declaration-detail.component';
 
 
 
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'declaration',
         component: DeclarationComponent
+    },
+    {
+        path: 'declaration/modifier/:id',
+        component: DeclarationDetailComponent
     },
     {
         path: 'eboueurs',

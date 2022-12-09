@@ -12,6 +12,7 @@ import { FormRegisterComponent } from './components/auth/form-register/form-regi
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccueilComponent } from './components/home/accueil/accueil.component';
+import { FiltersBennesEboueursComponent } from './partials/filters-bennes-eboueurs/filters-bennes-eboueurs.component';
 
 @NgModule({
   declarations: [

@@ -31,6 +31,7 @@ html, body{
     scrollbar-width:none;
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
 }
 
 #envoi_message{
@@ -38,6 +39,8 @@ html, body{
     width: 100%;
     height: 7%;
     position: fixed;
+    bottom: 0px;
+    text-align: center;
 }
 .type_message{
     border: none;

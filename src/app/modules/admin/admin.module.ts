@@ -14,6 +14,7 @@ import { EboueurAddComponent } from './eboueur-add/eboueur-add.component';
 import { EboueurEditComponent } from './eboueur-edit/eboueur-edit.component';
 
 import { FormsModule } from '@angular/forms';
+import { DeclarationDetailComponent } from './declaration-detail/declaration-detail.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     DeclarationComponent,
     EboueurAddComponent,
     EboueurEditComponent,
+    DeclarationDetailComponent,
 
   ],
   imports: [

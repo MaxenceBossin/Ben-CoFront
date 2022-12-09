@@ -6,7 +6,6 @@ import { UserProfilComponent } from 'src/app/modules/user/components/user-profil
 import { UserAccueilComponent } from './user-accueil/user-accueil.component';
 
 
-
 const routes: Routes = [
     {
         path: 'userAccueil',

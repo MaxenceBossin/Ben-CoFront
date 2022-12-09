@@ -1,2 +1,3 @@
 <app-header-gc></app-header-gc>
-<app-map></app-map>
+<app-filters-bennes (getFilterBenne)="getFilter($event)" (getFilterType)="getFilterType($event)"></app-filters-bennes>
+<app-carte-eboueurs [filterParam]="currentFilter" [filterParamType]="currentFilterType"></app-carte-eboueurs>

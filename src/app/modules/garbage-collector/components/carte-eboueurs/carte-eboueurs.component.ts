@@ -2,18 +2,16 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
-import 'leaflet-routing-machine';
 import { Control } from 'leaflet';
 import LayersOptions = Control.LayersOptions;
 import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
 
-
 @Component({
-  selector: 'app-carte',
-  templateUrl: './carte.component.html',
-  styleUrls: ['./carte.component.css']
+  selector: 'app-carte-eboueurs',
+  templateUrl: './carte-eboueurs.component.html',
+  styleUrls: ['./carte-eboueurs.component.css']
 })
-export class CarteComponent implements OnInit, OnChanges {
+export class CarteEboueursComponent implements OnInit, OnChanges {
   @Input() filterParam = -1; // decorate the property with @Input()
   @Input() filterParamType = ''; // decorate the property with @Input()
 
@@ -43,37 +41,15 @@ export class CarteComponent implements OnInit, OnChanges {
   zoom = 17;
   center = L.latLng([this.lat, this.lon]);
 
-  map = L.Map;
 
   // Marker cluster stuff
   markerClusterGroup: L.MarkerClusterGroup = L.markerClusterGroup();
   markerClusterData: L.Marker[] = [];
 
-  routing = L.Routing.control({
-    waypoints: [],
-    routeWhileDragging: false,
-    show: false,
-    addWaypoints: false,
-    //@ts-ignore
-    createMarker: function () { return null; },
-    //@ts-ignore
-    draggableWaypoints: false
-  })
-
-  // r: any = L.Routing.control({
-  //   router: L.Routing.osrmv1({
-  //     language: "fr",
-  //     profile: "car",
-  //   }),
-  //   waypoints: [],
-  // });
-
   constructor(private DumpsterService: DumpsterService) { }
 
   ngOnInit() {
     this.generateData();
-    //@ts-ignore
-    this.routing.addTo(this.map);
   }
 
   ngOnChanges() {
@@ -95,12 +71,8 @@ export class CarteComponent implements OnInit, OnChanges {
 
   }
 
-  onMapReady(map: L.Map) {
-    //@ts-ignore
-    this.map = map;
-  }
-
   //@ts-ignore
+
   generateData(): L.Marker[] {
 
     // const dataMarker: L.Marker[] = [];
@@ -113,9 +85,13 @@ export class CarteComponent implements OnInit, OnChanges {
           case -1:
             switch (this.filterParamType) {
               case "":
+                console.log("1");
+
                 this.addMarkers(data[i]);
                 break;
               default:
+                console.log("2");
+
                 if (this.filterParamType == data[i]["type"]) {
                   this.addMarkers(data[i]);
                 }
@@ -125,11 +101,15 @@ export class CarteComponent implements OnInit, OnChanges {
           default:
             switch (this.filterParamType) {
               case "":
+                console.log("3");
+
                 if (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam) {
                   this.addMarkers(data[i]);
                 }
                 break;
               default:
+                console.log("4");
+
                 if ((this.filterParamType == data[i]["type"]) && (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam)) {
                   this.addMarkers(data[i]);
                 }
@@ -173,57 +153,19 @@ export class CarteComponent implements OnInit, OnChanges {
       popupAnchor: [5, -30] // point from which the popup should open relative to the iconAnchor
     });
 
-    let popupInfo = document.createElement('h4')
-    popupInfo.style.textAlign = 'center'
-
-    // let btnGo = document.createElement('button');
-    // btnGo.className = 'goToBtn';
-    // btnGo.append(document.createTextNode('S\'y rendre'))
-    // btnGo.onclick = async () => {
-    //   this.routeTo(data["latitude"], data["longitude"])
-    // }
-
 
     switch (data["type"]) {
       case "verre":
-        popupInfo.append(
-          document.createTextNode("Benne à verre"),
-          document.createElement('br'),
-          document.createTextNode("Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]),
-          document.createElement('br'),
-          // btnGo
-        )
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup(popupInfo));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "textile":
-        popupInfo.append(
-          document.createTextNode("Benne à textile"),
-          document.createElement('br'),
-          document.createTextNode("Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]),
-          document.createElement('br'),
-          // btnGo
-        )
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup(popupInfo));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "ordures ménagères":
-        popupInfo.append(
-          document.createTextNode("Ordures ménagères"),
-          document.createElement('br'),
-          document.createTextNode("Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]),
-          document.createElement('br'),
-          // btnGo
-        )
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup(popupInfo));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "collecte sélective":
-        popupInfo.append(
-          document.createTextNode("Collecte sélective"),
-          document.createElement('br'),
-          document.createTextNode("Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]),
-          document.createElement('br'),
-          // btnGo
-        )
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup(popupInfo));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       default:
         console.log("No such type exists!");
@@ -257,6 +199,8 @@ export class CarteComponent implements OnInit, OnChanges {
     this.lat = event.properties.lat;
     this.lon = event.properties.lon;
     this.center = L.latLng([this.lat, this.lon]);
+    // this.map.remove();
+    // this.initMap(this.lat, this.lon, -1, "");
   }
 
   getGeolocation() {
@@ -283,17 +227,5 @@ export class CarteComponent implements OnInit, OnChanges {
         }
       );
     };
-  }
-
-  routeTo(lat: any, lon: any) {
-    console.log(lat);
-    console.log(lon);
-    console.log(this.lat);
-    console.log(this.lon);
-    console.log(this.routing);
-
-    this.routing.setWaypoints([L.latLng(this.lat, this.lon), L.latLng(lat, lon)]);
-    // control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
-    // this.routing.setWaypoints([this.userCoord, coord]);
   }
 }

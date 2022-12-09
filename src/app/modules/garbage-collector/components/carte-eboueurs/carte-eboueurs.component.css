@@ -1,0 +1,76 @@
+/*map*/
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+  }
+  
+  .map-frame {
+    height: 100%;
+  }
+  
+  #map {
+    height: 100vh !important; 
+    z-index: 0;
+  }
+
+  /*search bar map*/
+#search_bar_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 85%;
+    right: 25%;
+    left: 25%;
+    width: 50%;  
+}
+
+.input_recherche{
+    background-color: white;
+    border: none;
+    border-radius: 50px 0px 0px 50px ;
+    width: 90%;
+    padding-left: 5%;
+}
+
+
+
+.input_recherche:focus{
+    outline: none;
+    font-size: medium;
+}
+
+.fi-rs-marker{
+  background-color: #27c9ac;
+  background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    padding: 15%;
+    border-radius: 100%;
+    color: white;
+    display: flex;
+}
+
+/*MEDIAQUERIES TABLETTE SEARCH BAR*/
+@media all and (max-device-width: 800px){
+
+#search_bar_container {
+  right: 10%;
+  left: 10%;
+  width: 80%;
+}
+}
+
+/*MEDIAQUERIES MOBILE SEARCH BAR*/
+@media all and (max-device-width: 500px){
+  .bouton_location{
+    width: 20%;
+}
+#search_bar_container{
+  right: 4%;
+  left: 4%;
+  width: 90%;
+}
+}

@@ -2,8 +2,6 @@ import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
 import { Component, AfterViewInit, Input, OnChanges } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
-import { bindNodeCallback } from 'rxjs';
-
 
 @Component({
   selector: 'app-map',
@@ -116,9 +114,6 @@ export class MapComponent implements AfterViewInit, OnChanges {
       }
     });
     console.log("fix", this.tab);
-
-
-
   }
   // markers = L.markerClusterGroup({
   //   spiderfyOnMaxZoom: false,

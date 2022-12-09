@@ -1,6 +1,8 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 <div id="planningBg">
+    <br><br>
     <div id="flexboxSemaine">
+        
         <p>SEMAINE {{weekNumber}} || {{year}}</p>
     </div>
 
@@ -79,5 +81,5 @@
         </li>
         <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
     </ul>
-    <input type='submit' class="boutonValidé" (click)="sendData()">
+    <input type='submit' class="boutonValidé" (click)="sendData()" value="Enregistrer les modifications">
 </div>

@@ -23,7 +23,7 @@
     width: inherit;
 }
 
-li{
+li {
     margin: 10px;
     width: 11%;
 }
@@ -35,10 +35,23 @@ li{
 
 
 .dayBackground {
-    height: 300px;
+    height: 400px;
     width: 100%;
     background-color: white;
     padding: 10px 5px 0 5px;
+}
+
+.dayBackgroundReversed {
+    height: 400px;
+    width: 100%;
+    background-color: #6FCEAE;
+    padding: 10px 5px 0 5px;
+    overflow-Y: scroll;
+    overflow-x: hidden;
+}
+
+.dayBackgroundReversed::-webkit-scrollbar {
+    display: none;
 }
 
 #flexboxSemaine>form {
@@ -135,20 +148,15 @@ li{
 
 }
 
-/* .wrapper {
-    margin: 25px auto;
-    max-width: 600px;
-    text-align: center;
-    padding: 0 20px;
+.reversed {
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+    color: #6FCEAE !important;
+    background-color: white !important;
+    margin: 0;
+    font-size: 80%;
+    font-weight: 600;
 }
-
-.container {
-    width: 45%;
-    margin: 0 25px 25px 0;
-    display: inline-block;
-    vertical-align: top;
-} */
-
 
 
 
@@ -172,6 +180,8 @@ li{
     margin-bottom: 10px;
     text-align: center;
 }
+
+
 
 .nameP {
     text-align: center;

@@ -28,6 +28,8 @@
     bottom: 100%;
     left: 0;
     right: 0;
+    background-color: white;
+    color: rgb(37, 168, 133);
 }
 
 .geoapify-autocomplete-items div {

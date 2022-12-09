@@ -5,6 +5,7 @@ import { UserService } from 'src/app/service/user/user.service';
 import { SupportService } from 'src/app/service/support/support.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import jwtDecode from "jwt-decode";
+
 @Component({
   selector: 'app-declaration',
   templateUrl: './declaration.component.html',
@@ -40,7 +41,7 @@ export class DeclarationComponent implements OnInit {
       const email = jwt.email
       console.log(email);
       this.garbageCollector = users.filter((g:any) => g.email == email)
-      this.idGb = this.garbageCollector[0].id
+      this.idGb = this.garbageCollector[0].id 
 
     }
     )
@@ -58,7 +59,7 @@ export class DeclarationComponent implements OnInit {
       error: (e) => console.error(e),
       complete: () => {
         console.info('register success'),
-        this.router.navigate(['/']);
+        this.router.navigate(['/eboueurs/trajets']);
       }
     })
     

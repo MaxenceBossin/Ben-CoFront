@@ -156,16 +156,16 @@ export class CarteEboueursComponent implements OnInit, OnChanges {
 
     switch (data["type"]) {
       case "verre":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "textile":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "ordures ménagères":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       case "collecte sélective":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
+        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"] + "<br><a href='eboueurs/declaration/" + data["id"] + "'>Déclarer un problème</a></h4>"));
         break;
       default:
         console.log("No such type exists!");

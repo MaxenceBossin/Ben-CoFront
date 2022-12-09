@@ -4,7 +4,7 @@ import { GeoapifyGeocoderAutocompleteModule } from '@geoapify/angular-geocoder-a
 import { GarbageCollectorRoutingModule } from './garbage-collector-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WayGarbageCollectorComponent } from './components/way-garbage-collector/way-garbage-collector.component';
 import { ProfilGarbageCollectorComponent } from './components/profil-garbage-collector/profil-garbage-collector.component';
 import { HeaderGcComponent } from './components/headerGc/header-gc.component';
@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { DeclarationComponent } from './components/declaration/declaration.component';
 import { FiltersBennesComponent } from 'src/app/partials/filters-bennes/filters-bennes.component';
 import { CarteEboueursComponent } from './components/carte-eboueurs/carte-eboueurs.component';
+import { DatePipe } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { CarteEboueursComponent } from './components/carte-eboueurs/carte-eboueu
     FiltersBennesComponent,
     CarteEboueursComponent
     ],
+    
   imports: [
     CommonModule,
     FormsModule,
@@ -39,6 +42,10 @@ import { CarteEboueursComponent } from './components/carte-eboueurs/carte-eboueu
     LeafletMarkerClusterModule
     ],
   exports:[
-  ]
+    DragDropModule,
+    DatePipe,
+  ],
+  providers: [DatePipe],
+
 })
 export class GarbageCollectorModule { }

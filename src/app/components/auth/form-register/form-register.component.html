@@ -55,7 +55,7 @@
     <!-- CGU -->
     <div class="auth-form_input-block cgu">
         <span [ngClass]="cgu.errors?.['required'] ? 'error' : ''">
-            Pour continuer, merci d'accepter les CGU 
+            Pour continuer, merci d'accepter les <a style="color: rgb(144, 45, 45);" routerLink="/mention-legal">CGU</a> 
         </span>
         <input type="checkbox" id="cgu" name="cgu" ngModel #cgu="ngModel" required>
     </div>

@@ -1,62 +1,17 @@
 <app-nav-bar-admin></app-nav-bar-admin>
 <div id="planningBg">
+    <br><br>
     <div id="flexboxSemaine">
+        
         <p>SEMAINE {{weekNumber}} || {{year}}</p>
-
-        <form>
-            <input name='name' class='input1' type="text">
-            <img src="../../../assets/images/icons8-search (1).svg">
-            <input name='date' type="text">
-
-            <div class='input2'><button id='formSubmit' class='submit' type="submit">OK</button></div>
-        </form>
-
     </div>
-    <!-- <div class="container">
-        <h2>lundi</h2>
-        <div cdkDropList #day0list="cdkDropList" [cdkDropListData]="daysdata[0]"
-            [cdkDropListConnectedTo]="[day1list,day2list,day3list]" (cdkDropListDropped)="onDrop($event)">
-            <div class="movie-block" *ngFor="let daydata of daysdata[0]" cdkDrag>
-                <div>{{daydata}}</div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h2>mardi</h2>
-        <div cdkDropList #day1list="cdkDropList" [cdkDropListData]="daysdata[1]"
-            [cdkDropListConnectedTo]="[day0list,day2list,day3list]" (cdkDropListDropped)="onDrop($event)">
-            <div class="movie-block" *ngFor="let daydata of daysdata[1]" cdkDrag>
-                <div>
-                    {{daydata}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h2>mercredi</h2>
-        <div cdkDropList #day2list="cdkDropList" [cdkDropListData]="daysdata[2]"
-            [cdkDropListConnectedTo]="[day0list,day2list,day3list]" (cdkDropListDropped)="onDrop($event)">
-            <div class="movie-block" *ngFor="let daydata of daysdata[2]" cdkDrag>
-                <div>{{daydata}}</div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <h2>jeudi</h2>
-        <div cdkDropList #day3list="cdkDropList" [cdkDropListData]="daysdata[3]"
-            [cdkDropListConnectedTo]="[day0list,day1list,day2list]" (cdkDropListDropped)="onDrop($event)">
-            <div class="movie-block" *ngFor="let daydata of daysdata[3]" cdkDrag>
-                <div>{{daydata}}</div>
-            </div>
-        </div>
-    </div> -->
 
     <ul id="dayFlexbox">
         <div class="skipWeek"><i class="fi fi-rr-angle-left" (click)="previousWeek()"></i></div>
         <li>
             <p>{{week[0].name}} {{week[0].int}}</p>
             <div class="dayBackground" cdkDropList #day0list="cdkDropList" [cdkDropListData]="weekPlanning[0].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[0]?.team" cdkDrag>
                     {{garbageCollector}}
@@ -66,7 +21,7 @@
         <li>
             <p>{{week[1].name}} {{week[1].int}}</p>
             <div class="dayBackground" cdkDropList #day1list="cdkDropList" [cdkDropListData]="weekPlanning[1].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[1]?.team" cdkDrag>
                     {{garbageCollector}}
@@ -76,7 +31,7 @@
         <li>
             <p>{{week[2].name}} {{week[2].int}}</p>
             <div class="dayBackground" cdkDropList #day2list="cdkDropList" [cdkDropListData]="weekPlanning[2].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[2]?.team" cdkDrag>
                     {{garbageCollector}}
@@ -86,7 +41,7 @@
         <li>
             <p>{{week[3].name}} {{week[3].int}}</p>
             <div class="dayBackground" cdkDropList #day3list="cdkDropList" [cdkDropListData]="weekPlanning[3].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[3]?.team" cdkDrag>
                     {{garbageCollector}}
@@ -96,7 +51,7 @@
         <li>
             <p>{{week[4].name}} {{week[4].int}}</p>
             <div class="dayBackground" cdkDropList #day4list="cdkDropList" [cdkDropListData]="weekPlanning[4].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[4]?.team" cdkDrag>
                     {{garbageCollector}}
@@ -106,14 +61,25 @@
         <li>
             <p>{{week[5].name}} {{week[5].int}}</p>
             <div class="dayBackground" cdkDropList #day5list="cdkDropList" [cdkDropListData]="weekPlanning[5].team"
-                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list]"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
                 (cdkDropListDropped)="onDrop($event)">
                 <div class="name-block" *ngFor="let garbageCollector of weekPlanning[5]?.team" cdkDrag>
                     {{garbageCollector}}
                 </div>
             </div>
         </li>
+        <li>
+            <p class="reversed">liste eboueur</p>
+            <div class="dayBackgroundReversed" cdkDropList #day6list="cdkDropList"
+                [cdkDropListData]="garbageCollectorList"
+                [cdkDropListConnectedTo]="[day0list,day1list,day2list,day3list,day4list,day5list,day6list]"
+                (cdkDropListDropped)="onDrop($event)">
+                <div class="name-block reverseColor" *ngFor="let garbageCollector of garbageCollectorList" cdkDrag>
+                    {{garbageCollector}}
+                </div>
+            </div>
+        </li>
         <div class="skipWeek"><i class="fi fi-rr-angle-right" (click)="nextWeek()"></i></div>
     </ul>
-    <input type='submit' class="boutonValidé" (click)="sendData()">
+    <input type='submit' class="boutonValidé" (click)="sendData()" value="Enregistrer les modifications">
 </div>

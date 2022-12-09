@@ -50,7 +50,7 @@ export class CarteComponent implements AfterViewInit, OnChanges {
     }).addTo(this.map);
     console.log("fixd", filter);
 
-    let markersClusters = L.markerClusterGroup();
+    // let markersClusters = L.markerClusterGroup();
 
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
       data.forEach((value: any) => {
@@ -58,13 +58,13 @@ export class CarteComponent implements AfterViewInit, OnChanges {
           case -1:
             switch (filterType) {
               case "":
-                this.addMarker(value, markersClusters);
+                // this.addMarker(value, markersClusters);
                 break;
               default:
                 console.log("fix test", "2");
 
                 if (filterType == value["type"]) {
-                  this.addMarker(value, markersClusters);
+                  // this.addMarker(value, markersClusters);
                 }
                 break;
             }
@@ -75,14 +75,14 @@ export class CarteComponent implements AfterViewInit, OnChanges {
                 console.log("fix test", "3");
 
                 if (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter) {
-                  this.addMarker(value, markersClusters);
+                  // this.addMarker(value, markersClusters);
                 }
                 break;
               default:
                 console.log("fix test", "4");
 
                 if ((filterType == value["type"]) && (this.distance(lat, lon, value["latitude"], value["longitude"], "K") <= filter)) {
-                  this.addMarker(value, markersClusters);
+                  // this.addMarker(value, markersClusters);
                 }
                 break;
             }
@@ -125,11 +125,11 @@ export class CarteComponent implements AfterViewInit, OnChanges {
     }).addTo(this.map);
   }
 
-  markers = L.markerClusterGroup({
-    spiderfyOnMaxZoom: false,
-    showCoverageOnHover: false,
-    zoomToBoundsOnClick: false
-  });
+  // markers = L.markerClusterGroup({
+  //   spiderfyOnMaxZoom: false,
+  //   showCoverageOnHover: false,
+  //   zoomToBoundsOnClick: false
+  // });
 
 
   addMarker(value: any, marker: any) {

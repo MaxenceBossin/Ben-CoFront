@@ -2,10 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
-<<<<<<< HEAD
 import 'leaflet-routing-machine';
-=======
->>>>>>> 4530446 (fix map)
 import { Control } from 'leaflet';
 import LayersOptions = Control.LayersOptions;
 import { DumpsterService } from 'src/app/service/dumpster/dumpster.service';
@@ -23,35 +20,9 @@ export class CarteComponent implements OnInit, OnChanges {
   public lat = 43.60899203730793;
   public lon = 1.4338861683142448;
   public geolocationPosition: any;
-<<<<<<< HEAD
-=======
 
   private tab: L.Marker[] = [];
 
-  // Open Street Map Definition
-  LAYER_OSM = {
-    id: 'openstreetmap',
-    name: 'Open Street Map',
-    enabled: false,
-    layer: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 2,
-      attribution: 'Open Street Map'
-    })
-  };
-
-  // Values to bind to Leaflet Directive
-  layersControlOptions: LayersOptions = { position: 'bottomright' };
-  baseLayers = {
-    'Open Street Map': this.LAYER_OSM.layer
-  };
-  zoom = 17;
-  center = L.latLng([this.lat, this.lon]);
->>>>>>> 4530446 (fix map)
-
-  private tab: L.Marker[] = [];
-
-<<<<<<< HEAD
   // Open Street Map Definition
   LAYER_OSM = {
     id: 'openstreetmap',
@@ -96,21 +67,13 @@ export class CarteComponent implements OnInit, OnChanges {
   //   }),
   //   waypoints: [],
   // });
-=======
-  // Marker cluster stuff
-  markerClusterGroup: L.MarkerClusterGroup = L.markerClusterGroup();
-  markerClusterData: L.Marker[] = [];
->>>>>>> 4530446 (fix map)
 
   constructor(private DumpsterService: DumpsterService) { }
 
   ngOnInit() {
     this.generateData();
-<<<<<<< HEAD
     //@ts-ignore
     this.routing.addTo(this.map);
-=======
->>>>>>> 4530446 (fix map)
   }
 
   ngOnChanges() {
@@ -132,26 +95,17 @@ export class CarteComponent implements OnInit, OnChanges {
 
   }
 
-<<<<<<< HEAD
   onMapReady(map: L.Map) {
     //@ts-ignore
     this.map = map;
   }
 
   //@ts-ignore
-=======
-  //@ts-ignore
-
->>>>>>> 4530446 (fix map)
   generateData(): L.Marker[] {
 
     // const dataMarker: L.Marker[] = [];
 
-<<<<<<< HEAD
     this.tab = [];
-=======
-    let markersClusters = L.markerClusterGroup();
->>>>>>> 4530446 (fix map)
 
     this.DumpsterService.getAllDumpsters().subscribe((data: any) => {
       for (let i = 0; i < 1993; i++) {
@@ -159,19 +113,9 @@ export class CarteComponent implements OnInit, OnChanges {
           case -1:
             switch (this.filterParamType) {
               case "":
-<<<<<<< HEAD
                 this.addMarkers(data[i]);
                 break;
               default:
-=======
-                console.log("1");
-
-                this.addMarkers(data[i]);
-                break;
-              default:
-                console.log("2");
-
->>>>>>> 4530446 (fix map)
                 if (this.filterParamType == data[i]["type"]) {
                   this.addMarkers(data[i]);
                 }
@@ -181,21 +125,11 @@ export class CarteComponent implements OnInit, OnChanges {
           default:
             switch (this.filterParamType) {
               case "":
-<<<<<<< HEAD
-=======
-                console.log("3");
-
->>>>>>> 4530446 (fix map)
                 if (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam) {
                   this.addMarkers(data[i]);
                 }
                 break;
               default:
-<<<<<<< HEAD
-=======
-                console.log("4");
-
->>>>>>> 4530446 (fix map)
                 if ((this.filterParamType == data[i]["type"]) && (this.distance(this.lat, this.lon, data[i]["latitude"], data[i]["longitude"], "K") <= this.filterParam)) {
                   this.addMarkers(data[i]);
                 }
@@ -242,7 +176,6 @@ export class CarteComponent implements OnInit, OnChanges {
     let popupInfo = document.createElement('h4')
     popupInfo.style.textAlign = 'center'
 
-<<<<<<< HEAD
     // let btnGo = document.createElement('button');
     // btnGo.className = 'goToBtn';
     // btnGo.append(document.createTextNode('S\'y rendre'))
@@ -291,20 +224,6 @@ export class CarteComponent implements OnInit, OnChanges {
           // btnGo
         )
         this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup(popupInfo));
-=======
-    switch (data["type"]) {
-      case "verre":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerVerre }).bindPopup("<h4 style='text-align:center;'>Benne à verre <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
-        break;
-      case "textile":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerTextile }).bindPopup("<h4 style='text-align:center;'>Benne à textile <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
-        break;
-      case "ordures ménagères":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerOrdures }).bindPopup("<h4 style='text-align:center;'>Ordures ménagères <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
-        break;
-      case "collecte sélective":
-        this.tab.push(L.marker([data["latitude"], data["longitude"]], { icon: markerCollecte }).bindPopup("<h4 style='text-align:center;'>Collecte sélective <br> Adresse: " + data["street_number"] + " " + data["street_label"] + ", " + data["city"] + " " + data["postal_code"]));
->>>>>>> 4530446 (fix map)
         break;
       default:
         console.log("No such type exists!");
@@ -338,11 +257,6 @@ export class CarteComponent implements OnInit, OnChanges {
     this.lat = event.properties.lat;
     this.lon = event.properties.lon;
     this.center = L.latLng([this.lat, this.lon]);
-<<<<<<< HEAD
-=======
-    // this.map.remove();
-    // this.initMap(this.lat, this.lon, -1, "");
->>>>>>> 4530446 (fix map)
   }
 
   getGeolocation() {
@@ -369,7 +283,6 @@ export class CarteComponent implements OnInit, OnChanges {
         }
       );
     };
-<<<<<<< HEAD
   }
 
   routeTo(lat: any, lon: any) {
@@ -382,8 +295,5 @@ export class CarteComponent implements OnInit, OnChanges {
     this.routing.setWaypoints([L.latLng(this.lat, this.lon), L.latLng(lat, lon)]);
     // control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
     // this.routing.setWaypoints([this.userCoord, coord]);
-=======
-
->>>>>>> 4530446 (fix map)
   }
 }

@@ -26,6 +26,10 @@ export class SupportService {
       return this.http.get(this.url + 'support/' + id , this.httpsOption)
     }
 
+    add(data : any){
+      return this.http.post(this.url +'addSupport', data , this.httpsOption)
+    }
+
     patchStatus(id: number, status : any){
       return this.http.patch(this.url +'support/' + id, status , this.httpsOption)
     }

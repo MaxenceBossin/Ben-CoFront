@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 import { PlanningService } from 'src/app/service/planning/planning.service';
+import { UserService } from 'src/app/service/user/user.service';
 import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-planning',
@@ -19,6 +20,7 @@ export class PlanningComponent implements OnInit {
   year = this.datePipe.transform(this.previousMonday, 'YYYY')
   weekPlanning: any = []
   apiData: any
+  garbageCollectorList: any
   week = [
     {
       name: 'lundi',
@@ -49,72 +51,88 @@ export class PlanningComponent implements OnInit {
 
 
 
-  constructor(private PlanningService: PlanningService, private datePipe: DatePipe) {
+  constructor(private PlanningService: PlanningService, private datePipe: DatePipe, private UserService: UserService) {
   }
 
+
+
+
   ngOnInit() {
-    //console.log('onInit');
+    this.callGarbageCollector()
+
+    this.refreshApi()
+
+    this.resFormat()
+  }
+  callGarbageCollector() {
+    this.UserService.getGarbageCollector().subscribe((res: any) => {
+      this.garbageCollectorList = res.map((r: any) => r.first_name + ' ' + r.last_name)
+    })
+  }
+
+  refreshApi() {
+
     this.dateSend.date = this.datePipe.transform(this.previousMonday, 'YYYY-MM-dd')
-    //console.log('requete= ',this.dateSend);
+
     this.weekCount = new Date(this.previousMonday)
     this.PlanningService.getPlanning(this.dateSend).subscribe((res: any) => {
       this.apiData = res
-      //console.log('apiData=',this.apiData);
-      
-      
-      
-      
+
+
+
+
+
       this.resFormat()
     })
-    
   }
+
   nextWeek() {
     this.datePipe.transform(this.previousMonday.setDate(this.previousMonday.getDate() + 7), 'dd')
-    // this.weekCount = new Date(this.previousMonday)
-    this.ngOnInit()
-    // this.refreshData()
+
+    this.refreshApi()
+
   }
   previousWeek() {
     this.datePipe.transform(this.previousMonday.setDate(this.previousMonday.getDate() - 7), 'dd')
-    // this.weekCount = new Date(this.previousMonday)
-    this.ngOnInit()
-    // this.refreshData()
+
+    this.refreshApi()
+
   }
 
-  
+
   resFormat() {
-    //console.log('resFormat',this.previousMonday);
-    
+
+
     this.weekPlanning = []
     let lastMonday = new Date(this.previousMonday)
     for (let index = 0; index <= 5; index++) {
       this.datePipe.transform(this.previousMonday, 'YYYY-dd-MM')
-      let dateString = { "date" : this.datePipe.transform(lastMonday, 'YYYY-MM-dd') ,"team" : []}
-      //console.log(" datestring  is ",dateString);
-      var getOccurrenceDate = this.apiData.filter((a:any) => a.date == dateString.date)
-    //console.log("occurence date is ",getOccurrenceDate);
-    let team = []
-    // //console.log("fix 3",getOccurrenceDate)
-    if (getOccurrenceDate[0]) {
-      team = getOccurrenceDate[0].team.map((g:any) => g)
-      
-      // @ts-ignore
-      dateString.team = team
-    }
-  
-    
-      
-      //console.log("je push ",dateString);
-      this.weekPlanning.push(dateString)  
+      let dateString = { "date": this.datePipe.transform(lastMonday, 'YYYY-MM-dd'), "team": [] }
+
+      var getOccurrenceDate = this.apiData.filter((a: any) => a.date == dateString.date)
+
+      let team = []
+
+      if (getOccurrenceDate[0]) {
+        team = getOccurrenceDate[0].team.map((g: any) => g)
+
+        // @ts-ignore
+        dateString.team = team
+      }
+
+
+
+
+      this.weekPlanning.push(dateString)
       lastMonday.setDate(lastMonday.getDate() + 1)
-      
-      
+
+
     }
-    // //console.log('fix', this.weekPlanning)
+
     this.refreshData()
   }
   refreshData() {
-    //console.log('refreshData');
+
     this.year = this.datePipe.transform(this.previousMonday, 'YYYY')
     this.weekNumber = this.datePipe.transform(this.previousMonday, 'w')
     this.week = [
@@ -144,7 +162,7 @@ export class PlanningComponent implements OnInit {
         int: this.datePipe.transform(this.weekCount.setDate(this.weekCount.getDate() + 1), 'dd-MM')
       },
     ]
-    //console.log('fix apres refresh', this.weekPlanning)
+
   }
 
   onDrop(event: CdkDragDrop<string[]>) {
@@ -156,31 +174,25 @@ export class PlanningComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
     }
-    console.log('fix avant envoi', this.weekPlanning)
+    this.callGarbageCollector()
+
   }
 
-  sendData(){
-    console.log('sendData ',this.weekPlanning);
-    
+  sendData() {
+
+
     this.PlanningService.sendPlanning(this.weekPlanning).subscribe((res: any) => {
-    
-      console.log('res= ',res);
-      
-      
-      
-      
-      // this.resFormat()
     })
   }
 
   private getPreviousMonday(date = new Date()) {
-    // //console.log('getpreviousmonday =')
+
 
     const previousMonday = new Date();
 
     previousMonday.setDate(date.getDate() - ((date.getDay() + 6) % 7));
-    // //console.log(previousMonday)
+
     return previousMonday;
   }
-  
+
 }
